@@ -163,3 +163,11 @@ This way my content will be easily readable.
 
 <a></a>
 
+
+#### Fonts
+In order to find appropriate fonts for my website, I have visited [Google Fonts](https://fonts.google.com/ "Google Fonts") to explore the various options.
+For the titles and subtitles, I will use the font [Baskervville](https://fonts.google.com/specimen/Baskervville "Baskervville") 
+and for the main text I have used [Karla](https://fonts.google.com/specimen/Karla "Karla"). 
+
+<a></a>
+
