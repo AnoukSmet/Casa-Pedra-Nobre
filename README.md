@@ -171,3 +171,43 @@ and for the main text I have used [Karla](https://fonts.google.com/specimen/Karl
 
 <a></a>
 
+#### Structure
+
+All my pages will start with a hero image, related to the content of the page with the navigation on top of the image.
+My website will have the following pages:
+
+* Landing / Home Page  
+    The landing page is aimed to be visually attractive, with appealing images/icons that says "Welcome" by itself,  
+    unconsciously engaging the user and creating curiosity to keep navigating throughout the websute.
+
+* Rooms  
+    Here the rooms will be displayed with some images and a description of the rooms.  
+    Below there will be some additional information which will be equal for all the rooms.
+
+* Reservation page  
+    This section will consists of multiple step spreaded over multiple pages.  
+    Step 1: user selects preferred check-in and check-out data.  
+    Step 2: available rooms and their prices will be displayed and the user select the amount of guests per room and add the room(s) they want.  
+    Step 3: summary of the selected rooms and check-in/check-out data will be displayed, together with a form a finalise the reservation.  
+    Step 4: Confirmation page will be displayed to the user.  
+
+* Tourist Information  
+    The page will consist out of 3 different sections:
+    * Things to see: here I will display the villages and beaches in the surroundings of the bed & breakfast in card format,  
+        the cards will be displayed in a carousel through which the user can navigate. 
+    * Places to eat: the format / display will be the same but the cards will contain restaurants and bars.
+    * Things to do: again the format / display will maintain the same but the content will change to activities and experiences.
+
+* Gallery  
+    The gallery page will be divided in 2 sections: propery images and images of the surroundings.  
+    The images will be places in a carousel with below a preview of the other pictures to create curiosity for the user.
+
+* Account page  
+    Here the user will find an overview of their account details and their upcoming / past bookings.  
+    Below that I will display a Favorites section that will be fed by the user adding places, restaurants to their favorites.
+    The display of these favorites will be the same as on the tourist information page.
+
+[Back to Top](#table-of-contents)
+
+--- 
+<a></a>
