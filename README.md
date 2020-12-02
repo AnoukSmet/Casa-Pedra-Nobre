@@ -4,15 +4,18 @@
 
 ## **Goal for this project** 
 Welcome to Casa Pedra Nobre, a bed & breakfast at the Silver Coast in Portugal.  
-Have look at our website and discover what Casa Pedra Nobre has to offer.
-Book your favorite room, scroll down the MUST see, eat and do page and start planning your perfect stay in Portugal. 
+Have look at our website and discover what Casa Pedra Nobre has to offer.  
+Book your favorite room, scroll down the MUST see, eat and do page and start planning your perfect stay in Portugal.   
 We hope to welcome you on one of your Portugal trips in the near future.
 
 
-This project was developed as my final project to complete the Full Stack Web Development course at Code Institute. 
-I challenged myself for this last project by going out of the scope of the course.
+This project was developed as my final project to complete the Full Stack Web Development course at Code Institute.   
+I challenged myself for this last project by going out of the scope of the course because this project is close to my heart.   
+This bed & breakfast belongs to my parents for which I did the start up in 2015.   
+I managed the bed & breakfast for more than 2 years after which I passed it on to my parents to start my next adventure.  
+You can find the original website here [Casa Pedra Nobre](www.casapedranobre.pt).
 
-Thank you for visiting my project!
+Thank you for visiting my project!  
 If you have any feedback or questions, head over to my GitHub contact details and feel free to reach out to me.
 
 ---
@@ -127,4 +130,36 @@ As an owner:
 * Website is in line with the customer's journey
 * When making a reservation, I expect that the correct prices and availability are displayed so no surprises will show up later.
 
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+
+### **Design Choices**
+
+I have spent quite some time thinking about the design of the website for CPN. 
+I will use the real logo og CPN and I will integrate the colors of the logo into the website.
+The colors used bring a southern feeling to website which fits perfect with the location, Portugal. 
+
+I have used [Coolors](https://coolors.co/ "Coolors.co") to come up with the exact color scheme.  
+You can find more information about the colors below. 
+
+<a></a>
+
+#### Colors
+
+As CPN is THE place for guests to come and unwind, I wanted to user calming colors with a southern accent.
+
+
+``` Color Palette ```
+
+* #OC1E50
+* #FCBC49
+* #FFFFEB
+* 853D1E
+
+I have used a contrast checker in order to make sure that the contrast is sufficient.
+This way my content will be easily readable. 
+
+<a></a>
 
