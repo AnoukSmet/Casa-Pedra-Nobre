@@ -22,7 +22,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 ## Table of contents 
 * [UX](#ux)
     * [User Goals](#user-goals)
-    * [User Stories](#user-stories)
+    * [User and Owner Stories](#user-and-owner-stories)
     * [Site Owners Goals](#site-owners-goals)
     * [User Requirements and Expectations](#user-requirements-and-expectations)
         * [Requirements](#requirements)
@@ -66,5 +66,33 @@ If you have any feedback or questions, head over to my GitHub contact details an
 * Visually appealing website
 
 [Back to Top](#table-of-contents)
+
+<a></a>
+
+### **User and Owner Stories**
+
+As a user:  
+* I want the website to be visually appealing so I can already imagine myself being on holiday there.
+* I want to have some information about the property and it's location.
+* I want to have an intuitive navigation so I know right away where I can find which information.
+* I want to see which different rooms the accommodation has to offer.
+* I want to know what kind of amenities are included in the room.
+* I want to see a lot of pictures so I can really visualize the place.
+* I want to be able to make a reservation on the website itself.
+* I want to be able to choose the exact room in which I want to stay.
+* I want to have some information about the surroundings of the accommodation.
+* I want to be able to get in contact with the propery in case I have some questions.
+* I want to know the address and how far / close it is to big cities.
+
+As an owner:  
+* I want to promote my propery the best way possible to attract new customers.
+* I want to increase direct bookings by making the booking process easy and intuitive.
+* I want to be able to see all the reservations.
+* I want to have a seperate section for arriving and inhouse reservations.
+* I want to have a seperate section as well for the reservations for the next 7 days so I can plan in advance.
+* I want to be able to update the rooms easily in case I make some improvements to the room.
+* I want to be able to add some rooms in case I decide to expand the accommodation.
+* I want to be able to easily add some news places to visit, eat so the information stays accurrate and up-to-date.
+
 
 <a></a>
