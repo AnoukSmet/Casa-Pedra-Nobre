@@ -22,7 +22,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 ## Table of contents 
 * [UX](#ux)
     * [User Goals](#user-goals)
-    * [User and Owner Stories](#user-and-owner-stories)
+    * [User Stories](#user-stories)
     * [Site Owners Goals](#site-owners-goals)
     * [User Requirements and Expectations](#user-requirements-and-expectations)
         * [Requirements](#requirements)
@@ -69,7 +69,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 
 <a></a>
 
-### **User and Owner Stories**
+### **User Stories**
 
 As a user:  
 * I want the website to be visually appealing so I can already imagine myself being on holiday there.
@@ -84,6 +84,8 @@ As a user:
 * I want to be able to get in contact with the propery in case I have some questions.
 * I want to know the address and how far / close it is to big cities.
 
+### **Site owners Goals**
+
 As an owner:  
 * I want to promote my propery the best way possible to attract new customers.
 * I want to increase direct bookings by making the booking process easy and intuitive.
@@ -94,5 +96,35 @@ As an owner:
 * I want to be able to add some rooms in case I decide to expand the accommodation.
 * I want to be able to easily add some news places to visit, eat so the information stays accurrate and up-to-date.
 
+<a></a>
+
+
+[Back to Top](#table-of-contents)
 
 <a></a>
+
+### **User Requirements and Expectations**
+
+<a></a>
+
+#### Requirements
+
+* Easy to navigate by having a responsive navigation bar and various links to other pages througout the site.
+* Appealing landing page creating a warm feeling towards the place.
+* Easy to find the various rooms and its amenities.
+* Possibility to make a reservation.
+* Find information about the environment, things to do, eat, see etc.
+* Contact information like email, phone and address.
+* Many images to be able to visualize how my holiday would look like.
+
+<a></a>
+
+#### Expectations
+
+* When clicking on links to external pages, I expect them to open in a different window.
+* When making a reservation, I expect to receive an email with the confirmation of my reservation.
+* I expect that the navigation links work properly so that is takes me wherever I want to go
+* Website is in line with the customer's journey
+* When making a reservation, I expect that the correct prices and availability are displayed so no surprises will show up later.
+
+
