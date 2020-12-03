@@ -211,3 +211,47 @@ My website will have the following pages:
 
 --- 
 <a></a>
+
+## **Wireframes and Flowcharts**
+
+### **Wireframes**
+I used [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website. 
+
+You can find my wireframes below:
+
+#### Landing / Home page
+* [Desktop]()
+* [Tablet]()
+* [Mobile]()
+
+#### Reservation
+* [Desktop]()
+* [Tablet]()
+* [Mobile]()
+
+#### Rooms
+* [Desktop]()
+* [Tablet]()
+* [Mobile]()
+
+#### Tourist Information
+* [Desktop]()
+* [Tablet]()
+* [Mobile]()
+
+#### Gallery 
+* [Desktop]()
+* [Tablet]()
+* [Mobile]()
+
+#### Profile 
+* [Desktop]()
+* [Tablet]()
+* [Mobile]()
+
+### **Flowcharts**
+
+I have decided to make a flowchart for the reservation process to completely understand each step.  
+I have used [Draw.io](https://draw.io/) to make this flowchart which you can view below: 
+
+[Flowchart]()
