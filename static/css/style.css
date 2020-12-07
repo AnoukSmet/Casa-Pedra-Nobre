@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville&family=Karla&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 2rem;
+    font-family: "Karla", Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Navigation bar */
+
+.logo {
+    width: 6rem;
+    height: 6rem;
+}
+
+.navbar-brand {
+    font-family: "Baskervville", Arial, Helvetica, sans-serif;
+    font-size: 2.6rem;
+}
+#toggler-icon {
+    width: 3rem;
+    height: 3rem;
+}
+
+
+/* Background image navigation bar */
+
+
+
+@media (min-width: 992px) {
+    .nav-link {
+        padding: 2rem !important;
+    }
+
+    .logo {
+    width: 13rem;
+    height: 13rem;
+    }
+}
