@@ -212,46 +212,38 @@ My website will have the following pages:
 --- 
 <a></a>
 
-## **Wireframes and Flowcharts**
+## **Wireframes, Flowcharts and Database Structure**
 
 ### **Wireframes**
-I used [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website. 
+I used [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website.   
+For each page I created 3 wireframes: desktop, tablet and mobile.
 
-You can find my wireframes below:
-
-#### Landing / Home page
-* [Desktop]()
-* [Tablet]()
-* [Mobile]()
-
-#### Reservation
-* [Desktop]()
-* [Tablet]()
-* [Mobile]()
-
-#### Rooms
-* [Desktop]()
-* [Tablet]()
-* [Mobile]()
-
-#### Tourist Information
-* [Desktop]()
-* [Tablet]()
-* [Mobile]()
-
-#### Gallery 
-* [Desktop]()
-* [Tablet]()
-* [Mobile]()
-
-#### Profile 
-* [Desktop]()
-* [Tablet]()
-* [Mobile]()
+[Landing / Home page](wireframes/home.png)  
+[Reservation](wireframes/reservation.png)  
+[Rooms](wireframes/rooms.png)  
+[Tourist Information](wireframes/tourist_information.png)  
+[Gallery](wireframes/gallery.png)  
+[Profile](wireframes/profile.png)
 
 ### **Flowcharts**
 
-I have decided to make a flowchart for the reservation process to completely understand each step.  
+I have decided to make a flowchart for the reservation process to completely understand each step.    
 I have used [Draw.io](https://draw.io/) to make this flowchart which you can view below: 
 
-[Flowchart]()
+![Flowchart](wireframes/flowchart_reservation_process.png)
+
+### **Database Structure**
+
+For the project I set up 9 database Models which you can see in the image below. 
+I have highlighted the relationships between the various models with colors.
+
+![Database Structure](wireframes/database_structure.png)
+
+### **Features**
+
+#### **Existing Features**
+
+
+#### **Features to be implemented**
+
+
