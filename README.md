@@ -239,11 +239,35 @@ I have highlighted the relationships between the various models with colors.
 
 ![Database Structure](wireframes/database_structure.png)
 
-### **Features**
+[Back to Top](#table-of-contents)
 
-#### **Existing Features**
+---
+
+<a></a>
+
+## **Features**
+
+<a></a>
+
+### **Existing Features**
+
+* Registration and sign in functionality using the allauth package from Django
+* Carousel on the homepage giving the user a peek into what the other pages have to offer
+* Subscription section on each page allowing the user to subscribe to the newsletter, promotions etc.
+* Reservation page that allows the user to book a stay for a certain period
+* Add to favorites functionality which allows the user to add restaurants, places to visit etc to start planning their trip.
+
+<a></a>
+
+### **Features to be implemented**
+* Dashboard for bed & breakfast owner with additional information:
+    * More information about upcoming reservations, inhouse, checkout etc.
+    * Reservations divided by room booked and displayed nicely in a calendar
+* Add walks in the surroundings of the bed & breakfast on the tourist information page which the user can download
 
 
-#### **Features to be implemented**
 
+[Back to Top](#table-of-contents)
+
+<a></a>
 
