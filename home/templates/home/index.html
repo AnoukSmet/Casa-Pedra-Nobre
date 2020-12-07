@@ -2,8 +2,9 @@
 {% load static %}
 
 {% block content %}
-<div id="bg-image">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="header-container">
+    <img src="/media/homepage-hero-image.jpg" alt="homepage-hero-image" id="hero-image">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a class="navbar-brand d-lg-none" href="#">
             <img src="/media/logo.png" alt="logo" class="logo">
         </a>
@@ -14,13 +15,13 @@
         <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link active" href="#">Welcome <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Rooms</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Reservations</a>
+                    <a class="nav-link" href="#">Reservation</a>
                 </li>
             </ul>
             <a class="navbar-brand d-none d-lg-block" href="#">
@@ -31,13 +32,17 @@
                     <a class="nav-link" href="#">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tourist Information</a>
+                    <a class="nav-link" href="#">Tourist Info</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">My account</a>
+                <li class="nav-item ">
+                     <a class="nav-link" href="#">My account</a>
                 </li>
             </ul>
         </div>
     </nav>
+</div>
+
+<div class="container">
+    <h1>Welcome</h1>
 </div>
 {% endblock %}
