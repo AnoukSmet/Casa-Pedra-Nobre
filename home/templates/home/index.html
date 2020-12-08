@@ -11,7 +11,57 @@
     </div>
 </div>
 
-<div class="carousel-container">
-    <h1>Welcome</h1>
+<div class="container-fluid carousel-container">
+    <div class="row">
+        <div id="carouselExampleIndicators" class="carousel slide col-12" data-bs-ride="carousel">
+            <div class="container">
+                <ol class="carousel-indicators">
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card">
+                            <div class="row">
+                                <div class="col-lg-6 d-flex align-items-center">
+                                    <img src="/media/homepage-rooms.jpg" class="d-block" alt="...">    
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-body">
+                                        <h2 class="card-title heading">Welcome to Casa Pedra Nobre</h2>
+                                        <p class="card-text">
+                                            <span class="d-block">Dear Guest,</span>
+                                            <span class="d-block">Thank you for your visit.</span>
+                                            <p>We are located in a very quiet area, only a few minutes away for Óbidos Lagoon, Foz do Arelho and Caldas da Rainha
+                                            A perfect basecamp for sports, beaches, culture and citytrips.</p>
+                                            <p>
+                                            The B&B is completely renovated in 2015, a new pool is in place, all guest rooms have an ensuite bathroom.
+                                            Closeby you will find some nice restaurants while Casa Pedra Nobre offers you a quiet ’zen’ moment at night.
+                                            </p>
+                                            We hope to welcome you on one of your Portugal trips in the near future.
+                                            <span class="d-block">Warm regards from the Casa Pedra Nobre family</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="carousel-item">
+                        <img src="/media/homepage-tourist-info.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/media/homepage-book-now.jpg" class="d-block w-100" alt="...">
+                    </div> -->
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+                <span class="visually-hidden"><i class="fas fa-arrow-circle-left"></i></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+                <span class="visually-hidden"><i class="fas fa-arrow-circle-right"></i></span>
+            </a>
+        </div>
+    </div>
 </div>
 {% endblock %}
