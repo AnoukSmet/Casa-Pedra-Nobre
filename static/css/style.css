@@ -14,19 +14,21 @@ body {
 
     /* Buttons */
 
-    .hero-button {
+    .button {
         background-color: #aa4e26;
         color: #FFFFEB;
         padding: 1rem;
         border-radius: 0.5rem;
     }
 
+
     /* Headings */
     .heading {
         font-family: "Baskervville", Arial, Helvetica, sans-serif;
         font-size: 2.5rem;
-        margin-bottom: 2rem;
         letter-spacing: 0.2rem;
+        margin: 0;
+        padding: 0;
     }
 
 /* Navigation bar */
@@ -110,6 +112,8 @@ body {
     width: 90%;
     height: auto;
     margin: 1rem auto;
+    margin-bottom: 4rem;
+
 }
 
 .carousel-control-prev,
@@ -120,6 +124,14 @@ body {
     opacity: 1;
 }
 
+.carousel-control-prev:hover,
+.carousel-control-next:hover,
+.carousel-control-prev:active,
+.carousel-control-next:active {
+    color: #72351a;
+}
+
+
 .carousel-control-next {
     justify-content: flex-end;
 }
@@ -129,6 +141,20 @@ body {
 
 .card {
     border: none;
+    margin-bottom: 4rem;
+}
+
+.card-text {
+    white-space: pre-line;
+    padding: 0;
+}
+
+.carousel-indicators li {
+    background-color: #aa4e26 !important; 
+}
+
+.card-button {
+    float: right;
 }
 
 /* Media Queries */
