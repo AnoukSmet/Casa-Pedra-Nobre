@@ -21,6 +21,12 @@ body {
         border-radius: 0.5rem;
     }
 
+    .button:hover {
+        background-color: #72351a;
+        color: #FFFFEB;
+        text-decoration: none;
+    }
+
 
     /* Headings */
     .heading {
@@ -54,7 +60,7 @@ body {
 .navbar-dark .navbar-nav .nav-link {
     color: #FCBC49;
     letter-spacing: 0.2rem;
-    font-size: 2.3rem;
+    font-size: 2rem;
 }
 
 .navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link,
@@ -74,7 +80,7 @@ body {
 
 .navbar-expand-lg {
     background: rgb(0, 0, 0);
-    background: rgba(0, 0, 0, 0.5); 
+    background: rgba(0, 0, 0, 0.8); 
 }
 
 /* Hero Text */
@@ -127,7 +133,9 @@ body {
 .carousel-control-prev:hover,
 .carousel-control-next:hover,
 .carousel-control-prev:active,
-.carousel-control-next:active {
+.carousel-control-next:active,
+.carousel-control-prev:focus,
+.carousel-control-next:focus  {
     color: #72351a;
 }
 
@@ -157,6 +165,37 @@ body {
     float: right;
 }
 
+/* Social Media Section */
+
+.social-container {
+    text-align: center;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/social-media-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: #FCBC49;
+}
+
+.social-body {
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.social-body h4 {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+.social-body h5 {
+    font-size: 1.6rem;
+}
+
+.social-links i {
+    color: #FCBC49;
+    font-size: 3rem;
+    margin: 1rem 2rem;
+    }
+
 /* Media Queries */
 
 @media (min-width: 768px) {
@@ -185,7 +224,22 @@ body {
     width: 13rem;
     height: 13rem;
     }
-    
+
+    .social-body h4 {
+        font-size: 3rem;
+    }
+
+    .social-body h5 {
+        font-size: 2rem;
+    }
+
+    .social-links i {
+        font-size: 4rem;
+        }  
+
+    .social-links i:hover {
+        color: #aa4e26;
+    }
 }
 @media (min-width: 1440px) {
     .nav-link {

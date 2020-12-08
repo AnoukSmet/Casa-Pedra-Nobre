@@ -153,7 +153,7 @@ As CPN is THE place for guests to come and unwind, I wanted to user calming colo
 
 ``` Color Palette ```
 
-* #OC1E50
+* #0C1E50
 * #FCBC49
 * #FFFFEB
 * 853D1E
