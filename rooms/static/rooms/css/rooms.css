@@ -3,3 +3,29 @@
 #rooms {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-rooms.jpg");
 }
+
+/* Rooms display */
+
+.rooms-container {
+    margin-top: 5rem;
+}
+
+.room-description h2 {
+    margin: 1rem 0 1.5rem;
+}
+
+.room-display {
+    margin: 2rem 0;
+}
+
+.carousel-item img {
+    width: 30rem;
+    height: 20rem;
+} 
+
+.hr {
+    border: 0.1rem solid #FCBC49;
+    width: 100%;
+}
+
+@media (min-width: )

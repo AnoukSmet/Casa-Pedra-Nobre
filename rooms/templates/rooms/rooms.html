@@ -14,5 +14,52 @@
     </div>
 </div>
 
+<div class="container rooms-container">
+    {% for room in rooms %}
+        <div class="row room-display">
+            <div class="col-12 col-md-4">
+                <div id="{{ room.id }}" class="carousel slide carousel-fade" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {% for image in room.images.all %}
+                            <div class="carousel-item {% if image.main_image == True %} active {% endif %}">
+                                <img class="d-block" src="{{ image.image.url }}" alt="room-image">
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 room-description">
+                <h2 class="heading">{{room}}</h2>
+                <p>
+                    {{ room.description }}
+                </p>
+                <p>
+                    Price per night, based on 2 guests: €{{ room.price}}
+                </p>
+            </div>
+        </div>
+        {% if not forloop.last %}
+            <div class="hr"></div>    
+        {% endif %}
+    {% endfor %}
+</div>
+
 {% include 'components/footer/footer.html' %}
+{% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+
+    <script type="text/javascript">
+
+        const firstCarousel = document.getElementById('1')
+        firstCarousel.setAttribute('data-interval', 3000);
+    
+        const secondCarousel = document.getElementById('2')
+        secondCarousel.setAttribute('data-interval', 4000);
+
+        const lastCarousel = document.getElementById('3')
+        lastCarousel.setAttribute('data-interval', 3500);
+    </script>
 {% endblock %}
