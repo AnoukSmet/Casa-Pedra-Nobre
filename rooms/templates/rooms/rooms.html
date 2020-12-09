@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'rooms/css/rooms.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="header-container" id="rooms">
+    {% include 'components/navigation/navbar.html' %}
+    <div class="hero-text">
+        <h1>Rooms</h1>
+        <p>Check out our 3 large double rooms below and pick your favorite!</p>
+    </div>
+</div>
+
+{% include 'components/footer/footer.html' %}
+{% endblock %}
