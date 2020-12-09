@@ -130,12 +130,15 @@ body {
     opacity: 1;
 }
 
-.carousel-control-prev:hover,
-.carousel-control-next:hover,
 .carousel-control-prev:active,
 .carousel-control-next:active,
 .carousel-control-prev:focus,
 .carousel-control-next:focus  {
+    color: #aa4e26;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
     color: #72351a;
 }
 
@@ -184,17 +187,64 @@ body {
 .social-body h4 {
     font-size: 2rem;
     margin-top: 2rem;
+    font-family: "Baskervville", Arial, Helvetica, sans-serif;
+
 }
 
 .social-body h5 {
     font-size: 1.6rem;
+    margin-top: 1rem;
+    font-family: "Baskervville", Arial, Helvetica, sans-serif;
 }
 
 .social-links i {
+    margin-top: 1rem;
     color: #FCBC49;
     font-size: 3rem;
     margin: 1rem 2rem;
     }
+
+.social-links i:hover {
+        color: #aa4e26;
+    }
+
+/* Footer */
+
+.footer-container {
+    background-color: #FCBC49;
+    color: #000;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+#mailto {
+    color: #000;
+}
+
+#mailto:hover {
+    text-decoration: underline;
+}
+
+.contact-details i {
+    color: #000;
+    font-size: 2rem;
+    margin: 0 0.5rem;
+}
+
+.contact-details i:hover {
+    font-weight: 900; 
+}
+
+.footer-paragraph {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.footer-paragraph p {
+    margin: 0;
+}
 
 /* Media Queries */
 
@@ -236,10 +286,6 @@ body {
     .social-links i {
         font-size: 4rem;
         }  
-
-    .social-links i:hover {
-        color: #aa4e26;
-    }
 }
 @media (min-width: 1440px) {
     .nav-link {
