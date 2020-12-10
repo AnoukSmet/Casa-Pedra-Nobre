@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'rooms',
+    'tourist_info',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'tourist_info/css/tourist_info.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="header-container" id="tourist_info">
+    {% include 'components/navigation/navbar.html' %}
+    <div class="hero-text">
+        <h1>Tourist Info</h1>
+        <p>Have a look at our recommendations and start planning your trip!</p>
+    </div>
+</div>
+
+<div class="container tourist-info-container">
+</div>
+
+
+{% include 'components/social-media/social-media.html' %}
+
+{% include 'components/footer/footer.html' %}
+{% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+
+    <script type="text/javascript">
+
+        const firstCarousel = document.getElementById('1')
+        firstCarousel.setAttribute('data-interval', 3000);
+    
+        const secondCarousel = document.getElementById('2')
+        secondCarousel.setAttribute('data-interval', 4000);
+
+        const lastCarousel = document.getElementById('3')
+        lastCarousel.setAttribute('data-interval', 3500);
+    </script>
+{% endblock %}
