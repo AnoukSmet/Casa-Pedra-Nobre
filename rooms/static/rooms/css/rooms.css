@@ -28,4 +28,14 @@
     width: 100%;
 }
 
-@media (min-width: )
+/* Additional Information Section */
+
+.information-container {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.additional-information {
+    white-space: pre-line;
+    text-align: center;
+}
