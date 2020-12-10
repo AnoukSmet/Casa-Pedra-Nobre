@@ -309,6 +309,9 @@ I have highlighted the relationships between the various models with colors.
 
 ## Bugs
 
+### Footer was coming out of screen
+#### Resolved by removing padding on footer-container
+
 
 ## **Deployment**
 

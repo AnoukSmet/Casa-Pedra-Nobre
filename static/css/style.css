@@ -40,6 +40,11 @@ body {
 
 /* Navigation bar */
 
+#navigation-cpn {
+
+}
+
+
 .logo {
     width: 8rem;
     height: 8rem;
@@ -61,14 +66,14 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-hero-image.jpg");
 }
 
-.navbar-dark .navbar-nav .nav-link {
+.navbar-nav .nav-link {
     color: #FCBC49;
     letter-spacing: 0.2rem;
     font-size: 2rem;
 }
 
-.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link,
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+.navbar-nav .active>.nav-link, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show,  .navbar-nav .show>.nav-link,
+.navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover {
     color: #aa4e26;
 }
 
@@ -77,7 +82,7 @@ body {
     height: 4rem;
 }
 
-.navbar-dark .navbar-toggler {
+.navbar-toggler {
     color: #FCBC49;
     border: 0.2rem solid #FCBC49;
 }
@@ -218,8 +223,7 @@ body {
 .footer-container {
     background-color: #FCBC49;
     color: #000;
-    text-align: center;
-    padding: 1rem 0;
+     text-align: center;
 }
 
 #mailto {
@@ -249,7 +253,7 @@ body {
 
 .footer-paragraph p {
     margin: 0;
-}
+} 
 
 /* Media Queries */
 
