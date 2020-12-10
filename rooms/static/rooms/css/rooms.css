@@ -47,3 +47,24 @@
     border-radius: 1rem;
     margin-bottom: 1rem;
 }
+
+.amenities {
+    text-align: left;
+    margin-bottom: 5rem;
+}
+
+.amenities i {
+    color: #aa4e26;
+}
+
+.policy-heading {
+    font-family: "Baskervville", Arial, Helvetica, sans-serif;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    margin-bottom: 0;
+}
+
+.policies {
+    white-space: pre-line;
+    line-height: 1.8rem;
+}

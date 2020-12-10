@@ -38,6 +38,14 @@ body {
         padding: 0;
     }
 
+    .sub-heading {
+        font-family: "Baskervville", Arial, Helvetica, sans-serif;
+        font-size: 2rem;
+        letter-spacing: 0.1rem;
+        margin: 0;
+        padding: 0;
+    }
+
 /* Navigation bar */
 
 #navigation-cpn {
@@ -223,7 +231,7 @@ body {
 .footer-container {
     background-color: #FCBC49;
     color: #000;
-     text-align: center;
+    text-align: center;
 }
 
 #mailto {

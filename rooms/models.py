@@ -32,3 +32,28 @@ class Image(models.Model):
             Image.objects.filter(room__id=self.room.id,
                                  main_image=True).update(main_image=False)
             return super(Image, self).save(*args, **kwargs)
+
+
+class AmenityCategory(models.Model):
+    class Meta:
+        verbose_name_plural = 'AmenityCategories'
+
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.name
+
+
+class Amenity(models.Model):
+    class Meta:
+        verbose_name_plural = 'Amenities'
+
+    category = models.ForeignKey('AmenityCategory',
+                                 blank=True, null=True,
+                                 on_delete=models.SET_NULL)
+    name = models.CharField(max_length=254)
+    description = models.TextField(max_length=254, null=True, blank=True)
+
+    def __str__(self):
+        return self.name

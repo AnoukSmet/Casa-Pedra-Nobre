@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Room, Image
+from .models import Room, Image, AmenityCategory, Amenity
 # Register your models here.
 
 
@@ -18,4 +18,21 @@ class RoomAdmin(admin.ModelAdmin):
     )
 
 
+class AmenityAdmin(admin.ModelAdmin):
+    list_display = (
+        'category',
+        'name',
+        'description',
+    )
+
+
+class AmenityCategoryAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'friendly_name',
+    )
+
+
+admin.site.register(Amenity, AmenityAdmin)
+admin.site.register(AmenityCategory, AmenityCategoryAdmin)
 admin.site.register(Room, RoomAdmin)

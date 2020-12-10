@@ -70,6 +70,27 @@
             <img src="/media/breakfast-table.jpg" alt="breakfast-room" class="d-block"> 
         </div>
     </div>
+    <div class="row">
+        <div class="col-12 amenities">
+            {% for category in categories %}
+                <h3 class="sub-heading mb-3 mt-5">{{ category.friendly_name }} </h3>
+                <div class="row">
+                {% for amenity in amenities %}
+                    {% if amenity.category == category %}
+                        {% if amenity.description %}
+                            <div class="col-12 col-md-6 policies">
+                                <h4 class="policy-heading"><strong>{{ amenity }}</strong></h4>
+                                <span>{{ amenity.description }}</span>
+                            </div>
+                        {% else %}
+                            <span class="col-12 col-sm-6 col-lg-4"> <i class="fas fa-check-square"></i> {{ amenity }} </span>
+                        {% endif %}
+                    {% endif %} 
+                {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 {% include 'components/footer/footer.html' %}
