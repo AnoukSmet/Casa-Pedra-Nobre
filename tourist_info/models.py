@@ -22,10 +22,10 @@ class Recommendation(models.Model):
                                  on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     image = models.ImageField()
-    intro = models.TextField(max_length=254)
+    intro = models.TextField()
     description = models.TextField()
     link_to_website = models.URLField()
-    link_to_google_maps = models.URLField()
+    link_to_google_maps = models.URLField(max_length=500)
     distance = models.DecimalField(max_digits=6, decimal_places=2)
     favorite = models.ManyToManyField(
         User, related_name='favorite', blank=True)

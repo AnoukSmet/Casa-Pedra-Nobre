@@ -15,6 +15,32 @@
 </div>
 
 <div class="container tourist-info-container">
+    {% for category in categories %}
+
+    <div>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#{{ category }}" role="button" aria-expanded="false" aria-controls="collapseExample">
+            {{ category }}
+        </a>
+    </div>
+    <div class="collapse" id="{{ category }}">
+        <div class="row">
+            {% for recommendation in recommendations %}
+                {% if recommendation.category == category %}
+                    <div class="col-12 col-md-4">
+                        <div class="card">
+                            <img src="{{ recommendation.image.url }}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ recommendation }}</h5>
+                                <p class="card-text">{{ recommendation.intro }}.</p>
+                                <a href="#" class="btn btn-primary">See more</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div> 
+    </div>
+    {% endfor %}
 </div>
 
 
