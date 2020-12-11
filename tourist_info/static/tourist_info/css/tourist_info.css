@@ -1,4 +1,22 @@
 #tourist_info {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-tourist-info.jpg");
+}
 
+.recommendation-category {
+    width: 100%;
+    background-color: #aa4e26;
+    margin: 2rem 0;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.recommendation-category a {
+    color: #FFFFEB;
+    font-family: "Baskervville", Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+}
+
+.dropdown-icon {
+    float: right;
+    margin-right: 1rem;
 }
