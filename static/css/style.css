@@ -286,6 +286,23 @@ body {
 
 /* Account settings */
 
+/* Login */
+
+.account-container {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.account-container p a {
+    color: #aa4e26;
+}
+.account-buttons {
+    border: none;
+    padding: 1rem;
+    text-decoration: none;
+    line-height: 1.9rem;
+}
+
 /* Media Queries */
 
 @media (min-width: 768px) {
