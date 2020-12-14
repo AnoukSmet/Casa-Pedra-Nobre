@@ -14,13 +14,31 @@
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-12" id="tourist-info-intro">
+            <h2 class="sub-heading" id="intro-heading">Welcome to the Silver Coast</h2>
+            <p>The Silver Coast, Portugal’s Costa de Prata is one of the treasures of Portugal. 
+                Less than an hour north of the capital city of Lisbon with a stretch of spectacular coastline that runs for approximately 150 km up towards the fishing town of Nazare. 
+
+                Worlds away from the rush and stress of modern life, the Silver Coast is now a second-home destination and lifestyle choice for many buyers in search of “the real Portugal”. 
+                A place which offers everything you expect on holiday...except the crowds!
+            
+                Click on the buttons below to start discovering places to visit, things to do and where to eat...
+                Create an account or login and start adding the recommendations to your favorites.
+                This way you can start planning your perfect stay at the Silver Coast in Portugal!
+            </p>
+        </div>
+    </div>
+</div>
+
 <div class="container tourist-info-container">
     {% for category in categories %}
 
-    <div class="recommendation-category" >
-        <a data-bs-toggle="collapse" href="#{{ category }}" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <div class="row recommendation-category" >
+        <a data-bs-toggle="collapse" href="#{{ category }}" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12">
             {{ category.friendly_name }}
-            <span class="dropdown-icon"><i class="fas fa-angle-double-down"></i></span>
+            <!-- <span class="dropdown-icon"><i class="fas fa-angle-double-down"></i></span> -->
         </a>
     </div>
     <div class="collapse" id="{{ category }}">
@@ -33,7 +51,7 @@
                             <div>
                                 <h5 class="sub-heading mt-3 mb-2">{{ recommendation }}</h5>
                                 <p class="paragraph">{{ recommendation.intro }}.</p>
-                                <a href="#" class="button">See more</a>
+                                <a href="{% url 'recommendation_detail' recommendation.id %}" class="button">See more</a>
                             </div>
                         </div>
                     </div>
@@ -48,21 +66,4 @@
 {% include 'components/social-media/social-media.html' %}
 
 {% include 'components/footer/footer.html' %}
-{% endblock %}
-
-
-{% block postloadjs %}
-    {{ block.super }}
-
-    <script type="text/javascript">
-
-        const firstCarousel = document.getElementById('1')
-        firstCarousel.setAttribute('data-interval', 3000);
-    
-        const secondCarousel = document.getElementById('2')
-        secondCarousel.setAttribute('data-interval', 4000);
-
-        const lastCarousel = document.getElementById('3')
-        lastCarousel.setAttribute('data-interval', 3500);
-    </script>
 {% endblock %}

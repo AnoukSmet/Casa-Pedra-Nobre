@@ -4,19 +4,49 @@
 
 .recommendation-category {
     width: 100%;
-    background-color: #aa4e26;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
     text-align: center;
-    padding: 2rem 0;
 }
 
 .recommendation-category a {
     color: #FFFFEB;
     font-family: "Baskervville", Arial, Helvetica, sans-serif;
     font-size: 2rem;
+    background-color: #aa4e26;
+    padding: 2rem;
 }
 
-.dropdown-icon {
-    float: right;
-    margin-right: 1rem;
+.recommendation-category a:hover {
+    background-color: #72351a;
+    text-decoration: none;
+}
+
+#tourist-info-intro {
+    white-space: pre-line;
+    text-align: center;
+}
+
+#intro-heading {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+
+/* Recommendation Detail page */
+
+#recommendation-intro {
+    text-align: center;
+    margin: 2rem 0;
+    white-space: pre-line;
+}
+
+#recommendation-intro h2 {
+    margin-bottom: 1rem;
+}
+
+#recommendation-image {
+    width: 90%;
+    height: auto;
+    margin: 1rem auto;
+    margin-bottom: 4rem;
 }

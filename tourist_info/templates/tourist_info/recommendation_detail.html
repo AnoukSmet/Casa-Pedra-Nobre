@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'tourist_info/css/tourist_info.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'components/navigation/navbar.html' %}
+
+<div class="container" >
+    <div class="row">
+        <div class="col-12" id="recommendation-intro">
+            <h2 class="heading" >{{ recommendation }}</h2>
+            <p>{{ recommendation.intro }}</p>
+        </div>
+        <div class="col-12 col-md-6" >
+            <img src="{{ recommendation.image.url }}" alt="..." id="recommendation-image">
+        </div>
+        <div class="col-12 col-md-6">
+            <p> {{ recommendation.description }}</p>
+        </div>
+    </div>
+</div>
+<!-- 
+<div class="container tourist-info-container">
+    {% for category in categories %}
+
+    <div class="row recommendation-category" >
+        <a data-bs-toggle="collapse" href="#{{ category }}" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12">
+            {{ category.friendly_name }}
+        </a>
+    </div>
+    <div class="collapse" id="{{ category }}">
+        <div class="row">
+            {% for recommendation in recommendations %}
+                {% if recommendation.category == category %}
+                    <div class="col-12 col-md-4">
+                        <div class="card">
+                            <img src="{{ recommendation.image.url }}" class="card-img-top" alt="...">
+                            <div>
+                                <h5 class="sub-heading mt-3 mb-2">{{ recommendation }}</h5>
+                                <p class="paragraph">{{ recommendation.intro }}.</p>
+                                <a href="#" class="button">See more</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div> 
+    </div>
+    {% endfor %}
+</div>  -->
+
+
+{% include 'components/social-media/social-media.html' %}
+
+{% include 'components/footer/footer.html' %}
+{% endblock %}
+
