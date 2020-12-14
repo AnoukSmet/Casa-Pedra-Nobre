@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'home',
     'rooms',
     'tourist_info',
+    'profiles',
 ]
 
 MIDDLEWARE = [
