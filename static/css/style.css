@@ -48,12 +48,16 @@ body {
 
 /* Navigation bar */
 
+#navigation-cpn {
+    z-index: 2;
+}
+
 .logo {
     width: 8rem;
     height: 8rem;
 }
 
-.navbar-brand {
+.navbar-dark .navbar-brand {
     font-size: 2.6rem;
 }
 
@@ -69,30 +73,52 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-hero-image.jpg");
 }
 
-.navbar-nav .nav-link {
+.navbar-dark .navbar-nav .nav-link {
     color: #FCBC49;
     letter-spacing: 0.2rem;
     font-size: 2rem;
 }
 
-.navbar-nav .active>.nav-link, .navbar-nav .nav-link.active, .navbar-nav .nav-link.show,  .navbar-nav .show>.nav-link,
-.navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover {
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link,
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-nav .nav-link:hover {
     color: #aa4e26;
-}
-
-#toggler-icon {
-    width: 4rem;
-    height: 4rem;
-}
-
-.navbar-toggler {
-    color: #FCBC49;
-    border: 0.2rem solid #FCBC49;
 }
 
 .navbar-expand-lg {
     background: rgb(0, 0, 0);
     background: rgba(0, 0, 0, 0.8); 
+}
+
+.navbar-dark .navbar-toggler {
+    color: #FCBC49;
+    border: 0.2rem solid #FCBC49;
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+}
+
+.navbar-toggler:hover {
+    color: #aa4e26;
+    border-color: #aa4e26;
+}
+
+.navbar-toggler:focus {
+    outline: 0.2rem #FCBC49;
+
+}
+
+#account-dropdown {
+    background: rgba(170,78,38,0.8)
+}
+
+.dropdown-item {
+    color: #FFFFEB;
+    font-size: 1.8rem;
+}
+
+.dropdown-item:hover {
+    background-color: #72351a;
+    color: #FFFFEB;
 }
 
 /* Hero Text */
@@ -257,6 +283,8 @@ body {
 .footer-paragraph p {
     margin: 0;
 } 
+
+/* Account settings */
 
 /* Media Queries */
 

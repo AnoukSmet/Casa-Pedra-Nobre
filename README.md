@@ -312,6 +312,9 @@ I have highlighted the relationships between the various models with colors.
 ### Footer was coming out of screen
 #### Resolved by removing padding on footer-container
 
+### Toggler Icon Navbar not showing
+#### Resolved by adding navbar-dark to navbar and overwriting this
+
 
 ## **Deployment**
 

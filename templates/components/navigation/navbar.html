@@ -1,9 +1,10 @@
-<nav class="navbar navbar-expand-lg " id="navigation-cpn">
+<nav class="navbar-dark navbar navbar-expand-lg " id="navigation-cpn">
     <a class="navbar-brand d-lg-none" href="#">
         <img src="/media/logo.png" alt="logo" class="logo">
     </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" id="toggler-icon"></span>
+        <span id="toggler-icon"><i class="fas fa-bars"></i></span>
     </button>
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
@@ -28,8 +29,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'tourist_info' %}">Tourist Info</a>
             </li>
-            <li class="nav-item ">
-                    <a class="nav-link" href="#">My account</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My account</a>
+                <div class="dropdown-menu border-0" aria-labelledby="user-options" id="account-dropdown">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="#" class="dropdown-item">Reservations</a>
+                        {% endif %}
+                        <a href="#" class="dropdown-item">My Profile</a>
+                        <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                    {% else %}
+                        <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                        <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                    {% endif %}
+                </div>
             </li>
         </ul>
     </div>
