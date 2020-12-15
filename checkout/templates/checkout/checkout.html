@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'reservation/css/reservation.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'components/navigation/navbar.html' %}
+    
+
+{% include 'components/social-media/social-media.html' %}
+{% include 'components/footer/footer.html' %}
+{% endblock %}

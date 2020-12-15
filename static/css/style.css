@@ -304,7 +304,7 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-account.jpg");
 }
 
-/* Message Container */
+/* Message Container and Toasts */
 
 .message-container {
     position: fixed;

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'tourist_info',
     'profiles',
     'reservation',
+    'checkout',
 ]
 
 MIDDLEWARE = [

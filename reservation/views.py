@@ -16,8 +16,8 @@ def reservation(request):
         check_in = datetime.strptime(
                             form["check_in"], '%Y-%m-%d').date()
         check_out = datetime.strptime(form["check_out"], '%Y-%m-%d').date()
-        if check_in > datetime.today().date():
-            if check_out > check_in:
+        if check_in >= datetime.today().date():
+            if check_out >= check_in:
                 print("Good")
             else:
                 messages.error(request, 'Your check in date can not be in the past. \
