@@ -61,12 +61,7 @@ def reservation(request):
 
         return HttpResponseRedirect(reverse('reservation_detail'))
     else:
-        context = {
-            'rooms': rooms,
-            'error': error,
-        }
-
-        return render(request, 'reservation/reservation.html', context)
+        return render(request, 'reservation/reservation.html')
 
 
 def check_availability(
@@ -84,17 +79,29 @@ def check_availability(
 
 
 def reservation_detail(request):
-    template = "reservation/reservation_detail.html"
     form = request.session['reservation_request']
-    check_in = form["check_in"]
-    check_out = form["check_out"]
+    check_in = datetime.strptime(form["check_in"], '%Y-%m-%d').date()
+    check_out = datetime.strptime(form["check_out"], '%Y-%m-%d').date()
     available_rooms = request.session["available_rooms"]
     unavailable_rooms = request.session["unavailable_rooms"]
-
+    available_room = []
+    unavailable_room = []
+    number_of_nights = (check_out - check_in).days
+    for room in available_rooms:
+        room = Room.objects.get(pk=room)
+        available_room.append(room)
+    for room in unavailable_rooms:
+        room = Room.objects.get(pk=room)
+        unavailable_room.append(room)
+    template = 'reservation/reservation_detail.html'
     context = {
-        'check_in': check_in,
-        'check_out': check_out,
-        'available_rooms': available_rooms,
-        'unavailable_rooms': unavailable_rooms,
+        'form': form,
+        'check_in': form["check_in"],
+        'check_out': form["check_out"],
+        'available_rooms': available_room,
+        'unavailable_rooms': unavailable_room,
+        'number_of_nights': number_of_nights,
     }
+
     return render(request, template, context)
+
