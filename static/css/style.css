@@ -20,6 +20,9 @@ body {
         padding: 1rem;
         border-radius: 0.5rem;
         font-family: "Karla", Arial, Helvetica, sans-serif;
+        border: none;
+        text-decoration: none;
+        line-height: 1.9rem;
     }
 
     .button:hover {
@@ -294,12 +297,6 @@ body {
 .account-container p a {
     color: #aa4e26;
 }
-.account-buttons {
-    border: none;
-    padding: 1rem;
-    text-decoration: none;
-    line-height: 1.9rem;
-}
 
 /* Profile */
 
@@ -307,6 +304,37 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-account.jpg");
 }
 
+/* Message Container */
+
+.message-container {
+    position: fixed;
+    top: 4rem;
+    right: 1.6rem;
+    z-index: 99999999999;
+    background-color: #72351a;
+}
+
+.toast-container {
+    background-color: #72351a;
+    color: #FFFFEB;
+    font-size: 1.6rem;
+}
+
+.toast-header {
+    background-color: #72351a;
+    color: #FFFFEB;
+    font-size: 2rem;
+}
+
+.close {
+    color: #FFFFEB;
+    opacity: 1;
+    font-size: 2.5rem;
+}
+
+.close:hover {
+    color: #FCBC49;
+}
 /* Media Queries */
 
 @media (min-width: 768px) {

@@ -14,6 +14,26 @@
     </div>
 </div>
 
+<div class="container">
+    <h2 class="sub-heading mb-4 mt-4">Reservation</h2>
+    <p>Select your preferred check in and check out date and proceed to the next step</p>
+    <p> {{error }}</p>
+    <form method="POST" action="{% url 'reservation' %}" class="row">
+         {% csrf_token %}
+        <div class="col-12 col-md-6">
+            <label for="check_in">Check-In:</label>
+            <input type="date" name="check_in">
+        </div>
+        <div class="col-12 col-md-6">
+            <label for="check_out">Check-Out:</label>
+            <input type="date" name="check_out">
+        </div>
+        <div class="col-12 mt-4 mb-4">
+            <input class="button" type="submit" value="Show prices and availability">
+        </div>
+    </form> 
+</div>
+
 {% include 'components/social-media/social-media.html' %}
 
 {% include 'components/footer/footer.html' %}

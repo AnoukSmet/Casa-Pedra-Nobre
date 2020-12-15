@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'reservation/css/reservation.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="header-container" id="reservation">
+    {% include 'components/navigation/navbar.html' %}
+    <div class="hero-text">
+        <h1>Reservation</h1>
+        <p>Book your room now at Casa Pedra Nobre and start planning your trip!</p>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="sub-heading mb-4 mt-4">Select your room(s)</h2>
+    <p>Select your preferred room(s) and the number of guests per room</p>
+    <p> {{ error }}</p>
+</div>
+
+{% include 'components/social-media/social-media.html' %}
+
+{% include 'components/footer/footer.html' %}
+{% endblock %}

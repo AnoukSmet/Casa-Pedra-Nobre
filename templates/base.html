@@ -37,13 +37,30 @@
     </head>
     <body>    
         {% if messages %}
-        <div class="messages-container"></div>
-        {% endif %}
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'components/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'components/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'components/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'components/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
+    {% endif %}
 
         {% block content %}
         {% endblock %}
 
         {% block postloadjs %}
-        {% endblock %}
+            <script type="text/javascript">
+                $('.toast').toast('show');
+            </script>
+    {% endblock %}
     </body>
 </html>
