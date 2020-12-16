@@ -83,6 +83,7 @@ def reservation_detail(request):
         number_of_nights = (check_out - check_in).days
 
         room_data = {
+            "rooms": request.POST.getlist('room_id'),
             "number_of_guests": request.POST.getlist('number_of_guests'),
             "rooms_checkbox": request.POST.getlist('select-room'),
             "number_of_nights": number_of_nights,

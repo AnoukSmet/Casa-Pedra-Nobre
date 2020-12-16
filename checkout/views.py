@@ -6,14 +6,16 @@ from rooms.models import Room
 
 
 def checkout(request):
+    reservation_total = 0
     reservation_items = reservation_item(request)
-    selected_rooms = []
-    for room in reservation_items["rooms_checkbox"]:
-        room = Room.objects.get(pk=room)
-        selected_rooms.append(room)
+    rooms = reservation_items["selected_rooms"]
+    for room in rooms:
+        reservation_total += room["room"].price * reservation_items["number_of_nights"]
 
     template = 'checkout/checkout.html'
     context = {
-        'rooms': selected_rooms,
+        'rooms': rooms,
+        'reservation_items': reservation_items,
+        'reservation_total': reservation_total,
      }
     return render(request, template, context)

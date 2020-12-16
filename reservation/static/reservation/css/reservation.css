@@ -53,7 +53,7 @@
     margin: 0;
 }
 
-input[type='checkbox'], input[type='radio'] { 
+input[type='checkbox'] { 
     filter: hue-rotate(170deg);
     height: 2.5rem;
     width: 2.5rem;

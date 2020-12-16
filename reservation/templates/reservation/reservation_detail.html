@@ -76,10 +76,11 @@
                             <label for="number_of_guests">Number of guests:</label>
                             <input type="number" min="1" max="{{room.max_number_of_guests}}" name="number_of_guests" value="2">
                         </div>
-                        <div class="col-12 col-md-6 offset-md-6 rooms_checkbox">
+                        <div class="col-12 col-md-6 offset-md-6 select-rooms">
                             <label for="select-room">Select this room</label>
                             <input type="checkbox" name="select-room" value="{{ room.id }}">
                         </div>  
+                        <input type="hidden" name="room_id" value="{{room.id}}">
                     </div>
                 </div>
             </div>

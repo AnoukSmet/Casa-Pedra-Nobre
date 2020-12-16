@@ -8,14 +8,24 @@
 {% block content %}
 
 {% include 'components/navigation/navbar.html' %}
-    
+
+<div class="container">
+    <h1 class="heading mb-4">Reservation Overview</h1>
+<p>Check in: {{ reservation_items.check_in }}</p>
+<p>Check out: {{ reservation_items.check_out }}</p>
+<p>Number of nights: {{ reservation_items.number_of_nights }}</p>
+
+<h2>Rooms:</h2>
 {% for room in rooms %}
-<p>{{ room }}</p>
+<p>{{ room.room }}</p>
+<p>Number of guests: {{ room.number_of_guests }}</p>
+<p>Room total: €{{room.room_total}}</p>
 
 {% endfor %}
 
-{{ room }}
+<h2>Total price: €{{ reservation_total}}</h2>
 
+</div>
 {% include 'components/social-media/social-media.html' %}
 {% include 'components/footer/footer.html' %}
 {% endblock %}
