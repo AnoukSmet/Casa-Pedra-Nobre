@@ -30,9 +30,12 @@
             <a href="{% url 'reservation'%}" class="button">Search again</a>
         </div>
     </form> 
+    <div class="hr" id="search-rooms-division"></div>
 </div>
 
-<div class="container"> 
+
+
+<div class="container rooms"> 
     <form method="POST" action="{% url 'reservation_detail' %}" class="row justify-content-end" id="room-selection">
         {% csrf_token %}
         <div class="col-12 col-md-5 col-lg-4">
@@ -57,24 +60,24 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-8 room-description">
-                    <h2 class="heading">{{room}}</h2> 
+                    <h2 class="heading mb-2">{{room}}</h2> 
                     <p>
                         {{ room.description }}
                     </p>
                     <div class="row"> 
-                        <div class="col-12 col-md-6 offset-md-6 price">
+                        <div class="col-12 col-md-5 offset-md-7 price">
                             {% if number_of_nights == 1 %}
                             <span>Price for {{number_of_nights}} night: €{% widthratio number_of_nights 1 room.price %} incl. VAT</span>
                             {% else %}
                             <span>Price for {{number_of_nights}} nights: €{% widthratio number_of_nights 1 room.price %} incl. VAT </span> 
                             {% endif %}
                         </div>
-                        <div class="col-12 col-md-6 offset-md-6 select-rooms">
+                        <div class="col-12 col-md-5 offset-md-7 select-rooms">
                             <label for="number_of_guests">Number of guests:</label>
                             <input type="number" min="1" max="{{room.max_number_of_guests}}" name="number_of_guests" value="2">
                         </div>
                         <div class="col-12 col-md-6 offset-md-6 select-rooms">
-                            <label for="select-room">Select room</label>
+                            <label for="select-room">Select this room</label>
                             <input type="checkbox" name="select-room">
                         </div>  
                     </div>
@@ -83,6 +86,9 @@
         </div>
         <div class="hr"></div> 
         {% endfor %}
+        <div class="col-12 col-md-5 col-lg-4 mt-4">
+            <button type="submit" class="button submit-rooms">Procceed to secure check out</button>
+        </div>
     </form>
     {% if unavailable_rooms %}
         <div class="row">
@@ -107,9 +113,6 @@
                         <h2 class="heading">{{room}}</h2>
                         <p>
                             {{ room.description }}
-                        </p>
-                        <p>
-                            Price per night, based on 2 guests: €{{ room.price}}
                         </p>
                     </div>
                 </div>

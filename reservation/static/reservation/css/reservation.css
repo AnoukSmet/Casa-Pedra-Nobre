@@ -2,6 +2,9 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-book-now.jpg");
 }
 
+.rooms {
+    padding-left: 0;
+}
 .submit-rooms {
     margin-bottom: 2rem;
     width: 100%;
@@ -12,6 +15,11 @@
     width: 100%;
     margin: 1rem 0;
 }
+
+#search-rooms-division {
+    border: 0.1rem solid #aa4e26;
+}
+
 #room-selection {
     margin: 0;
 }
@@ -22,14 +30,31 @@
 } 
 
 .price {
-    font-size: 2rem;
+    font-size: 1.6rem;
     background-color: #FCBC49;
     padding: 0.5rem;
     border-radius: 1rem;
     float: right;
     width: 20vw !important;
+    text-align: center;
 }
 
 .select-rooms {
-text-align: right;
+    margin-top: 1rem;
+    text-align: right;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    display: inline-block;
+}
+
+.select-rooms label,
+.select-rooms input {
+    vertical-align: middle;
+    margin: 0;
+}
+
+input[type='checkbox'], input[type='radio'] { 
+    filter: hue-rotate(170deg);
+    height: 2.5rem;
+    width: 2.5rem;
 }
