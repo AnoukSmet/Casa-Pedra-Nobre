@@ -79,33 +79,45 @@ def check_availability(
 
 
 def reservation_detail(request):
-    form = request.session['reservation_request']
-    check_in = datetime.strptime(form["check_in"], '%Y-%m-%d').date()
-    check_out = datetime.strptime(form["check_out"], '%Y-%m-%d').date()
-    available_rooms = request.session["available_rooms"]
-    unavailable_rooms = request.session["unavailable_rooms"]
-    available_room = []
-    unavailable_room = []
-    # number_of_guests = []
-    number_of_nights = (check_out - check_in).days
-    for room in available_rooms:
-        room = Room.objects.get(pk=room)
-        available_room.append(room)
-        # max_number_of_guests = room.max_number_of_guests
-        # for x in range(1, max_number_of_guests):
-        #     number_of_guests.append(x)
-    for room in unavailable_rooms:
-        room = Room.objects.get(pk=room)
-        unavailable_room.append(room)
-    template = 'reservation/reservation_detail.html'
-    context = {
-        'form': form,
-        'check_in': form["check_in"],
-        'check_out': form["check_out"],
-        'available_rooms': available_room,
-        'unavailable_rooms': unavailable_room,
-        'number_of_nights': number_of_nights,
-    }
+    if request.method == "POST":
+        reservation_request = request.session["reservation_request"]
+        check_in = datetime.strptime(
+            reservation_request["check_in"], '%Y-%m-%d').date()
+        check_out = datetime.strptime(
+            reservation_request["check_out"], '%Y-%m-%d').date()
+        number_of_nights = (check_out - check_in).days
+
+        room_data = {
+            "rooms": request.POST.getlist('room_id'),
+            "number_of_guests": request.POST.getlist('number_of_guests'),
+            "selected_rooms": request.POST.getlist('selected_rooms'),
+            "number_of_nights": number_of_nights,
+        }
+        request.session['selected_rooms'] = room_data
+        return redirect('checkout')
+    else:
+        form = request.session['reservation_request']
+        check_in = datetime.strptime(form["check_in"], '%Y-%m-%d').date()
+        check_out = datetime.strptime(form["check_out"], '%Y-%m-%d').date()
+        available_rooms = request.session["available_rooms"]
+        unavailable_rooms = request.session["unavailable_rooms"]
+        available_room = []
+        unavailable_room = []
+        number_of_nights = (check_out - check_in).days
+        for room in available_rooms:
+            room = Room.objects.get(pk=room)
+            available_room.append(room)
+        for room in unavailable_rooms:
+            room = Room.objects.get(pk=room)
+            unavailable_room.append(room)
+        template = 'reservation/reservation_detail.html'
+        context = {
+            'form': form,
+            'check_in': form["check_in"],
+            'check_out': form["check_out"],
+            'available_rooms': available_room,
+            'unavailable_rooms': unavailable_room,
+            'number_of_nights': number_of_nights,
+        }
 
     return render(request, template, context)
-
