@@ -86,10 +86,14 @@ def reservation_detail(request):
     unavailable_rooms = request.session["unavailable_rooms"]
     available_room = []
     unavailable_room = []
+    # number_of_guests = []
     number_of_nights = (check_out - check_in).days
     for room in available_rooms:
         room = Room.objects.get(pk=room)
         available_room.append(room)
+        # max_number_of_guests = room.max_number_of_guests
+        # for x in range(1, max_number_of_guests):
+        #     number_of_guests.append(x)
     for room in unavailable_rooms:
         room = Room.objects.get(pk=room)
         unavailable_room.append(room)

@@ -20,3 +20,16 @@
     width: 30rem;
     height: 20rem;
 } 
+
+.price {
+    font-size: 2rem;
+    background-color: #FCBC49;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    float: right;
+    width: 20vw !important;
+}
+
+.select-rooms {
+text-align: right;
+}

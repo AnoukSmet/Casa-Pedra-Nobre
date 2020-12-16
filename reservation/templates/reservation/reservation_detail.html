@@ -15,7 +15,7 @@
 </div>
 
 <div class="container">
-    <h1 class="mt-2 ml-2">Reservation Detail</h1>
+    <h2 class="heading mt-4">Prices and availability</h2>
     <form method="POST" action="#" class="row">
         {% csrf_token %}
         <div class="col-12 mt-4">
@@ -27,7 +27,7 @@
             <input type="date" name="check_out" value="{{ check_out }}" disabled>
         </div>
         <div class="col-12 mt-4 mb-4">
-            <a href="{% url 'reservation'%}">Search again</a>
+            <a href="{% url 'reservation'%}" class="button">Search again</a>
         </div>
     </form> 
 </div>
@@ -39,7 +39,8 @@
             <button type="submit" class="button submit-rooms">Procceed to secure check out</button>
         </div>
         <div class="col-12">
-            <h2 class="heading mb-4 col-12">Available Rooms</h2>
+            <h2 class="heading mb-2 col-12">Available Rooms</h2>
+            <span class="d-block mb-4"> All our prices are including breakfast, parking onsite and free wifi.</span>
         </div>
         {% for room in available_rooms %}
         <div class="col-12">
@@ -56,13 +57,27 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-8 room-description">
-                    <h2 class="heading">{{room}}</h2>
+                    <h2 class="heading">{{room}}</h2> 
                     <p>
                         {{ room.description }}
                     </p>
-                    <p>
-                        Price per night, based on 2 guests: €{{ room.price}}
-                    </p>
+                    <div class="row"> 
+                        <div class="col-12 col-md-6 offset-md-6 price">
+                            {% if number_of_nights == 1 %}
+                            <span>Price for {{number_of_nights}} night: €{% widthratio number_of_nights 1 room.price %} incl. VAT</span>
+                            {% else %}
+                            <span>Price for {{number_of_nights}} nights: €{% widthratio number_of_nights 1 room.price %} incl. VAT </span> 
+                            {% endif %}
+                        </div>
+                        <div class="col-12 col-md-6 offset-md-6 select-rooms">
+                            <label for="number_of_guests">Number of guests:</label>
+                            <input type="number" min="1" max="{{room.max_number_of_guests}}" name="number_of_guests" value="2">
+                        </div>
+                        <div class="col-12 col-md-6 offset-md-6 select-rooms">
+                            <label for="select-room">Select room</label>
+                            <input type="checkbox" name="select-room">
+                        </div>  
+                    </div>
                 </div>
             </div>
         </div>
