@@ -22,7 +22,7 @@
                     <div class="carousel-inner">
                         {% for image in room.images.all %}
                             <div class="carousel-item {% if image.main_image == True %} active {% endif %}">
-                                <img class="d-block" src="{{ image.image.url }}" alt="room-image">
+                                <img class="d-block" src="{{ image.image.url }}" alt="room-image" >
                             </div>
                         {% endfor %}
                     </div>

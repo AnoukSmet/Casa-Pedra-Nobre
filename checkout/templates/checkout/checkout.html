@@ -10,21 +10,43 @@
 {% include 'components/navigation/navbar.html' %}
 
 <div class="container">
-    <h1 class="heading mb-4">Reservation Overview</h1>
-<p>Check in: {{ reservation_items.check_in }}</p>
-<p>Check out: {{ reservation_items.check_out }}</p>
-<p>Number of nights: {{ reservation_items.number_of_nights }}</p>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h1 class="heading mb-4 mt-4">Reservation Overview</h1>
+            <p>Check in: {{ reservation_items.check_in }}</p>
+            <p>Check out: {{ reservation_items.check_out }}</p>
+            <p>Number of nights: {{ reservation_items.number_of_nights }}</p>
 
-<h2>Rooms:</h2>
-{% for room in rooms %}
-<p>{{ room.room }}</p>
-<p>Number of guests: {{ room.number_of_guests }}</p>
-<p>Room total: €{{room.room_total}}</p>
-
-{% endfor %}
-
-<h2>Total price: €{{ reservation_total}}</h2>
-
+            <h2 class="sub-heading mb-4">Rooms:</h2>
+            <div class="row">
+            {% for room in rooms %}
+                <div class="col-12 col-md-6">
+                    {% for image in room.room.images.all %}
+                        {% if image.main_image %}
+                        <img class="d-block" src="{{ image.image.url }}" alt="room-image" id="checkout-room-image">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-12 col-md-6">
+                    <h2 class="sub-heading mb-4 mt-4">{{ room.room }}</h2>
+                    <p>Number of guests: {{ room.number_of_guests }}</p>
+                    <p>Room total: €{{room.room_total}}</p>
+                </div>
+            {% endfor %}
+            </div>
+            <h2 class="sub-heading mb-4">Total price: €{{ reservation_total}}</h2>
+        </div>
+        <div class="col-12 col-md-6">
+            <h2 class="heading mt-4 mb-4"> Contact Information</h2>
+            <form action="{% url 'checkout' %}" method="POST">
+                {% csrf_token %}
+                     {% for field in reservation_form %}
+                        {{field | as_crispy_field }}
+                    {% endfor %} 
+                <button type="submit" class="button mb-4">Confirm</button>
+            </form>
+        </div>   
+    </div>
 </div>
 {% include 'components/social-media/social-media.html' %}
 {% include 'components/footer/footer.html' %}
