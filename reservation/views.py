@@ -8,10 +8,8 @@ from checkout.models import ReservationLineItem
 
 def reservation(request):
     rooms = Room.objects.all()
-    error = ""
     unavailable_rooms = []
     available_rooms = []
-    print(type(unavailable_rooms))
     if request.method == 'POST':
         form = {
             'check_in': request.POST.get('check_in'),
@@ -33,13 +31,10 @@ def reservation(request):
                                     check_in,
                                     check_out):
                                 unavailable_rooms.append(room.id)
-                                print(room.id)
                             else:
                                 available_rooms.append(room.id)
-                                print(room.id)
                     else:
                         available_rooms.append(room.id)
-                        print(room.id)
             else:
                 messages.error(request, 'Your check in date can not be in the past. \
                     Please select another date.')
@@ -88,9 +83,8 @@ def reservation_detail(request):
         number_of_nights = (check_out - check_in).days
 
         room_data = {
-            "rooms": request.POST.getlist('room_id'),
             "number_of_guests": request.POST.getlist('number_of_guests'),
-            "selected_rooms": request.POST.getlist('selected_rooms'),
+            "rooms_checkbox": request.POST.getlist('select-room'),
             "number_of_nights": number_of_nights,
         }
         request.session['selected_rooms'] = room_data
