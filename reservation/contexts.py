@@ -6,7 +6,7 @@ def reservation_item(request):
     check_in = ""
     check_out = ""
     number_of_nights = 0
-    order_total = 0
+    reservation_total = 0
     reservation_request = request.session.get('reservation_request', {})
 
     check_in = datetime.strptime(
@@ -38,11 +38,15 @@ def reservation_item(request):
         if selected_rooms[i] not in cleaned_selected_rooms:
             cleaned_selected_rooms.append(selected_rooms[i])
 
+    for room in cleaned_selected_rooms:
+        reservation_total += room["room"].price * number_of_nights
+
     context = {
         'check_in': check_in,
         'check_out': check_out,
         'number_of_nights': number_of_nights,
         'selected_rooms': cleaned_selected_rooms,
+        'reservation_total': reservation_total,
     }
 
     return context

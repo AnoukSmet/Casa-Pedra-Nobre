@@ -39,7 +39,7 @@ card.addEventListener('change', function (event) {
 });
 
 
-// Handle payment intent
+// Handle form submit
 
 var form = document.getElementById('checkout-form');
 
