@@ -337,13 +337,6 @@ body {
     color: #FCBC49;
 }
 
-/* Checkout  */
-
-#checkout-room-image {
-    width: 20rem;
-    height: auto;
-    margin-bottom: 2rem ;
-}
 /* Media Queries */
 
 @media (min-width: 768px) {

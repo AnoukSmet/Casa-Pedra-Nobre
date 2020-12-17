@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'reservation/css/reservation.css' %}">
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -11,7 +11,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-lg-6">
             <h1 class="heading mb-4 mt-4">Reservation Overview</h1>
             <p>Check in: {{ reservation_items.check_in }}</p>
             <p>Check out: {{ reservation_items.check_out }}</p>
@@ -36,18 +36,47 @@
             </div>
             <h2 class="sub-heading mb-4">Total price: €{{ reservation_total}}</h2>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-lg-6">
             <h2 class="heading mt-4 mb-4"> Contact Information</h2>
             <form action="{% url 'checkout' %}" method="POST">
                 {% csrf_token %}
                      {% for field in reservation_form %}
                         {{field | as_crispy_field }}
                     {% endfor %} 
-                <button type="submit" class="button mb-4">Confirm</button>
+                 <div class="form-check form-check-inline float-right mr-0">
+                    {% if user.is_authenticated %}
+                        <label class="form-check-label" for="id-save-info">Save this contact information to my profile</label>
+                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                    {% else %}
+                        <label class="form-check-label" for="id-save-info">
+                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                        </label>
+                    {% endif %}
+                </div>
+                <div>
+                    <h2 class="sub-heading mb-4">Payment</h2>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="stripe-card-element"></div>
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                </div>
+                <div>
+                    <button type="submit" class="button mb-4">Confirm</button>
+                </div>
             </form>
         </div>   
     </div>
 </div>
 {% include 'components/social-media/social-media.html' %}
 {% include 'components/footer/footer.html' %}
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}

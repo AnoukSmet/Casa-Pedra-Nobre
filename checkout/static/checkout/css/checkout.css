@@ -1,0 +1,75 @@
+/* Stripe css */
+
+.StripeElement,
+.stripe-style-input {
+    box-sizing: border-box;
+    padding: 10px 12px;
+    border: 0.1rem solid #aa4e26;
+    border-radius: 0;
+    background-color: #fff;
+    min-height: 3.5rem;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+    border: 0.1rem solid #72351a;
+    box-shadow: 0.1rem 0.1rem 0.6rem 0.1rem #72351a !important;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fff !important;
+}
+
+
+/* Checkout  */
+
+#checkout-room-image {
+    width: 20rem;
+    height: auto;
+    margin-bottom: 2rem ;
+}
+
+.contact-form-fields {
+    border: 0.1rem solid #aa4e26;
+    color: #000;
+    min-height: 3.5rem;
+    margin: 2rem 0;
+}
+
+.contact-form-fields::placeholder {
+    color: #000;
+    font-size: 1.6rem;
+    font-family: "Karla", Arial, Helvetica, sans-serif;
+    
+}
+
+select,
+.contact-form-fields option {
+    font-size: 1.6rem !important;
+    color: #000;
+}
+
+select:invalid,
+select option[value=""] {
+    font-size: 1.6rem;
+    color: #000;
+}
+
+.contact-form-fields:focus,
+.contact-form-fields:hover {
+    border: 0.1rem solid #72351a;
+    box-shadow: 0.1rem 0.1rem 0.6rem 0.1rem #72351a !important;
+    color: #000;
+}
+
+.form-check-label {
+    color: #000;
+}
+
+
+input[type='checkbox'] { 
+    filter: hue-rotate(170deg);
+    height: 1.6rem;
+    width: 1.6rem;
+}
