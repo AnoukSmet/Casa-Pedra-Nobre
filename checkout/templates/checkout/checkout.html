@@ -38,7 +38,7 @@
         </div>
         <div class="col-12 col-lg-6">
             <h2 class="heading mt-4 mb-4"> Contact Information</h2>
-            <form action="{% url 'checkout' %}" method="POST">
+            <form action="{% url 'checkout' %}" method="POST" id="checkout-form">
                 {% csrf_token %}
                      {% for field in reservation_form %}
                         {{field | as_crispy_field }}
@@ -64,7 +64,7 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </div>
                 <div>
-                    <button type="submit" class="button mb-4">Confirm</button>
+                    <button type="submit" class="button mb-4" id="submit-button">Confirm</button>
                 </div>
             </form>
         </div>   
