@@ -12,10 +12,59 @@
 <div class="container">
     <div class="row">
         <div class="col-12 ">
-            <h1 class="heading mb-4 mt-4">Thank you for your reservation!</h1>
+            <h1 class="heading mb-4 mt-4">Thank you for your reservation @Casa Pedra Nobre!</h1>
             <p>
-                {{ reservation }}
+                Please find your reservation confirmation below:
             </p>
+        </div>
+        <div class="col-12 reservation-summary">
+            <h2 class="sub-heading mt-4 mb-2">Reservation Number: </h2>
+            <p>{{ reservation }}</p>
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="sub-heading mt-2">Rooms:</h2>
+                </div>
+                {% for item in reservation.lineitems.all %}
+                <div class="col-12 col-md-4 mt-4">
+                    {% for image in item.room.images.all %}
+                        {% if image.main_image %}
+                        <img class="d-block" src="{{ image.image.url }}" alt="room-image" id="confirmation-room-image">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="col-12 col-md-8 mt-4">
+                    <h2 class="sub-heading mb-4">{{ item.room }}</h2>
+                    <p>Number of guests: {{ item.number_of_guests }}</p>
+                    <p>Check in: {{ item.check_in }}</p>
+                    <p>Check out: {{ item.check_out }}</p>
+                    {% if item.number_of_nights == 1 %}
+                    <p>Number of nights: {{ item.number_of_nights }} night</p>
+                    {% else %}
+                    <p>Number of nights: {{ item.number_of_nights }} nights</p>
+                    {% endif %}
+                    <p> Room total: €{{item.lineitem_total}}</p>
+                </div>
+                {% endfor %}
+                <div class="col-12">
+                    <h2 class="sub-heading mt-4 mb-2">Reservation total:</h2>
+                    <p>€{{ reservation.reservation_total }}</p>
+                    {% if reservation.eta %}
+                    <p>Estimate time of arrival: {{ reservation.eta }}</p>
+                    {% endif %}
+                    {% if reservation.comment %}
+                    <p>Comment / Special Requests: {{ reservation.comment }}</p>
+                    {% endif %}
+                </div>
+                <div class="col-12">
+                    <h2 class="sub-heading mb-2">Contact Details:</h2>
+                    <p>
+                    <span class="d-block">Name: {{ reservation.full_name }}</span>
+                    <span class="d-block">Email: {{ reservation.email }}</span>
+                    <span class="d-block">Phone number: {{ reservation.phone_number }}</span>
+                    <span class="d-block">Country: {{ reservation.country }}</span>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

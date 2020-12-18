@@ -64,11 +64,18 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </div>
                 <div>
-                    <button type="submit" class="button mb-4" id="submit-button">Confirm</button>
+                    <button class="button mb-4" id="submit-button">Confirm</button>
                 </div>
             </form>
         </div>   
     </div>
+</div>
+<div id="loading-overlay">
+    <h1 class="loading-spinner">
+        <span class="icon">
+            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+        </span>
+    </h1>
 </div>
 {% include 'components/social-media/social-media.html' %}
 {% include 'components/footer/footer.html' %}
