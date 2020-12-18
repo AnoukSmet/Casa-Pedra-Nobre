@@ -26,26 +26,33 @@ def checkout(request):
             'comment': request.POST['comment'],
             'eta': request.POST['eta'],
         }
+        # print(type(reservation_items["reservation_total"]))
         reservation_form = ReservationForm(form_data)
         if reservation_form.is_valid():
             reservation = reservation_form.save(commit=False)
-            reservation_form.save()
+            reservation.reservation_total = reservation_items["reservation_total"]
+            reservation.save()
             for room in reservation_items["selected_rooms"]:
+                print(room["room_total"])
                 selected_room = Room.objects.get(name=room["room"])
                 number_of_guests = room["number_of_guests"]
+                lineitem_total = room["room_total"]
                 reservation_request = request.session.get(
                     'reservation_request', {})
                 check_in = datetime.strptime(
                     reservation_request["check_in"], '%Y-%m-%d').date()
                 check_out = datetime.strptime(
                     reservation_request["check_out"], '%Y-%m-%d').date()
-
+                number_of_nights = (check_out - check_in).days
+                
                 reservation_line_item = ReservationLineItem(
                         reservation=reservation,
                         room=selected_room,
                         number_of_guests=number_of_guests,
                         check_in=check_in,
                         check_out=check_out,
+                        lineitem_total=lineitem_total,
+                        number_of_nights=number_of_nights,
                     )
                 reservation_line_item.save()
             request.session['save_info'] = 'save-info' in request.POST

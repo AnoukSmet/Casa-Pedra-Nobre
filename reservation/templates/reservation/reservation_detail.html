@@ -36,6 +36,7 @@
 
 
 <div class="container rooms"> 
+    {% if available_rooms %}
     <form method="POST" action="{% url 'reservation_detail' %}" class="row justify-content-end" id="room-selection">
         {% csrf_token %}
         <div class="col-12 col-md-5 col-lg-4">
@@ -91,8 +92,46 @@
             <button type="submit" class="button submit-rooms">Procceed to secure check out</button>
         </div>
     </form>
-    {% if unavailable_rooms %}
+    <div class="row text-muted">
+        {% if unavailable_rooms %}
+            <div class="col-12">
+                <h2 class="heading mb-4 mt-4">Unavailable Rooms</h2>
+            </div>
+            {% for room in unavailable_rooms %}
+                <div class="col-12">
+                    <div class="row room-display">
+                        <div class="col-12 col-md-4">
+                            <div id="{{ room.id }}" class="carousel slide carousel-fade" data-ride="carousel">
+                                <div class="carousel-inner">
+                                    {% for image in room.images.all %}
+                                        <div class="carousel-item {% if image.main_image == True %} active {% endif %}">
+                                            <img class="d-block" src="{{ image.image.url }}" alt="room-image">
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-8 room-description">
+                            <h2 class="heading">{{room}}</h2>
+                            <p>
+                                {{ room.description }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr"></div> 
+            {% endfor %}
+        {% endif %}
+    </div>
+    {% else %}
         <div class="row">
+            <div class="col-12" id="sold-out">
+                <h2 class="heading mb-2 col-12">Sold out</h2>
+                <span class="d-block">Looks like we are sold out for these data...</span>
+                <span class="d-block mb-4">Change your dates to check availability.</span>
+            </div>
+        </div>
+        <div class="row text-muted">
             <div class="col-12">
                 <h2 class="heading mb-4 mt-4">Unavailable Rooms</h2>
             </div>

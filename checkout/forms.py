@@ -6,7 +6,7 @@ class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
         fields = ('full_name', 'email', 'phone_number',
-                  'country', 'comment', 'eta'
+                  'country', 'comment', 'eta',
                   )
 
     def __init__(self, *args, **kwargs):

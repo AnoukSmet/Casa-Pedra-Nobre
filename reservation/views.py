@@ -49,7 +49,10 @@ def reservation(request):
                 if available_room in unavailable_rooms:
                     available_rooms.remove(available_room)
             i += 1
+
         available_rooms = list(dict.fromkeys(available_rooms))
+        unavailable_rooms = list(dict.fromkeys(unavailable_rooms))
+
         request.session['reservation_request'] = form
         request.session['available_rooms'] = available_rooms
         request.session['unavailable_rooms'] = unavailable_rooms

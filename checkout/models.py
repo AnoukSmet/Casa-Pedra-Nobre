@@ -8,10 +8,6 @@ from datetime import datetime
 from django.core.exceptions import ValidationError
 
 
-
-# Create your models here.
-
-
 class Reservation(models.Model):
     reservation_number = models.CharField(
         max_length=32, null=False, editable=False)
@@ -32,11 +28,10 @@ class Reservation(models.Model):
         return uuid.uuid4().hex.upper()
 
     def update_total(self):
-        self.reservation_total = self.lineitems.aggregate(
-            Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.reservation_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
+        self.save()
 
     def save(self, *args, **kwargs):
-        self.update_total()
         if not self.reservation_number:
             self.reservation_number = self._generate_reservation_number()
         super().save(*args, **kwargs)
@@ -74,6 +69,7 @@ class ReservationLineItem(models.Model):
                 "Check out date needs to be after check in date")
         self._calculate_number_of_nights()
         self.lineitem_total = self.number_of_nights * self.room.price
+        print('lineitem_total from within ReservationLineItem: ' + str(self.lineitem_total))
         super().save(*args, **kwargs)
 
     def __str__(self):

@@ -5,7 +5,7 @@ from .models import Reservation, ReservationLineItem
 
 class ReservationLineItemAdminInline(admin.TabularInline):
     model = ReservationLineItem
-    readonly_fields = ('lineitem_total', 'number_of_nights')
+    readonly_fields = ('lineitem_total',)
 
 
 class ReservationAdmin(admin.ModelAdmin):
