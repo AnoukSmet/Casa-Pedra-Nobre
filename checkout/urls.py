@@ -7,4 +7,6 @@ urlpatterns = [
     path('checkout_success/<reservation_number>', views.checkout_success,
          name="checkout_success"),
     path('wh/', webhook, name="webhook"),
+    path('cache_checkout_data/', views.cache_checkout_data,
+         name='cache_checkout_data'),
 ]
