@@ -23,6 +23,10 @@ class Reservation(models.Model):
         max_digits=10, decimal_places=2, null=False, default=0)
     comment = models.TextField(null=True, blank=True)
     eta = models.CharField(max_length=254, null=True, blank=True)
+    original_reservation = models.TextField(
+        null=False, blank=False, default='')
+    stripe_pid = models.CharField(
+        max_length=254, null=True, blank=True, default='')
 
     def _generate_reservation_number(self):
         return uuid.uuid4().hex.upper()
@@ -53,6 +57,7 @@ class ReservationLineItem(models.Model):
     lineitem_total = models.DecimalField(
         max_digits=6, decimal_places=2, null=False,
         blank=False, editable=False)
+    
 
     def _calculate_number_of_nights(self):
         check_in = self.check_in
@@ -69,7 +74,6 @@ class ReservationLineItem(models.Model):
                 "Check out date needs to be after check in date")
         self._calculate_number_of_nights()
         self.lineitem_total = self.number_of_nights * self.room.price
-        print('lineitem_total from within ReservationLineItem: ' + str(self.lineitem_total))
         super().save(*args, **kwargs)
 
     def __str__(self):

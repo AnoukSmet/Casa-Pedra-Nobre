@@ -84,14 +84,41 @@ def reservation_detail(request):
         check_out = datetime.strptime(
             reservation_request["check_out"], '%Y-%m-%d').date()
         number_of_nights = (check_out - check_in).days
+        data = request.POST
+        rooms = []
+        number_of_guests = []
+        selected_rooms = []
+        merged_data = {}
+        test123 = {}
+        for key, value in data.lists():
+            if key == "room_id":
+                for v in value:
+                    rooms.append(v)
+            elif key == "number_of_guests":
+                for v in value:
+                    number_of_guests.append(v)
+            elif key == "select-room":
+                for v in value:
+                    selected_rooms.append(v)
+        i = 0
+        while i < len(rooms):
+            merged_data[rooms[i]] = number_of_guests[i]
+            i += 1
 
-        room_data = {
-            "rooms": request.POST.getlist('room_id'),
-            "number_of_guests": request.POST.getlist('number_of_guests'),
-            "rooms_checkbox": request.POST.getlist('select-room'),
-            "number_of_nights": number_of_nights,
-        }
-        request.session['selected_rooms'] = room_data
+        for k, v in merged_data.items():
+            for room in selected_rooms:
+                if room == k:
+                    test123[k] = v
+
+        request.session['test123'] = test123
+        # print(request.session['test123'])
+        # room_data = {
+        #     "rooms": request.POST.getlist('room_id'),
+        #     "number_of_guests": request.POST.getlist('number_of_guests'),
+        #     "rooms_checkbox": request.POST.getlist('select-room'),
+        #     "number_of_nights": number_of_nights,
+        # }
+        # request.session['selected_rooms'] = room_data
         return redirect('checkout')
     else:
         form = request.session['reservation_request']

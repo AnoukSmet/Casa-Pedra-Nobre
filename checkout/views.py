@@ -9,6 +9,7 @@ from .models import ReservationLineItem, Reservation
 from datetime import datetime
 from django.conf import settings
 import stripe
+import json
 
 
 # Create your views here.
@@ -20,10 +21,14 @@ def cache_checkout_data(request):
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
         stripe.PaymentIntent.modify(pid, metadata={
-            # 'bag': json.dumps(request.session.get('bag', {})),
+            'reservation_request': json.dumps(
+                request.session.get('reservation_request', {})),
+            'test123': json.dumps(
+                request.session.get('test123', {})),
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
+
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \
@@ -37,6 +42,7 @@ def checkout(request):
 
     if request.method == "POST":
         reservation_items = reservation_item(request)
+        reservation_request = request.session.get('reservation_request', {})
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -45,17 +51,20 @@ def checkout(request):
             'comment': request.POST['comment'],
             'eta': request.POST['eta'],
         }
-        # print(type(reservation_items["reservation_total"]))
         reservation_form = ReservationForm(form_data)
         if reservation_form.is_valid():
             reservation = reservation_form.save(commit=False)
-            reservation.reservation_total = reservation_items["reservation_total"]
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            reservation.stripe_pid = pid
+            reservation.original_reservation = json.dumps(reservation_request)
+            reservation.reservation_total = reservation_items[
+                "reservation_total"]
             reservation.save()
-            for room in reservation_items["selected_rooms"]:
-                print(room["room_total"])
-                selected_room = Room.objects.get(name=room["room"])
-                number_of_guests = room["number_of_guests"]
-                lineitem_total = room["room_total"]
+
+            test123 = request.session.get('test123', {})
+            for key, value in test123.items():
+                room = Room.objects.get(pk=key)
+                number_of_guests = value
                 reservation_request = request.session.get(
                     'reservation_request', {})
                 check_in = datetime.strptime(
@@ -63,16 +72,14 @@ def checkout(request):
                 check_out = datetime.strptime(
                     reservation_request["check_out"], '%Y-%m-%d').date()
                 number_of_nights = (check_out - check_in).days
-                
                 reservation_line_item = ReservationLineItem(
-                        reservation=reservation,
-                        room=selected_room,
-                        number_of_guests=number_of_guests,
-                        check_in=check_in,
-                        check_out=check_out,
-                        lineitem_total=lineitem_total,
-                        number_of_nights=number_of_nights,
-                    )
+                    reservation=reservation,
+                    room=room,
+                    number_of_guests=number_of_guests,
+                    check_in=check_in,
+                    check_out=check_out,
+                    number_of_nights=number_of_nights,
+                )
                 reservation_line_item.save()
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[
@@ -83,8 +90,13 @@ def checkout(request):
     else:
         reservation_form = ReservationForm()
         reservation_items = reservation_item(request)
+        test123 = request.session.get('test123', {})
+        rooms = []
+        for key in test123.keys():
+            room = Room.objects.get(pk=key)
+            rooms.append(room)
+
         reservation_total = reservation_items["reservation_total"]
-        rooms = reservation_items["selected_rooms"]
         stripe_total = round(reservation_total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
