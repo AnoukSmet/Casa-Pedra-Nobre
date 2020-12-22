@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="header-container" id="profile">
+    {% include 'components/navigation/navbar.html' %}
+    <div class="hero-text">
+        <h1>Profile</h1>
+        <p>View your bookings and start planning your trip by adding restaurants, places to visit and so on to your favorites!</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 profile-container">
+            <h2 class="heading mb-4 mt-2">Your profile information</h2>
+            <form class="mt-3" action="{% url 'edit_profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy}}
+                <button class="button profile-button">Save profile information</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% include 'components/social-media/social-media.html' %}
+
+{% include 'components/footer/footer.html' %}
+
+{% endblock %}

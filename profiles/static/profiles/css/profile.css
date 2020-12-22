@@ -1,0 +1,53 @@
+.profile-container {
+    border: 0.1rem solid #aa4e26;
+    margin: 2rem 0;    
+}
+
+.reservations-container {
+    border: 0.1rem solid #aa4e26;
+    margin: 2rem 0;   
+}
+
+.profile-button {
+    float: right;
+    margin: 1rem 0;
+}
+
+
+.contact-form-fields {
+    border: 0.1rem solid #aa4e26;
+    color: #000;
+    min-height: 3.5rem;
+    margin: 2rem 0;
+}
+
+.contact-form-fields::placeholder,
+.form-control {
+    color: #000;
+    font-size: 1.6rem;
+    font-family: "Karla", Arial, Helvetica, sans-serif;
+    
+}
+
+select,
+.contact-form-fields option {
+    font-size: 1.6rem !important;
+    color: #000;
+}
+
+select:invalid,
+select option[value=""] {
+    font-size: 1.6rem;
+    color: #000;
+}
+
+.contact-form-fields:focus,
+.contact-form-fields:hover {
+    border: 0.1rem solid #72351a;
+    box-shadow: 0.1rem 0.1rem 0.6rem 0.1rem #72351a !important;
+    color: #000;
+}
+
+.form-check-label {
+    color: #000;
+}

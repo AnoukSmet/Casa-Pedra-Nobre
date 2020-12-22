@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="header-container" id="profile">
     {% include 'components/navigation/navbar.html' %}
@@ -10,8 +14,38 @@
     </div>
 </div>
 <div class="container">
-
-    <p>{{ profile }}</p>
+    <div class="row">
+        <div class="col-12 col-md-6 profile-container">
+            <h2 class="heading mb-4 mt-2">Your profile information</h2>
+            <div class="row">
+                <span class="d-block col-12 col-md-4">Full Name:</span>
+                <span class="d-block col-12 col-md-8">{% if profile.default_full_name %} {{ profile.default_full_name }} {% endif %}</span>
+                <span class="d-block col-12 col-md-4">Email Address:</span>
+                <span class="d-block col-12 col-md-8">{% if profile.default_email %} {{ profile.default_email }} {% endif %}</span>
+                <span class="d-block col-12 col-md-4">Phone Number:</span>
+                <span class="d-block col-12 col-md-8">{% if profile.default_phone_number %} {{ profile.default_phone_number }} {% endif %}</span>
+                <span class="d-block col-12 col-md-4">Country:</span>
+                <span class="d-block col-12 col-md-8">{% if profile.default_country %} {{ profile.default_country.name }} {% endif %}</span>
+            </div>
+            <a href="{% url 'edit_profile' %}" class="button profile-button">Edit profile information</a>
+        </div>
+        <div class="col-12 col-md-6 reservations-container">
+            <h2 class="heading mb-4 mt-2">Your reservations</h2>
+            <h3 class="sub-heading">Upcoming Reservations</h3>
+               
+                    {% for reservation in reservations %}
+                        {% for item in reservation.lineitems.all %}
+                            {{ item }}
+                            {{ item.check_in }}
+                            {{ item.check_out }}
+                            {{ item.number_of_nights }}
+                            {{ item.room }}
+                            {{ item.number_of_guests }}
+                        {% endfor %}
+                    {% endfor %}                  
+            <h3 class="sub-heading">Past Reservations</h3>
+        </div>
+    </div>
 </div>
 
 

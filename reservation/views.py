@@ -112,14 +112,7 @@ def reservation_detail(request):
                     test123[k] = v
 
         request.session['test123'] = test123
-        # print(request.session['test123'])
-        # room_data = {
-        #     "rooms": request.POST.getlist('room_id'),
-        #     "number_of_guests": request.POST.getlist('number_of_guests'),
-        #     "rooms_checkbox": request.POST.getlist('select-room'),
-        #     "number_of_nights": number_of_nights,
-        # }
-        # request.session['selected_rooms'] = room_data
+        
         return redirect('checkout')
     else:
         form = request.session['reservation_request']
