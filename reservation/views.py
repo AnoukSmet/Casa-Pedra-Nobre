@@ -19,7 +19,7 @@ def reservation(request):
                             form["check_in"], '%Y-%m-%d').date()
         check_out = datetime.strptime(form["check_out"], '%Y-%m-%d').date()
         if check_in >= datetime.today().date():
-            if check_out >= check_in:
+            if check_out > check_in:
                 for room in rooms:
                     reservations = ReservationLineItem.objects.filter(
                         room__id=room.id)
@@ -43,15 +43,16 @@ def reservation(request):
             messages.error(request, 'Your check out date needs to be after the check in date.\
                  Please select another date.')
             return redirect(reverse('reservation'))
+
+        available_rooms = list(dict.fromkeys(available_rooms))
+        unavailable_rooms = list(dict.fromkeys(unavailable_rooms))
+
         i = 0
-        while i < len(rooms):
+        while i < len(available_rooms):
             for available_room in available_rooms:
                 if available_room in unavailable_rooms:
                     available_rooms.remove(available_room)
             i += 1
-
-        available_rooms = list(dict.fromkeys(available_rooms))
-        unavailable_rooms = list(dict.fromkeys(unavailable_rooms))
 
         request.session['reservation_request'] = form
         request.session['available_rooms'] = available_rooms
