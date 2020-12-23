@@ -67,6 +67,12 @@ select option[value=""] {
     margin: 1rem auto;
 }
 
+/* Favorites section */
+
+.favorite-category {
+    color: #72351a;
+}
+
 @media (min-width: 1024px){
     .reservations-container {
         margin-left: 5rem;

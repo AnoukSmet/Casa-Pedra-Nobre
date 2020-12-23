@@ -31,19 +31,21 @@
         </div>
         <div class="col-12 col-lg-7 reservations-container">
             {% if reservations %}
-            <h2 class="heading mb-2 mt-2">Your reservations</h2>
+            <h2 class="heading mb-4 mt-2">Your reservations</h2>
             <div class="row">
                 {% if upcoming_reservations %}
-                    <h3 class="col-12 sub-heading ml-4">Upcoming Reservations</h3>
+                    <h3 class="col-12 sub-heading ml-4 mb-3">Upcoming Reservations</h3>
                     {% for reservation in upcoming_reservations %}
                         <span class="d-block col-12 col-md-5 mt-2">Reservation Nr. :</span>
                         <span class="d-block col-12 col-md-7 mt-2" id="reservation-number">{{ reservation }}</span>
                         <span class="d-block col-12">Rooms:</span>
                         {% for item in reservation.lineitems.all %}
-                        <span class="d-block col-12 col-md-5">{{ item.room }}:   </span>
-                        <span class="d-block col-12 col-md-7">{{ item.check_in }} - {{ item.check_out }}</span>
+                        <span class="d-block col-12 col-md-5 ml-4">{{ item.room }}:   </span>
+                        <span class="d-block col-12 col-md-6">{{ item.check_in }} - {{ item.check_out }}</span>
                         {% endfor %}
-                        <div class="hr"></div>
+                        <div class="col-12">
+                            <a href="{% url 'reservation_confirmation' reservation %}" class="button profile-button mb-2">View confirmation</a>
+                        </div>
                     {% endfor %}  
                 {% endif %}      
                 {% if past_reservations %}
@@ -57,6 +59,25 @@
                 <h2 class="heading mb-2 mt-2">You don't have any reservations yet.</h2>
             {% endif %}
         </div> 
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <h2 class="heading col-12 ml-4 mb-4">My Favorites</h2>
+        {% for favorite in favorites %}
+        <div class="col-12 col-md-4">
+            <div class="card">
+                <img src="{{ favorite.image.url }}" class="card-img-top" alt="...">
+                <div>
+                    <h5 class="sub-heading mt-3 mb-2">{{ favorite }}</h5>
+                    <span class="favorite-category"><i class="fas fa-tag"></i> {{ favorite.category.friendly_name }}</span>
+                    <p class="paragraph">{{ favorite.intro }}.</p>
+                    <a href="{% url 'recommendation_detail' favorite.id %}" class="button">See more</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
 
