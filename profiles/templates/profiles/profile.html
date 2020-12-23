@@ -14,37 +14,49 @@
     </div>
 </div>
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6 profile-container">
+    <div class="row ml-0 mr-0">
+        <div class="col-12 col-lg-4 profile-container">
             <h2 class="heading mb-4 mt-2">Your profile information</h2>
             <div class="row">
-                <span class="d-block col-12 col-md-4">Full Name:</span>
-                <span class="d-block col-12 col-md-8">{% if profile.default_full_name %} {{ profile.default_full_name }} {% endif %}</span>
-                <span class="d-block col-12 col-md-4">Email Address:</span>
-                <span class="d-block col-12 col-md-8">{% if profile.default_email %} {{ profile.default_email }} {% endif %}</span>
-                <span class="d-block col-12 col-md-4">Phone Number:</span>
-                <span class="d-block col-12 col-md-8">{% if profile.default_phone_number %} {{ profile.default_phone_number }} {% endif %}</span>
-                <span class="d-block col-12 col-md-4">Country:</span>
-                <span class="d-block col-12 col-md-8">{% if profile.default_country %} {{ profile.default_country.name }} {% endif %}</span>
+                <span class="d-block col-12">Full Name:</span>
+                <span class="d-block col-12 ml-4">{% if profile.default_full_name %}{{ profile.default_full_name }} {% endif %}</span>
+                <span class="d-block col-12">Email Address:</span>
+                <span class="d-block col-12 ml-4">{% if profile.default_email %} {{ profile.default_email }} {% endif %}</span>
+                <span class="d-block col-12">Phone Number:</span>
+                <span class="d-block col-12 ml-4">{% if profile.default_phone_number %} {{ profile.default_phone_number }} {% endif %}</span>
+                <span class="d-block col-12">Country:</span>
+                <span class="d-block col-12 ml-4">{% if profile.default_country %} {{ profile.default_country.name }} {% endif %}</span>
             </div>
             <a href="{% url 'edit_profile' %}" class="button profile-button">Edit profile information</a>
         </div>
-        <div class="col-12 col-md-6 reservations-container">
-            <h2 class="heading mb-4 mt-2">Your reservations</h2>
-            <h3 class="sub-heading">Upcoming Reservations</h3>
-               
-                    {% for reservation in reservations %}
+        <div class="col-12 col-lg-7 reservations-container">
+            {% if reservations %}
+            <h2 class="heading mb-2 mt-2">Your reservations</h2>
+            <div class="row">
+                {% if upcoming_reservations %}
+                    <h3 class="col-12 sub-heading ml-4">Upcoming Reservations</h3>
+                    {% for reservation in upcoming_reservations %}
+                        <span class="d-block col-12 col-md-5 mt-2">Reservation Nr. :</span>
+                        <span class="d-block col-12 col-md-7 mt-2" id="reservation-number">{{ reservation }}</span>
+                        <span class="d-block col-12">Rooms:</span>
                         {% for item in reservation.lineitems.all %}
-                            {{ item }}
-                            {{ item.check_in }}
-                            {{ item.check_out }}
-                            {{ item.number_of_nights }}
-                            {{ item.room }}
-                            {{ item.number_of_guests }}
+                        <span class="d-block col-12 col-md-5">{{ item.room }}:   </span>
+                        <span class="d-block col-12 col-md-7">{{ item.check_in }} - {{ item.check_out }}</span>
                         {% endfor %}
-                    {% endfor %}                  
-            <h3 class="sub-heading">Past Reservations</h3>
-        </div>
+                        <div class="hr"></div>
+                    {% endfor %}  
+                {% endif %}      
+                {% if past_reservations %}
+                    <h3 class="col-12 sub-heading ml-4">Past Reservations</h3> 
+                    {% for reservation in past_reservations %}
+                    
+                    {% endfor %} 
+                {% endif %}  
+            </div>
+            {% else %}
+                <h2 class="heading mb-2 mt-2">You don't have any reservations yet.</h2>
+            {% endif %}
+        </div> 
     </div>
 </div>
 

@@ -83,6 +83,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
                 'reservation.contexts.reservation_item',
+                'profiles.contexts.date_now',
             ],
             'builtins': [
                     'crispy_forms.templatetags.crispy_forms_tags',
