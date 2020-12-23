@@ -12,10 +12,14 @@
     <div class="row">
         <div class="col-12" id="recommendation-intro">
             <h2 class="heading" >{{ recommendation }}</h2>
-            {% if is_favorite %}
-                <a href="{% url 'add_to_favorites' recommendation.id %}" data-toggle="tooltip" title="Remove from favorites!"><i class="fas fa-heart"></i></a>
+            {% if request.user.is_authenticated %}
+                {% if is_favorite %}
+                    <a href="{% url 'add_to_favorites' recommendation.id %}" data-toggle="tooltip" title="Remove from favorites!"><i class="fas fa-heart"></i></a>
+                {% else %}
+                    <a href="{% url 'add_to_favorites' recommendation.id %}" data-toggle="tooltip" title="Add to favorites!"><i class="far fa-heart"></i></a>
+                {% endif %}
             {% else %}
-                <a href="{% url 'add_to_favorites' recommendation.id %}" data-toggle="tooltip" title="Add to favorites!"><i class="far fa-heart"></i></a>
+                <a href="#loginmodal" data-toggle="modal" data-target="#loginmodal"><i class="far fa-heart"></i></a>
             {% endif %}
             <p>{{ recommendation.intro }}</p>
         </div>
@@ -31,6 +35,20 @@
     </div>
 </div>
 
+<div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body">
+            <p>Create an account or login to start adding our recommendations to your favorites!</p>
+            <a class="button" href="{% url 'account_signup' %}">Sign up</a> 
+            <a class="button" href="{% url 'account_login' %}">Sign in</a>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="button" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
 
 
 {% include 'components/social-media/social-media.html' %}
