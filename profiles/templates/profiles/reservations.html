@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'components/navigation/navbar.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="heading">Reservations</h1>
+            <form method="GET" action="#">
+                <input class="contact-form-fields" type="text" name="q" placeholder="Search reservations">   
+                <button class="button" type="submit">
+                    <span class="icon"><i class="fas fa-search"></i></span>
+                </button>
+            </form>
+        </div>
+        <div class="col-12">
+            <h2 class="sub-heading">Arriving today:</h2>
+            {% if arrivals_today %}
+                {% for arrival in arrivals_today %}
+                    <p>{{ arrival }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No arrivals today</p>
+            {% endif %}
+        </div>
+        <div class="col-12">
+            <h2 class="sub-heading">Departing today:</h2>
+            {% if departures %}
+                {% for departure in departures %}
+                    <p>{{ departure }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No departures today</p>
+            {% endif %}
+        </div>
+        <div class="col-12">
+            <h2 class="sub-heading">In House:</h2>
+            {% if inhouse_guests %}
+                {% for guest in inhouse_guests %}
+                    <p>{{ guest }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No inhouse guests at the moment</p>
+            {% endif %}
+        </div>
+        <div class="col-12">
+            <h2 class="sub-heading">Arrivals next 7 days:</h2>
+            {% if arrivals_next %}
+                {% for arrival in arrivals_next %}
+                    <p>{{ arrival }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No arrivals in the next 7 days</p>
+            {% endif %}
+        </div>
+        <div class="col-12">
+            <h2 class="sub-heading">All reservations:</h2>
+            {% for reservation in reservations %}
+                <p>{{ reservation }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
+{% include 'components/social-media/social-media.html' %}
+{% include 'components/footer/footer.html' %}
+{% endblock %}

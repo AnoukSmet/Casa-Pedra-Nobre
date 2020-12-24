@@ -1,10 +1,11 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import UserProfile
 from .forms import UserProfileForm
 from django.contrib import messages
-from datetime import datetime
+from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
 from checkout.models import Reservation
+
 
 
 @login_required
@@ -34,6 +35,7 @@ def profile(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == "POST":
@@ -54,6 +56,7 @@ def edit_profile(request):
     return render(request, template, context)
 
 
+@login_required
 def reservation_confirmation(request, reservation_number):
     reservation = get_object_or_404(Reservation,
                                     reservation_number=reservation_number)
@@ -67,4 +70,40 @@ def reservation_confirmation(request, reservation_number):
         'reservation': reservation,
         'from_profile': True,
     }
+    return render(request, template, context)
+
+
+@login_required
+def view_reservations(request):
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, you don't have access to this \
+            part of the site.")
+        return redirect(reverse('home'))
+
+    reservations = Reservation.objects.all()
+    arrivals_today = []
+    arrivals_next = []
+    departures = []
+    inhouse_guests = []
+    for reservation in reservations:
+        for item in reservation.lineitems.all():
+            if item.check_in == datetime.today().date():
+                arrivals_today.append(item)
+            elif item.check_out == datetime.today().date():
+                departures.append(item)
+            elif item.check_in < datetime.today().date() and item.check_out > datetime.today().date():
+                inhouse_guests.append(item)
+            elif item.check_in > datetime.today().date() and item.check_in < datetime.today().date() + timedelta(days=7):
+                arrivals_next.append(item)
+
+
+    template = 'profiles/reservations.html'
+    context = {
+        "reservations": reservations,
+        "arrivals_today": arrivals_today,
+        "arrivals_next": arrivals_next,
+        "departures": departures,
+        "inhouse_guests": inhouse_guests
+    }
+
     return render(request, template, context)
