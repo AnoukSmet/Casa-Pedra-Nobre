@@ -54,8 +54,9 @@ def checkout(request):
         reservation_form = ReservationForm(form_data)
         if reservation_form.is_valid():
             reservation = reservation_form.save(commit=False)
-            pid = request.POST.get('client_secret').split('_secret')[0]
-            reservation.stripe_pid = pid
+            if not request.user.is_superuser:
+                pid = request.POST.get('client_secret').split('_secret')[0]
+                reservation.stripe_pid = pid
             reservation.original_reservation = json.dumps(reservation_request)
             reservation.reservation_total = reservation_items[
                 "reservation_total"]
@@ -99,25 +100,36 @@ def checkout(request):
         reservation_total = reservation_items["reservation_total"]
         stripe_total = round(reservation_total * 100)
         stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
+        if not request.user.is_superuser:
+            intent = stripe.PaymentIntent.create(
+                amount=stripe_total,
+                currency=settings.STRIPE_CURRENCY,
+            )
 
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe Public Key is missing.  \
-            Did you forget to set it in your environment?')
+            if not stripe_public_key:
+                messages.warning(request, 'Stripe Public Key is missing.  \
+                    Did you forget to set it in your environment?')
 
-    template = 'checkout/checkout.html'
-    context = {
-        'reservation_form': reservation_form,
-        'rooms': rooms,
-        'reservation_items': reservation_items,
-        'reservation_total': reservation_total,
-        'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
-     }
-    return render(request, template, context)
+            template = 'checkout/checkout.html'
+            context = {
+                'reservation_form': reservation_form,
+                'rooms': rooms,
+                'reservation_items': reservation_items,
+                'reservation_total': reservation_total,
+                'stripe_public_key': stripe_public_key,
+                'client_secret': intent.client_secret,
+                }
+            return render(request, template, context)
+
+        else:
+            template = 'checkout/checkout.html'
+            context = {
+                'reservation_form': reservation_form,
+                'rooms': rooms,
+                'reservation_items': reservation_items,
+                'reservation_total': reservation_total,
+            }
+        return render(request, template, context)
 
 
 def checkout_success(request, reservation_number):

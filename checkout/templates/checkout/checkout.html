@@ -54,12 +54,14 @@
                         </label>
                     {% endif %}
                 </div>
+                {% if not request.user.is_superuser %}
                 <div>
                     <h2 class="sub-heading mb-4">Payment</h2>
                         <div class="mb-3" id="stripe-card-element"></div>
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </div>
+                {% endif %}
                 <div>
                     <button class="button mb-4" id="submit-button">Confirm</button>
                 </div>

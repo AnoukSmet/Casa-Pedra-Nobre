@@ -66,3 +66,9 @@
 #additional-info p {
     white-space: pre-line;
 }
+
+/* Modal */
+
+.modal-body {
+    text-align: center;
+}
