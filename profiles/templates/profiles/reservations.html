@@ -24,7 +24,12 @@
             <h2 class="sub-heading">Arriving today:</h2>
             {% if arrivals_today %}
                 {% for arrival in arrivals_today %}
-                    <p>{{ arrival }}</p>
+                    <p>
+                        {{ arrival.full_name }}
+                        {% for item in arrival.lineitems.all %}
+                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                        {% endfor %}
+                    </p>
                 {% endfor %}
             {% else %}
                 <p>No arrivals today</p>
@@ -34,7 +39,12 @@
             <h2 class="sub-heading">Departing today:</h2>
             {% if departures %}
                 {% for departure in departures %}
-                    <p>{{ departure }}</p>
+                    <p>
+                        {{ departure.full_name }}
+                        {% for item in departure.lineitems.all %}
+                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                        {% endfor %}
+                    </p>
                 {% endfor %}
             {% else %}
                 <p>No departures today</p>
@@ -44,7 +54,12 @@
             <h2 class="sub-heading">In House:</h2>
             {% if inhouse_guests %}
                 {% for guest in inhouse_guests %}
-                    <p>{{ guest }}</p>
+                    <p>{
+                        { guest.full_name }}
+                        {% for item in guest.lineitems.all %}
+                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                        {% endfor %}
+                    </p>
                 {% endfor %}
             {% else %}
                 <p>No inhouse guests at the moment</p>
@@ -54,7 +69,12 @@
             <h2 class="sub-heading">Arrivals next 7 days:</h2>
             {% if arrivals_next %}
                 {% for arrival in arrivals_next %}
-                    <p>{{ arrival }}</p>
+                    <p>
+                        {{ arrival.full_name }}
+                        {% for item in arrival.lineitems.all %}
+                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                        {% endfor %}
+                    </p>
                 {% endfor %}
             {% else %}
                 <p>No arrivals in the next 7 days</p>
@@ -63,7 +83,12 @@
         <div class="col-12">
             <h2 class="sub-heading">All reservations:</h2>
             {% for reservation in reservations %}
-                <p>{{ reservation }}</p>
+                <p>
+                    {{ reservation.full_name }}
+                    {% for item in reservation.lineitems.all %}
+                        <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                    {% endfor %}
+                </p>
             {% endfor %}
         </div>
     </div>
