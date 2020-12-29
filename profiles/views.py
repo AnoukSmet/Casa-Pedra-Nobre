@@ -88,13 +88,17 @@ def view_reservations(request):
     for reservation in reservations:
         for item in reservation.lineitems.all():
             if item.check_in == datetime.today().date():
-                arrivals_today.append(reservation)
+                if reservation not in arrivals_today:
+                    arrivals_today.append(reservation)
             elif item.check_out == datetime.today().date():
-                departures.append(reservation)
+                if reservation not in departures:
+                    departures.append(reservation)
             elif item.check_in < datetime.today().date() and item.check_out > datetime.today().date():
-                inhouse_guests.append(reservation)
+                if reservation not in inhouse_guests:
+                    inhouse_guests.append(reservation)
             elif item.check_in > datetime.today().date() and item.check_in < datetime.today().date() + timedelta(days=7):
-                arrivals_next.append(reservation)
+                if reservation not in arrivals_next:
+                    arrivals_next.append(reservation)
 
     template = 'profiles/reservations.html'
     context = {

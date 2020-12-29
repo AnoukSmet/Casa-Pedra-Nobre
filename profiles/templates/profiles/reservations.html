@@ -23,11 +23,13 @@
         <div class="col-12">
             <h2 class="sub-heading">Arriving today:</h2>
             {% if arrivals_today %}
-                {% for arrival in arrivals_today %}
+                {% for reservation in arrivals_today %}
                     <p>
-                        {{ arrival.full_name }}
-                        {% for item in arrival.lineitems.all %}
-                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                        {{ reservation.full_name }}
+                        {% for item in reservation.lineitems.all %}
+                            <a href="{% url 'reservation_confirmation' reservation %}">
+                                <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                            </a>
                         {% endfor %}
                     </p>
                 {% endfor %}
@@ -38,11 +40,13 @@
         <div class="col-12">
             <h2 class="sub-heading">Departing today:</h2>
             {% if departures %}
-                {% for departure in departures %}
+                {% for reservation in departures %}
                     <p>
-                        {{ departure.full_name }}
-                        {% for item in departure.lineitems.all %}
-                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                        {{ reservation.full_name }}
+                        {% for item in reservation.lineitems.all %}
+                            <a href="{% url 'reservation_confirmation' reservation %}">
+                                <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                            </a>
                         {% endfor %}
                     </p>
                 {% endfor %}
@@ -53,11 +57,13 @@
         <div class="col-12">
             <h2 class="sub-heading">In House:</h2>
             {% if inhouse_guests %}
-                {% for guest in inhouse_guests %}
-                    <p>{
-                        { guest.full_name }}
-                        {% for item in guest.lineitems.all %}
-                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                {% for reservation in inhouse_guests %}
+                    <p>
+                        {{ reservation.full_name }}
+                        {% for item in reservation.lineitems.all %}
+                            <a href="{% url 'reservation_confirmation' reservation %}">
+                                <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                            </a>                        
                         {% endfor %}
                     </p>
                 {% endfor %}
@@ -68,11 +74,13 @@
         <div class="col-12">
             <h2 class="sub-heading">Arrivals next 7 days:</h2>
             {% if arrivals_next %}
-                {% for arrival in arrivals_next %}
+                {% for reservation in arrivals_next %}
                     <p>
-                        {{ arrival.full_name }}
-                        {% for item in arrival.lineitems.all %}
-                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                        {{ reservation.full_name }}
+                        {% for item in reservation.lineitems.all %}
+                            <a href="{% url 'reservation_confirmation' reservation %}">
+                                <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                            </a>                        
                         {% endfor %}
                     </p>
                 {% endfor %}
@@ -86,7 +94,9 @@
                 <p>
                     {{ reservation.full_name }}
                     {% for item in reservation.lineitems.all %}
-                        <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                        <a href="{% url 'reservation_confirmation' reservation %}">
+                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
+                        </a>                        
                     {% endfor %}
                 </p>
             {% endfor %}
