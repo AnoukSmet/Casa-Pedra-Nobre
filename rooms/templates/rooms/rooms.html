@@ -31,11 +31,9 @@
             <div class="col-12 col-md-8 room-description">
                 <h2 class="heading">{{room}}</h2>
                 <p>
-                    {{ room.description }}
+                    {{ room.intro }}
                 </p>
-                <p>
-                    Price per night, based on 2 guests: €{{ room.price}}
-                </p>
+                <a class="button rooms-buttons" href="{% url 'room_detail' room.id %}">More information about this room</a>
             </div>
         </div>
         <div class="hr"></div>    

@@ -13,6 +13,7 @@ class RoomAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'description',
+        'intro',
         'price',
         'max_number_of_guests',
     )

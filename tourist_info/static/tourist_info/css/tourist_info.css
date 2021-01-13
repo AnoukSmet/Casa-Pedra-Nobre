@@ -4,8 +4,8 @@
 
 .recommendation-category {
     width: 100%;
-    margin: 1.5rem 0;
     text-align: center;
+    padding: 0;
 }
 
 .recommendation-category a {
@@ -18,6 +18,7 @@
 
 .recommendation-category a:hover {
     background-color: #72351a;
+    color: #FFFFEB;
     text-decoration: none;
 }
 
@@ -29,6 +30,10 @@
 #intro-heading {
     text-align: center;
     margin: 1rem 0;
+}
+
+.recommendation-cards {
+    margin-bottom: 0;
 }
 
 

@@ -6,6 +6,7 @@ from django.db import transaction
 
 class Room(models.Model):
     name = models.CharField(max_length=50)
+    intro = models.TextField(null=True, blank=True)
     description = models.TextField()
     price = models.DecimalField(
         max_digits=6, decimal_places=2)

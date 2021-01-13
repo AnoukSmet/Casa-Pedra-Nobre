@@ -33,32 +33,34 @@
 </div>
 
 <div class="container tourist-info-container">
+    <div class="accordion" id="accordionExample">
     {% for category in categories %}
-
-    <div class="row recommendation-category" >
-        <a data-bs-toggle="collapse" href="#{{ category }}" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12">
-            {{ category.friendly_name }}
-        </a>
-    </div>
-    <div class="collapse" id="{{ category }}">
-        <div class="row">
-            {% for recommendation in recommendations %}
-                {% if recommendation.category == category %}
-                    <div class="col-12 col-md-4">
-                        <div class="card">
-                            <img src="{{ recommendation.image.url }}" class="card-img-top" alt="...">
-                            <div>
-                                <h5 class="sub-heading mt-3 mb-2">{{ recommendation }}</h5>
-                                <p class="paragraph">{{ recommendation.intro }}.</p>
-                                <a href="{% url 'recommendation_detail' recommendation.id %}" class="button">See more</a>
-                            </div>
+        <div class="card recommendation-cards mb-4">
+            <div class="card-header recommendation-category" id="{{category.friendly_name}}">
+                <a data-toggle="collapse" href="#{{ category }}" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
+                    {{ category.friendly_name }}
+                </a>
+            </div>
+            
+            <div id="{{ category }}" class="collapse" aria-labelledby="{{category.friendly_name}}" data-parent="#accordionExample">
+                <div class="card-body row">
+                {% for recommendation in recommendations %}
+                    {% if recommendation.category == category %}
+                    <div class="card col-12 col-md-4">
+                        <img src="{{ recommendation.image.url }}" class="card-img-top" alt="...">
+                        <div>
+                            <h5 class="sub-heading mt-3 mb-2">{{ recommendation }}</h5>
+                            <p class="paragraph">{{ recommendation.intro }}.</p>
+                            <a href="{% url 'recommendation_detail' recommendation.id %}" class="button">See more</a>
                         </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
-        </div> 
-    </div>
+                    </div>            
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
     {% endfor %}
+    </div>
 </div>
 
 
