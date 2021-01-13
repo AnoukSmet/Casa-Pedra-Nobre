@@ -92,10 +92,18 @@ def checkout(request):
         reservation_form = ReservationForm()
         reservation_items = reservation_item(request)
         test123 = request.session.get('test123', {})
+
         rooms = []
-        for key in test123.keys():
+        number_of_guests = []
+        roomsTest = {}
+        for key, value in test123.items():
             room = Room.objects.get(pk=key)
             rooms.append(room)
+            number_of_guests.append(value)
+        i = 0
+        while i < len(rooms):
+            roomsTest[rooms[i]] = number_of_guests[i]
+            i += 1
 
         reservation_total = reservation_items["reservation_total"]
         stripe_total = round(reservation_total * 100)
@@ -109,11 +117,10 @@ def checkout(request):
             if not stripe_public_key:
                 messages.warning(request, 'Stripe Public Key is missing.  \
                     Did you forget to set it in your environment?')
-
             template = 'checkout/checkout.html'
             context = {
                 'reservation_form': reservation_form,
-                'rooms': rooms,
+                'rooms': roomsTest,
                 'reservation_items': reservation_items,
                 'reservation_total': reservation_total,
                 'stripe_public_key': stripe_public_key,
@@ -125,7 +132,7 @@ def checkout(request):
             template = 'checkout/checkout.html'
             context = {
                 'reservation_form': reservation_form,
-                'rooms': rooms,
+                'rooms': roomsTest,
                 'reservation_items': reservation_items,
                 'reservation_total': reservation_total,
             }

@@ -19,7 +19,7 @@
 
             <h2 class="sub-heading mb-4">Rooms:</h2>
             <div class="row">
-            {% for room in rooms %}
+                {% for room, number_of_guests in rooms.items %}
                 <div class="col-12 col-md-6">
                     {% for image in room.images.all %}
                         {% if image.main_image %}
@@ -29,10 +29,10 @@
                 </div>
                 <div class="col-12 col-md-6">
                     <h2 class="sub-heading mb-4 mt-4">{{ room }}</h2>
-                    <p>Number of guests: {{ room.number_of_guests }}</p>
+                    <p>Number of guests: {{ number_of_guests }}</p>
                     <p>Room total: €{% widthratio number_of_nights 1 room.price %}</p>
                 </div>
-            {% endfor %}
+                {% endfor %}
             </div>
             <h2 class="sub-heading mb-4">Total price: €{{ reservation_total}}</h2>
         </div>
