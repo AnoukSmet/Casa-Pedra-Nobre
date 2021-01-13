@@ -112,7 +112,7 @@ def reservation_detail(request):
                     test123[k] = v
 
         request.session['test123'] = test123
-        
+
         return redirect('checkout')
     else:
         form = request.session['reservation_request']

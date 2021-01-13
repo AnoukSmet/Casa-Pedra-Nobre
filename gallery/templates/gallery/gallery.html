@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'gallery/css/gallery.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="header-container" id="gallery">
+    {% include 'components/navigation/navbar.html' %}
+    <div class="hero-text">
+        <h1>Gallery</h1>
+        <a class="button" href="#">Casa Pedra Nobre</a>
+        <a class="button" href="#">Surroundings</a>
+    </div>
+</div>
+
+
+
+{% include 'components/social-media/social-media.html' %}
+
+{% include 'components/footer/footer.html' %}
+
+{% endblock %}
