@@ -66,10 +66,14 @@ body {
 
 .header-container {
     height: 100vh;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+}
+
+.header-container-small {
+    height: 60vh;
 }
 
 #homepage {
@@ -111,12 +115,14 @@ body {
 }
 
 #account-dropdown {
-    background: rgba(170,78,38,0.8)
+    background: rgba(170,78,38,0.8);
+    padding: 0;
 }
 
 .dropdown-item {
     color: #FFFFEB;
     font-size: 1.8rem;
+    padding: 0.5rem !important;
 }
 
 .dropdown-item:hover {

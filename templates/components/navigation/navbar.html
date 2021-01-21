@@ -30,7 +30,7 @@
                 <a class="nav-link" href="{% url 'tourist_info' %}">Tourist Info</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profile</a>
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Profile</a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options" id="account-dropdown">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
