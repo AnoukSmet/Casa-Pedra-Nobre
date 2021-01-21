@@ -2,6 +2,39 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-book-now.jpg");
 }
 
+#reservation-hero-text {
+    top: 70%;
+}
+
+#reservation-hero-text h1 {
+    margin-bottom: 2rem;
+}
+#reservation-hero-text p {
+    margin-bottom: 4rem;
+}
+
+#reservation-request-form {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    padding: 1.5rem;
+}
+
+.reservation-label {
+    font-size: 2.5rem;
+}
+
+.reservation-input {
+    background-color: #aa4e26;
+    color: #fff;
+    border: none;
+    padding: 0.1rem 0.5rem;
+    margin-left: 1rem;
+    font-size: 1.8rem;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 .submit-rooms {
     margin-bottom: 2rem;
     width: 100%;

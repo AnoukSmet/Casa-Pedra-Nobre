@@ -8,30 +8,27 @@
 {% block content %}
 <div class="header-container" id="reservation">
     {% include 'components/navigation/navbar.html' %}
-    <div class="hero-text">
-        <h1>Reservation</h1>
-        <p>Book your room now at Casa Pedra Nobre and start planning your trip!</p>
-    </div>
-</div>
+    <div class="hero-text" id="reservation-hero-text">
+        <h1 class="ml-1 mr-1">Reservation</h1>
+        <p class="ml-1 mr-1">Book your room now at Casa Pedra Nobre and start planning your trip!</p>
 
-<div class="container">
-    <h2 class="sub-heading mb-4 mt-4">Reservation</h2>
-    <p>Select your preferred check in and check out date and proceed to the next step</p>
-    <p> {{error }}</p>
-    <form method="POST" action="{% url 'reservation' %}" class="row">
-         {% csrf_token %}
-        <div class="col-12 col-md-6">
-            <label for="check_in">Check-In:</label>
-            <input type="date" name="check_in">
+        <div class="container" id="reservation-request-form">
+            <form method="POST" action="{% url 'reservation' %}" class="row">
+            {% csrf_token %}
+                <div class="col-12 col-md-6 text-right">
+                    <label class="reservation-label" for="check_in">Check-In:</label>
+                    <input class="reservation-input" type="date" name="check_in">
+                </div>
+                <div class="col-12 col-md-6 text-left">
+                    <label class="reservation-label" for="check_out">Check-Out:</label>
+                    <input class="reservation-input" type="date" name="check_out">
+                </div>
+                <div class="col-12 mt-4 mb-4">
+                    <input class="button" type="submit" value="Show prices and availability">
+                </div>
+            </form> 
         </div>
-        <div class="col-12 col-md-6">
-            <label for="check_out">Check-Out:</label>
-            <input type="date" name="check_out">
-        </div>
-        <div class="col-12 mt-4 mb-4">
-            <input class="button" type="submit" value="Show prices and availability">
-        </div>
-    </form> 
+    </div>
 </div>
 
 {% include 'components/social-media/social-media.html' %}

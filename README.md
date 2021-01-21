@@ -315,6 +315,8 @@ I have highlighted the relationships between the various models with colors.
 ### Toggler Icon Navbar not showing
 #### Resolved by adding navbar-dark to navbar and overwriting this
 
+### Date Icon reservation request black
+#### ::-webkit-calendar-picker-indicator { filter: invert(1);}
 
 ## **Deployment**
 
