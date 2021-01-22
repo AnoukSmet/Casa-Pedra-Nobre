@@ -81,10 +81,21 @@ def view_reservations(request):
         return redirect(reverse('home'))
 
     reservations = Reservation.objects.all()
+    past_reservations = []
+    upcoming_reservations = []
     arrivals_today = []
     arrivals_next = []
     departures = []
     inhouse_guests = []
+    for reservation in reservations:
+        for item in reservation.lineitems.all():
+            if item.check_in and item.check_out < datetime.today().date():
+                if reservation not in past_reservations:
+                    past_reservations.append(reservation)
+            elif item.check_in > datetime.today().date():
+                if reservation not in upcoming_reservations:
+                    upcoming_reservations.append(reservation)
+
     for reservation in reservations:
         for item in reservation.lineitems.all():
             if item.check_in == datetime.today().date():
@@ -103,6 +114,8 @@ def view_reservations(request):
     template = 'profiles/reservations.html'
     context = {
         "reservations": reservations,
+        "past_reservations": past_reservations,
+        "upcoming_reservations": upcoming_reservations,
         "arrivals_today": arrivals_today,
         "arrivals_next": arrivals_next,
         "departures": departures,

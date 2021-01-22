@@ -79,3 +79,39 @@ select option[value=""] {
         margin-left: 5rem;
     }
 }
+
+
+/* Test */
+
+.accordion {
+    width: 100%;
+}
+
+.reservation-table {
+    background-color: #fff;
+    color: #000;
+}
+
+.card-body {
+    background-color: #fff;
+    text-align: center;
+}
+
+.reservations-collapse {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+
+.reservations-collapse a {
+    color: #FFFFEB;
+    font-family: "Baskervville", Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    background-color: #aa4e26;
+}
+
+.reservations-collapse a:hover {
+    background-color: #72351a;
+    color: #FFFFEB;
+    text-decoration: none;
+}

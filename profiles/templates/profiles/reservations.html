@@ -20,86 +20,299 @@
                 </button>
             </form>
         </div>
-        <div class="col-12">
-            <h2 class="sub-heading">Arriving today:</h2>
-            {% if arrivals_today %}
-                {% for reservation in arrivals_today %}
-                    <p>
-                        {{ reservation.full_name }}
-                        {% for item in reservation.lineitems.all %}
-                            <a href="{% url 'reservation_confirmation' reservation %}">
-                                <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
-                            </a>
-                        {% endfor %}
-                    </p>
-                {% endfor %}
-            {% else %}
-                <p>No arrivals today</p>
-            {% endif %}
-        </div>
-        <div class="col-12">
-            <h2 class="sub-heading">Departing today:</h2>
-            {% if departures %}
-                {% for reservation in departures %}
-                    <p>
-                        {{ reservation.full_name }}
-                        {% for item in reservation.lineitems.all %}
-                            <a href="{% url 'reservation_confirmation' reservation %}">
-                                <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
-                            </a>
-                        {% endfor %}
-                    </p>
-                {% endfor %}
-            {% else %}
-                <p>No departures today</p>
-            {% endif %}
-        </div>
-        <div class="col-12">
-            <h2 class="sub-heading">In House:</h2>
-            {% if inhouse_guests %}
-                {% for reservation in inhouse_guests %}
-                    <p>
-                        {{ reservation.full_name }}
-                        {% for item in reservation.lineitems.all %}
-                            <a href="{% url 'reservation_confirmation' reservation %}">
-                                <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
-                            </a>                        
-                        {% endfor %}
-                    </p>
-                {% endfor %}
-            {% else %}
-                <p>No inhouse guests at the moment</p>
-            {% endif %}
-        </div>
-        <div class="col-12">
-            <h2 class="sub-heading">Arrivals next 7 days:</h2>
-            {% if arrivals_next %}
-                {% for reservation in arrivals_next %}
-                    <p>
-                        {{ reservation.full_name }}
-                        {% for item in reservation.lineitems.all %}
-                            <a href="{% url 'reservation_confirmation' reservation %}">
-                                <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
-                            </a>                        
-                        {% endfor %}
-                    </p>
-                {% endfor %}
-            {% else %}
-                <p>No arrivals in the next 7 days</p>
-            {% endif %}
-        </div>
-        <div class="col-12">
-            <h2 class="sub-heading">All reservations:</h2>
-            {% for reservation in reservations %}
-                <p>
-                    {{ reservation.full_name }}
-                    {% for item in reservation.lineitems.all %}
-                        <a href="{% url 'reservation_confirmation' reservation %}">
-                            <span class="d-block ml-4">{{ item.room }} (Guests: {{ item.number_of_guests }} ) : {{item.check_in }} - {{ item.check_out }}</span>
-                        </a>                        
-                    {% endfor %}
-                </p>
-            {% endfor %}
+        <div class="accordion" id="reservation-accordion">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="reservations-collapse">
+                        <a data-toggle="collapse" href="#arrivals-today" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn">
+                            Arrivals today
+                        </a>
+                    </div>
+                
+                    <div id="arrivals-today" class="collapse show" aria-labelledby="arrivals-today" data-parent="#reservation-accordion">
+                        <div class="card-body row">
+                            <div class="table-responsive">
+                                {% if arrivals_today %}
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Room</th>
+                                            <th scope="col">Check in</th>
+                                            <th scope="col">Check out</th>
+                                            <th scope="col">Number of guests</th>
+                                            <th scope="col">Paid</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for reservation in arrivals_today %}
+                                                {% for item in reservation.lineitems.all %}
+                                                    <tr>
+                                                        <th scope="row">{{ reservation.full_name }}</th>
+                                                        <td>{{ item.room }}</td>
+                                                        <td>{{item.check_in }}</td>
+                                                        <td>{{item.check_out }}</td>
+                                                        <td>{{ item.number_of_guests }}</td>
+                                                        {% if reservation.stripe_pid %}
+                                                            <td><i class="fas fa-check"></i></td>
+                                                        {% else %}
+                                                            <td><i class="fas fa-times"></i></td>
+                                                        {% endif %}
+                                                    </tr>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <p>No arrivals today</p>
+                                {% endif %}
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="reservations-collapse">
+                        <a data-toggle="collapse" href="#departures" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn">
+                            Departures today
+                        </a>
+                    </div>
+                
+                    <div id="departures" class="collapse show" aria-labelledby="departures" data-parent="#reservation-accordion">
+                        <div class="card-body row">
+                            <div class="table-responsive">
+                                {% if departures %}
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Room</th>
+                                            <th scope="col">Check in</th>
+                                            <th scope="col">Check out</th>
+                                            <th scope="col">Number of guests</th>
+                                            <th scope="col">Paid</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for reservation in departures %}
+                                                {% for item in reservation.lineitems.all %}
+                                                    <tr>
+                                                        <th scope="row">{{ reservation.full_name }}</th>
+                                                        <td>{{ item.room }}</td>
+                                                        <td>{{item.check_in }}</td>
+                                                        <td>{{item.check_out }}</td>
+                                                        <td>{{ item.number_of_guests }}</td>
+                                                        {% if reservation.stripe_pid %}
+                                                            <td><i class="fas fa-check"></i></td>
+                                                        {% else %}
+                                                            <td><i class="fas fa-times"></i></td>
+                                                        {% endif %}
+                                                    </tr>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <p>No departures today</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="reservations-collapse">
+                        <a data-toggle="collapse" href="#inhouse" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn">
+                            Inhouse Guests
+                        </a>
+                    </div>
+                
+                    <div id="inhouse" class="collapse show" aria-labelledby="inhouse" data-parent="#reservation-accordion">
+                        <div class="card-body row">
+                            <div class="table-responsive">
+                                {% if inhouse_guests %}
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Room</th>
+                                            <th scope="col">Check in</th>
+                                            <th scope="col">Check out</th>
+                                            <th scope="col">Number of guests</th>
+                                            <th scope="col">Paid</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for reservation in inhouse_guests %}
+                                                {% for item in reservation.lineitems.all %}
+                                                    <tr>
+                                                        <th scope="row">{{ reservation.full_name }}</th>
+                                                        <td>{{ item.room }}</td>
+                                                        <td>{{item.check_in }}</td>
+                                                        <td>{{item.check_out }}</td>
+                                                        <td>{{ item.number_of_guests }}</td>
+                                                        {% if reservation.stripe_pid %}
+                                                            <td><i class="fas fa-check"></i></td>
+                                                        {% else %}
+                                                            <td><i class="fas fa-times"></i></td>
+                                                        {% endif %}
+                                                    </tr>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <p>No inhouse guests at the moment</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="reservations-collapse">
+                        <a data-toggle="collapse" href="#arrivals-next-7" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
+                            Arrivals in the next 7 days
+                        </a>
+                    </div>
+                
+                    <div id="arrivals-next-7" class="collapse" aria-labelledby="arrivals-next-7" data-parent="#reservation-accordion">
+                        <div class="card-body row">
+                            <div class="table-responsive">
+                                {% if arrivals_next %}
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Room</th>
+                                            <th scope="col">Check in</th>
+                                            <th scope="col">Check out</th>
+                                            <th scope="col">Number of guests</th>
+                                            <th scope="col">Paid</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for reservation in arrivals_next %}
+                                                {% for item in reservation.lineitems.all %}
+                                                    <tr>
+                                                        <th scope="row">{{ reservation.full_name }}</th>
+                                                        <td>{{ item.room }}</td>
+                                                        <td>{{item.check_in }}</td>
+                                                        <td>{{item.check_out }}</td>
+                                                        <td>{{ item.number_of_guests }}</td>
+                                                        {% if reservation.stripe_pid %}
+                                                            <td><i class="fas fa-check"></i></td>
+                                                        {% else %}
+                                                            <td><i class="fas fa-times"></i></td>
+                                                        {% endif %}
+                                                    </tr>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <p>No arrivals in the next 7 days</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="reservations-collapse">
+                        <a data-toggle="collapse" href="#upcoming-reservations" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
+                            All upcoming reservations
+                        </a>
+                    </div>
+                
+                    <div id="upcoming-reservations" class="collapse" aria-labelledby="upcoming-reservations" data-parent="#reservation-accordion">
+                        <div class="card-body row">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Room</th>
+                                        <th scope="col">Check in</th>
+                                        <th scope="col">Check out</th>
+                                        <th scope="col">Number of guests</th>
+                                        <th scope="col">Paid</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for reservation in upcoming_reservations %}
+                                            {% for item in reservation.lineitems.all %}
+                                                <tr>
+                                                    <th scope="row">{{ reservation.full_name }}</th>
+                                                    <td>{{ item.room }}</td>
+                                                    <td>{{item.check_in }}</td>
+                                                    <td>{{item.check_out }}</td>
+                                                    <td>{{ item.number_of_guests }}</td>
+                                                    {% if reservation.stripe_pid %}
+                                                        <td><i class="fas fa-check"></i></td>
+                                                    {% else %}
+                                                        <td><i class="fas fa-times"></i></td>
+                                                    {% endif %}
+                                                </tr>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> 
+                    </div>
+                </div> 
+            </div>
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="reservations-collapse">
+                        <a data-toggle="collapse" href="#past-reservations" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
+                            All past reservations
+                        </a>
+                    </div>
+                
+                    <div id="past-reservations" class="collapse" aria-labelledby="past-reservations" data-parent="#reservation-accordion">
+                        <div class="card-body row">
+                            <div class="table-responsive">
+                                <table class="table reservation-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Room</th>
+                                            <th scope="col">Check in</th>
+                                            <th scope="col">Check out</th>
+                                            <th scope="col">Nr. of guests</th>
+                                            <th scope="col">Paid</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for reservation in past_reservations %}
+                                            {% for item in reservation.lineitems.all %}
+                                                <tr>
+                                                    <th scope="row">{{ reservation.full_name }}</th>
+                                                    <td>{{ item.room }}</td>
+                                                    <td>{{item.check_in }}</td>
+                                                    <td>{{item.check_out }}</td>
+                                                    <td>{{ item.number_of_guests }}</td>
+                                                    {% if reservation.stripe_pid %}
+                                                        <td><i class="fas fa-check"></i></td>
+                                                    {% else %}
+                                                        <td><i class="fas fa-times"></i></td>
+                                                    {% endif %}
+                                                </tr>
+                                            {% endfor %}
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> 
+                    </div>
+                </div>    
+            </div>
         </div>
     </div>
 </div>
