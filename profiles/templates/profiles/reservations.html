@@ -3,6 +3,7 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
 {% endblock %}
 
 {% block content %}
@@ -33,7 +34,7 @@
                         <div class="card-body row">
                             <div class="table-responsive">
                                 {% if arrivals_today %}
-                                    <table class="table">
+                                    <table class="table" id="arrivals-today-table">
                                         <thead>
                                             <tr>
                                             <th scope="col">Name</th>
@@ -83,7 +84,7 @@
                         <div class="card-body row">
                             <div class="table-responsive">
                                 {% if departures %}
-                                    <table class="table">
+                                    <table class="table" id="departures-table">
                                         <thead>
                                             <tr>
                                             <th scope="col">Name</th>
@@ -133,7 +134,7 @@
                         <div class="card-body row">
                             <div class="table-responsive">
                                 {% if inhouse_guests %}
-                                    <table class="table">
+                                    <table class="table" id="inhouse-table">
                                         <thead>
                                             <tr>
                                             <th scope="col">Name</th>
@@ -183,7 +184,7 @@
                         <div class="card-body row">
                             <div class="table-responsive">
                                 {% if arrivals_next %}
-                                    <table class="table">
+                                    <table class="table" id="arrivals-next-7-table">
                                         <thead>
                                             <tr>
                                             <th scope="col">Name</th>
@@ -232,7 +233,7 @@
                     <div id="upcoming-reservations" class="collapse" aria-labelledby="upcoming-reservations" data-parent="#reservation-accordion">
                         <div class="card-body row">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="upcoming-reservations-table">
                                     <thead>
                                         <tr>
                                         <th scope="col">Name</th>
@@ -270,15 +271,14 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="reservations-collapse">
-                        <a data-toggle="collapse" href="#past-reservations" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
+                        <a data-toggle="collapse" href="#past-reservations" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn">
                             All past reservations
                         </a>
                     </div>
-                
-                    <div id="past-reservations" class="collapse" aria-labelledby="past-reservations" data-parent="#reservation-accordion">
+                    <div id="past-reservations" class="collapse show" aria-labelledby="past-reservations" data-parent="#reservation-accordion">
                         <div class="card-body row">
                             <div class="table-responsive">
-                                <table class="table reservation-table">
+                                <table class="table reservation-table" id="past-reservations-table">
                                     <thead>
                                         <tr>
                                             <th scope="col">Name</th>
@@ -306,12 +306,14 @@
                                                 </tr>
                                             {% endfor %}
                                         {% endfor %}
+                                        
                                     </tbody>
                                 </table>
                             </div>
                         </div> 
                     </div>
-                </div>    
+                </div>  
+                
             </div>
         </div>
     </div>
@@ -324,3 +326,23 @@
 {% include 'components/social-media/social-media.html' %}
 {% include 'components/footer/footer.html' %}
 {% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#arrivals-today-table').DataTable();
+            $('#departures-table').DataTable();
+            $('#inhouse-table').DataTable();
+            $('#arrivals-next-7-table').DataTable();
+            $('#upcoming-reservations-table').DataTable();
+            $('#past-reservations-table').DataTable();
+        } );
+    </script>
+
+{% endblock %}
+
+
+

@@ -7,7 +7,6 @@ from django.contrib.auth.decorators import login_required
 from checkout.models import Reservation
 
 
-
 @login_required
 def profile(request):
     user = request.user
@@ -81,6 +80,8 @@ def view_reservations(request):
         return redirect(reverse('home'))
 
     reservations = Reservation.objects.all()
+    
+
     past_reservations = []
     upcoming_reservations = []
     arrivals_today = []
