@@ -87,9 +87,14 @@ body {
     padding-left: 1rem;
 }
 
-.navbar-dark .navbar-nav.active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link,
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+.active {
     color: #aa4e26;
+}
+
+.navbar-dark .navbar-nav.active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link,
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover, .dropdown-item.active, .dropdown-item:active {
+    color: #aa4e26;
+    background-color: transparent;
 
 }
 
