@@ -13,13 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1 class="heading">Reservations</h1>
-            <form method="GET" action="#">
-                <input class="contact-form-fields" type="text" name="q" placeholder="Search reservations">   
-                <button class="button" type="submit">
-                    <span class="icon"><i class="fas fa-search"></i></span>
-                </button>
-            </form>
+            <h1 class="heading mb-4 mt-4 text-center">Reservations</h1>
         </div>
         <div class="accordion" id="reservation-accordion">
             <div class="col-12">
@@ -271,11 +265,11 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="reservations-collapse">
-                        <a data-toggle="collapse" href="#past-reservations" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn">
+                        <a data-toggle="collapse" href="#past-reservations" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
                             All past reservations
                         </a>
                     </div>
-                    <div id="past-reservations" class="collapse show" aria-labelledby="past-reservations" data-parent="#reservation-accordion">
+                    <div id="past-reservations" class="collapse" aria-labelledby="past-reservations" data-parent="#reservation-accordion">
                         <div class="card-body row">
                             <div class="table-responsive">
                                 <table class="table reservation-table" id="past-reservations-table">

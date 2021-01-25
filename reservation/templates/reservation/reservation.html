@@ -15,13 +15,25 @@
         <div class="container" id="reservation-request-form">
             <form method="POST" action="{% url 'reservation' %}" class="row">
             {% csrf_token %}
-                <div class="col-12 col-md-6 text-right">
-                    <label class="reservation-label" for="check_in">Check-In:</label>
-                    <input class="reservation-input" type="date" name="check_in">
+                <div class="col-12 mb-2">
+                    <div class="row">
+                        <div class="col-12 col-md-6 text-sm-center text-md-right">
+                            <label class="reservation-label" for="check_in">Check-In:</label>
+                        </div>
+                        <div class="col-12 col-md-6 text-sm-center text-md-left">
+                            <input class="reservation-input" type="date" name="check_in">
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 col-md-6 text-left">
-                    <label class="reservation-label" for="check_out">Check-Out:</label>
-                    <input class="reservation-input" type="date" name="check_out">
+                <div class="col-12 mb-2">
+                    <div class="row">
+                        <div class="col-12 col-md-6 text-sm-center text-md-right">
+                            <label class="reservation-label" for="check_out">Check-Out:</label>
+                        </div>
+                        <div class="col-12 col-md-6 text-sm-center text-md-left">
+                            <input class="reservation-input" type="date" name="check_out">
+                        </div>
+                    </div>
                 </div>
                 <div class="col-12 mt-4 mb-4">
                     <input class="button" type="submit" value="Show prices and availability">
@@ -30,8 +42,6 @@
         </div>
     </div>
 </div>
-
-{% include 'components/social-media/social-media.html' %}
 
 {% include 'components/footer/footer.html' %}
 {% endblock %}

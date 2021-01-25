@@ -3,7 +3,7 @@
 }
 
 #reservation-hero-text {
-    top: 70%;
+    top: 60%;
 }
 
 #reservation-hero-text h1 {
@@ -27,8 +27,8 @@
     color: #fff;
     border: none;
     padding: 0.1rem 0.5rem;
-    margin-left: 1rem;
     font-size: 1.8rem;
+    text-align: left;
 }
 
 ::-webkit-calendar-picker-indicator {
