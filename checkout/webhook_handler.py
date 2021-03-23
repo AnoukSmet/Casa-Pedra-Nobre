@@ -22,7 +22,7 @@ class StripeWH_Handler:
         reservation_request = intent.metadata.reservation_request
         test123 = intent.metadata.test123
         save_info = intent.metadata.save_info
-
+        
         billing_details = intent.charges.data[0].billing_details
         reservation_total = round(intent.charges.data[0].amount / 100, 2)
 

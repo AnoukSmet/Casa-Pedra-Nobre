@@ -3,6 +3,8 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'gallery/css/gallery.css' %}">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/css/lightbox.min.css">
 {% endblock %}
 
 {% block content %}
@@ -10,15 +12,50 @@
     {% include 'components/navigation/navbar.html' %}
     <div class="hero-text">
         <h1>Gallery</h1>
-        <a class="button" href="#">Casa Pedra Nobre</a>
-        <a class="button" href="#">Surroundings</a>
+        <a class="button" href="#casapedranobre">Casa Pedra Nobre</a>
+        <a class="button" href="#surroundings">Surroundings</a>
     </div>
 </div>
 
+
+<div class="photo-gallery">
+    <div class="container">
+        <div class="intro">
+            <h2 class="sub-heading">Casa Pedra Nobre</h2>
+        </div>
+        <div class="row photos">
+            {% for photo in images_cpn %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{ photo.image.url }}" data-lightbox="photos_cpn"><img class="img-fluid" src="{{ photo.image.url }}" alt=""></a></div>
+            {% endfor %}
+        </div>
+    </div>
+</div> 
+
+
+<div class="photo-gallery">
+    <div class="container">
+        <div class="intro">
+            <h2 class="sub-heading mt-4">Surroundings</h2>
+        </div>
+        <div class="row photos">
+            {% for photo in images_surroundings %}
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{ photo.url }}" data-lightbox="photos_surroundings"><img class="img-fluid" src="{{ photo.url }}" alt=""></a></div>
+            {% endfor %}
+        </div>
+    </div>
+</div> 
 
 
 {% include 'components/social-media/social-media.html' %}
 
 {% include 'components/footer/footer.html' %}
 
+{% endblock %}
+
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
 {% endblock %}

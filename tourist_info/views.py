@@ -37,4 +37,5 @@ def add_to_favorites(request, recommendation_id):
     else:
         recommendation.favorite.add(request.user)
     return HttpResponseRedirect(reverse(
-        'recommendation_detail', kwargs={'recommendation_id': recommendation_id}))
+        'recommendation_detail', kwargs={
+            'recommendation_id': recommendation_id}))

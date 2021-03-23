@@ -219,6 +219,7 @@ body {
 .card-text {
     white-space: pre-line;
     padding: 0;
+    color: #000;
 }
 
 .carousel-indicators li {

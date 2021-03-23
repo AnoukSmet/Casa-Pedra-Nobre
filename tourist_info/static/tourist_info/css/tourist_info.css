@@ -22,6 +22,10 @@
     text-decoration: none;
 }
 
+.card-body {
+    background-color: #fff;
+}
+
 #tourist-info-intro {
     white-space: pre-line;
     text-align: center;

@@ -1,3 +1,20 @@
 #gallery {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-gallery.jpg");
 }
+
+
+.intro {
+    margin: 1rem 0;
+}
+.item {
+    width: 100%;
+}
+
+.photo-gallery .photos {
+  padding-bottom: 2rem;
+}
+
+.photo-gallery .item {
+  padding-bottom: 3rem;
+}
+
