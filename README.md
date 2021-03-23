@@ -454,3 +454,5 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
 <a></a>
 
 ## **Credits**
+
+* https://epicbootstrap.com/snippets/lightbox-gallery 
