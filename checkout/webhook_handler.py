@@ -58,7 +58,7 @@ class StripeWH_Handler:
                     country=billing_details.address.country,
                     reservation_total=reservation_total,
                     original_reservation=reservation_request,
-                    stripe_pid=pid,
+                    stripe_pid=pid
                 )
                 test123 = json.loads(test123)
                 for key, value in test123.items():

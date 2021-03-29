@@ -51,11 +51,16 @@ form.addEventListener('submit', function(ev) {
     $('#loading-overlay').fadeToggle(100);
 
     var saveInfo = Boolean($('#id-save-info').attr('checked'));
+    var comment = $('#id_comment').val();
+    var eta = $('#id_eta').val();
+
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,
         'client_secret': clientSecret,
         'save_info': saveInfo,
+        'comment': comment,
+        'eta': eta,
     };
     var url = '/checkout/cache_checkout_data/';
 
