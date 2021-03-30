@@ -22,6 +22,8 @@ class StripeWH_Handler:
         reservation_request = intent.metadata.reservation_request
         test123 = intent.metadata.test123
         save_info = intent.metadata.save_info
+        comment = intent.metadata.comment
+        eta = intent.metadata.eta
         
         billing_details = intent.charges.data[0].billing_details
         reservation_total = round(intent.charges.data[0].amount / 100, 2)
@@ -58,7 +60,9 @@ class StripeWH_Handler:
                     country=billing_details.address.country,
                     reservation_total=reservation_total,
                     original_reservation=reservation_request,
-                    stripe_pid=pid
+                    stripe_pid=pid,
+                    comment=comment,
+                    eta=eta
                 )
                 test123 = json.loads(test123)
                 for key, value in test123.items():
