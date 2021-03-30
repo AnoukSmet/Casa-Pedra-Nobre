@@ -77,7 +77,7 @@ body {
 }
 
 #homepage {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-hero-image.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/welcome_hero.jpg");
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -322,7 +322,7 @@ body {
 /* Profile */
 
 #profile {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/homepage-account.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/profile_hero.jpg");
 }
 
 /* Message Container and Toasts */
