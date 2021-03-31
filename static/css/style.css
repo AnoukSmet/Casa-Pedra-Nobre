@@ -234,7 +234,7 @@ body {
 
 .social-container {
     text-align: center;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/social-media-bg.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/social_media_bg.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
