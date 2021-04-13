@@ -140,7 +140,7 @@ WSGI_APPLICATION = 'casa_pedra_nobre.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        'default': dj_database_url.parse("os.environ.get('DATABASE_URL')")
     }
 else:
     DATABASES = {
