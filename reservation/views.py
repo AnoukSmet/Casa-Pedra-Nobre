@@ -36,12 +36,12 @@ def reservation(request):
                     else:
                         available_rooms.append(room.id)
             else:
-                messages.error(request, 'Your check in date can not be in the past. \
-                    Please select another date.')
+                messages.error(request, 'Your check out date needs to be after the check in date.\
+                 Please select another date.')
                 return redirect(reverse('reservation'))
         else:
-            messages.error(request, 'Your check out date needs to be after the check in date.\
-                 Please select another date.')
+            messages.error(request, 'Your check in date can not be in the past. \
+                    Please select another date.')
             return redirect(reverse('reservation'))
 
         available_rooms = list(dict.fromkeys(available_rooms))
