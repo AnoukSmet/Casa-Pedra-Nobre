@@ -55,13 +55,6 @@ body {
     z-index: 2;
 }
 
-/* 
-#logo {
-    background-image: url("/media/logo.jpg");
-    width: 8rem;
-    height: 8rem;
-} */
-
 .logo {
     width: 8rem;
     height: 8rem;
