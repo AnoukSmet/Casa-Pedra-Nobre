@@ -23,8 +23,8 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'reservation_request': json.dumps(
                 request.session.get('reservation_request', {})),
-            'test123': json.dumps(
-                request.session.get('test123', {})),
+            'room_request': json.dumps(
+                request.session.get('room_request', {})),
             'save_info': request.POST.get('save_info'),
             'comment': request.POST.get('comment'),
             'eta': request.POST.get('eta'),
@@ -68,8 +68,8 @@ def checkout(request):
                 "reservation_total"]
             reservation.save()
 
-            test123 = request.session.get('test123', {})
-            for key, value in test123.items():
+            room_request = request.session.get('room_request', {})
+            for key, value in room_request.items():
                 room = Room.objects.get(pk=key)
                 number_of_guests = value
                 reservation_request = request.session.get(
@@ -97,18 +97,18 @@ def checkout(request):
     else:
         reservation_form = ReservationForm()
         reservation_items = reservation_item(request)
-        test123 = request.session.get('test123', {})
+        room_request = request.session.get('room_request', {})
 
         rooms = []
         number_of_guests = []
-        roomsTest = {}
-        for key, value in test123.items():
+        merged_reservation_data = {}
+        for key, value in room_request.items():
             room = Room.objects.get(pk=key)
             rooms.append(room)
             number_of_guests.append(value)
         i = 0
         while i < len(rooms):
-            roomsTest[rooms[i]] = number_of_guests[i]
+            merged_reservation_data[rooms[i]] = number_of_guests[i]
             i += 1
 
         reservation_total = reservation_items["reservation_total"]
@@ -126,7 +126,7 @@ def checkout(request):
             template = 'checkout/checkout.html'
             context = {
                 'reservation_form': reservation_form,
-                'rooms': roomsTest,
+                'rooms': merged_reservation_data,
                 'reservation_items': reservation_items,
                 'reservation_total': reservation_total,
                 'stripe_public_key': stripe_public_key,
@@ -138,7 +138,7 @@ def checkout(request):
             template = 'checkout/checkout.html'
             context = {
                 'reservation_form': reservation_form,
-                'rooms': roomsTest,
+                'rooms': merged_reservation_data,
                 'reservation_items': reservation_items,
                 'reservation_total': reservation_total,
             }

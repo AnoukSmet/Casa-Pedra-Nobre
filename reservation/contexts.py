@@ -9,7 +9,7 @@ def reservation_item(request):
     number_of_nights = 0
     reservation_total = 0
 
-    test123 = request.session.get('test123', {})
+    room_request = request.session.get('room_request', {})
 
     reservation_request = request.session.get('reservation_request', {})
     if reservation_request != {}:
@@ -19,7 +19,7 @@ def reservation_item(request):
             reservation_request["check_out"], '%Y-%m-%d').date()
         number_of_nights = (check_out - check_in).days
 
-    for key in test123.keys():
+    for key in room_request.keys():
         room = Room.objects.get(pk=key)
         reservation_total += room.price * number_of_nights
 

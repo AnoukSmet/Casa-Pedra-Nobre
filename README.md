@@ -318,6 +318,8 @@ I have highlighted the relationships between the various models with colors.
 ### Date Icon reservation request black
 #### ::-webkit-calendar-picker-indicator { filter: invert(1);}
 
+### Logo and some other images not showing
+
 ## **Deployment**
 
 ### Local Deployment

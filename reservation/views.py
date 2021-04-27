@@ -89,8 +89,8 @@ def reservation_detail(request):
         rooms = []
         number_of_guests = []
         selected_rooms = []
-        merged_data = {}
-        test123 = {}
+        merged_reservation_data = {}
+        room_request = {}
         for key, value in data.lists():
             if key == "room_id":
                 for v in value:
@@ -103,15 +103,15 @@ def reservation_detail(request):
                     selected_rooms.append(v)
         i = 0
         while i < len(rooms):
-            merged_data[rooms[i]] = number_of_guests[i]
+            merged_reservation_data[rooms[i]] = number_of_guests[i]
             i += 1
 
-        for k, v in merged_data.items():
+        for k, v in merged_reservation_data.items():
             for room in selected_rooms:
                 if room == k:
-                    test123[k] = v
+                    room_request[k] = v
 
-        request.session['test123'] = test123
+        request.session['room_request'] = room_request
 
         return redirect('checkout')
     else:
