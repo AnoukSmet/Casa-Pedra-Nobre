@@ -136,6 +136,6 @@ def reservation_detail(request, reservation_number):
     template = 'checkout/checkout_success.html'
     context = {
         'reservation': reservation,
-        'from_profile': True,
+        'admin': True,
     }
     return render(request, template, context)

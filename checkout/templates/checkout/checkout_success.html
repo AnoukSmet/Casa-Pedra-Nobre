@@ -11,8 +11,9 @@
 
 <div class="container">
     <div class="row">
+
         <div class="col-12 ">
-            <h1 class="heading mb-4 mt-4">Thank you for your reservation @Casa Pedra Nobre!</h1>
+            <h1 class="heading mb-4 mt-4">Thank you for your reservation @Casa Pedra Nobre! </h1>
             <p>
                 Please find your reservation confirmation below:
             </p>
@@ -66,8 +67,21 @@
                 </div>
             </div>
         </div>
+        {% if from_profile %}
+            <div class="col-12 mb-4 pl-0">
+                <a href="{% url 'profile'  %}" class="button profile-button">Back to my profile</a>
+            </div>
+        {% endif %}
+        {% if admin %}
+            <div class="col-12 mb-4 pl-0">
+                <a href="{% url 'view_reservations'  %}" class="button profile-button">Back to reservations overview</a>
+            </div>
+        {% endif %}
     </div>
 </div>
+
+
+
 {% include 'components/social-media/social-media.html' %}
 {% include 'components/footer/footer.html' %}
 {% endblock %}
