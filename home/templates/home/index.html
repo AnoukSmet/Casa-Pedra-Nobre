@@ -38,7 +38,7 @@
                                             {{ item.description }}
                                         </p>
                                         {% if item.url_name %}
-                                        <a href="#" class="button card-button">See more...</a>
+                                        <a href="{% url '{{ item.url_name }}' %}" class="button card-button">See more...</a>
                                         {% endif %}
                                     </div>
                                 </div>
