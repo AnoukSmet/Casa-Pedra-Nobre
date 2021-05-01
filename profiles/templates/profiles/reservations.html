@@ -43,7 +43,7 @@
                                             {% for reservation in arrivals_today %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row">{{ reservation.full_name }}</th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -93,7 +93,7 @@
                                             {% for reservation in departures %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row">{{ reservation.full_name }}</th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -143,7 +143,7 @@
                                             {% for reservation in inhouse_guests %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row">{{ reservation.full_name }}</th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -193,7 +193,7 @@
                                             {% for reservation in arrivals_next %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row">{{ reservation.full_name }}</th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -242,7 +242,7 @@
                                         {% for reservation in upcoming_reservations %}
                                             {% for item in reservation.lineitems.all %}
                                                 <tr>
-                                                    <th scope="row">{{ reservation.full_name }}</th>
+                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
                                                     <td>{{ item.room }}</td>
                                                     <td>{{item.check_in }}</td>
                                                     <td>{{item.check_out }}</td>
@@ -287,7 +287,7 @@
                                         {% for reservation in past_reservations %}
                                             {% for item in reservation.lineitems.all %}
                                                 <tr>
-                                                    <th scope="row">{{ reservation.full_name }}</th>
+                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
                                                     <td>{{ item.room }}</td>
                                                     <td>{{item.check_in }}</td>
                                                     <td>{{item.check_out }}</td>

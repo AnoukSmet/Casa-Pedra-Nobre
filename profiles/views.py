@@ -80,7 +80,6 @@ def view_reservations(request):
         return redirect(reverse('home'))
 
     reservations = Reservation.objects.all()
-    
 
     past_reservations = []
     upcoming_reservations = []
@@ -123,4 +122,20 @@ def view_reservations(request):
         "inhouse_guests": inhouse_guests,
     }
 
+    return render(request, template, context)
+
+
+@login_required
+def reservation_detail(request, reservation_number):
+    reservation = get_object_or_404(Reservation,
+                                    reservation_number=reservation_number)
+
+    messages.info(request, f'This is the confirmation email sent to the guests \
+         after booking for reservation number {reservation_number}.')
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'reservation': reservation,
+        'from_profile': True,
+    }
     return render(request, template, context)

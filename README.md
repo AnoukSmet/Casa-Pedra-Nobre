@@ -267,7 +267,7 @@ I have highlighted the relationships between the various models with colors.
 
 * Registration and sign in functionality using the allauth package from Django
 * Carousel on the homepage giving the user a sneak peek into what the other pages have to offer
-* Subscription section on each page allowing the user to subscribe to the newsletter, promotions etc.
+* Social Media section on various page allowing the user to interact and stay up to date about the latest news and promotions.
 * Reservation page that allows the user to book a stay for a certain period
 * Add to favorites functionality which allows the user to add restaurants, places to visit etc to start planning their trip.
 
