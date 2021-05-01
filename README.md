@@ -4,10 +4,9 @@
 
 ## **Goal for this project** 
 Welcome to Casa Pedra Nobre, a bed & breakfast at the Silver Coast in Portugal.  
-Have look at our website and discover what Casa Pedra Nobre has to offer.  
+Have look at our website and discover what Casa Pedra Nobre and the Silver Coast has to offer.  
 Book your favorite room, scroll down the MUST see, eat and do page and start planning your perfect stay in Portugal.   
 We hope to welcome you on one of your Portugal trips in the near future.
-
 
 This project was developed as my final project to complete the Full Stack Web Development course at Code Institute.   
 I challenged myself for this last project by going out of the scope of the course because this project is close to my heart.   
@@ -178,11 +177,15 @@ My website will have the following pages:
 
 * Landing / Home Page  
     The landing page is aimed to be visually attractive, with appealing images/icons that says "Welcome" by itself,  
-    unconsciously engaging the user and creating curiosity to keep navigating throughout the websute.
+    unconsciously engaging the user and creating curiosity to keep navigating throughout the website.
+    On this page I want to display a sneak peek about every page, engaging the user to explore all Casa Pedra Nobre has to offer. 
 
 * Rooms  
-    Here the rooms will be displayed with some images and a description of the rooms.  
-    Below there will be some additional information which will be equal for all the rooms.
+    Here the rooms will be displayed with some images and a short description of the rooms.
+    Each room will also have a detail page, providing additional information to the user about the room. 
+    Here the user will see all the image at a glance instead of in a carousel. There will also be a call to action to go to the reservations page.
+    On the overview page of the rooms, below the rooms, there will be more information about the property. 
+    This will include images from the breakfast, amenities, activities & experiences and policies. 
 
 * Reservation page  
     This section will consists of multiple step spreaded over multiple pages.  
@@ -199,13 +202,24 @@ My website will have the following pages:
     * Things to do: again the format / display will maintain the same but the content will change to activities and experiences.
 
 * Gallery  
-    The gallery page will be divided in 2 sections: propery images and images of the surroundings.  
-    The images will be places in a carousel with below a preview of the other pictures to create curiosity for the user.
+    The gallery page will be divided in 2 sections: property images and images of the surroundings.  
+    Images will be displayed in a rather small format but with the possibility to click on the image to see it larger.
+    There will be a counter and next/previous buttons to navigate through the gallery.
 
 * Account page  
     Here the user will find an overview of their account details and their upcoming / past bookings.  
     Below that I will display a Favorites section that will be fed by the user adding places, restaurants to their favorites.
     The display of these favorites will be the same as on the tourist information page.
+
+* Reservations page for admin
+    For the owner of the breakfast or admin (superuser), there is a separate page with an overview of all the reservations. 
+    The page is divided into 6 different sections: arrivals today / departures today / inhouse guests / arrivals next 7 days / all upcoming reservations / all past reservations
+    With the help of the [Datatable CDN](https://cdn.datatables.net/), the reservations will be displayed in a nice table with the following functionailities:
+    * Search functionality to search by name, date, room etc.
+    * Pagination
+    * Ability to show 10 / 25 / 50 / 100 reservations per page
+    * Ability to sort on each of the columns
+    * Link to the reservation confirmation page
 
 [Back to Top](#table-of-contents)
 
@@ -252,7 +266,7 @@ I have highlighted the relationships between the various models with colors.
 ### **Existing Features**
 
 * Registration and sign in functionality using the allauth package from Django
-* Carousel on the homepage giving the user a peek into what the other pages have to offer
+* Carousel on the homepage giving the user a sneak peek into what the other pages have to offer
 * Subscription section on each page allowing the user to subscribe to the newsletter, promotions etc.
 * Reservation page that allows the user to book a stay for a certain period
 * Add to favorites functionality which allows the user to add restaurants, places to visit etc to start planning their trip.
@@ -261,7 +275,6 @@ I have highlighted the relationships between the various models with colors.
 
 ### **Features to be implemented**
 * Dashboard for bed & breakfast owner with additional information:
-    * More information about upcoming reservations, inhouse, checkout etc.
     * Reservations divided by room booked and displayed nicely in a calendar
 * Add walks in the surroundings of the bed & breakfast on the tourist information page which the user can download
 
