@@ -54,6 +54,7 @@ form.addEventListener('submit', function(ev) {
     var comment = $('#id_comment').val();
     var eta = $('#id_eta').val();
 
+
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
         'csrfmiddlewaretoken': csrfToken,

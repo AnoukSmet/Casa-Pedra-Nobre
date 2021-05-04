@@ -32,11 +32,6 @@ def cache_checkout_data(request):
             'eta': request.POST.get('eta'),
             'username': request.user,
         })
-
-        print(request.POST.get('comment'))
-        print(request.POST.get('eta'))
-        print(pid)
-
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \

@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from rooms.models import Room
 from .models import Reservation, ReservationLineItem
+from profiles.models import UserProfile
 import json
 import time
 from datetime import datetime
@@ -20,13 +21,24 @@ class StripeWH_Handler:
         intent = event.data.object
         pid = intent.id
         reservation_request = intent.metadata.reservation_request
-        test123 = intent.metadata.test123
+        room_request = intent.metadata.room_request
         save_info = intent.metadata.save_info
         comment = intent.metadata.comment
         eta = intent.metadata.eta
         
         billing_details = intent.charges.data[0].billing_details
         reservation_total = round(intent.charges.data[0].amount / 100, 2)
+
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_full_name = billing_details.name,
+                profile.default_email = billing_details.email,
+                profile.default_phone_number = billing_details.phone,
+                profile.default_country = billing_details.address.country,
+                profile.save()
 
         reservation_exists = False
         attempt = 1
@@ -55,6 +67,7 @@ class StripeWH_Handler:
             try:
                 reservation = Reservation.objects.create(
                     full_name=billing_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=billing_details.phone,
                     country=billing_details.address.country,
@@ -64,8 +77,8 @@ class StripeWH_Handler:
                     comment=comment,
                     eta=eta
                 )
-                test123 = json.loads(test123)
-                for key, value in test123.items():
+                room_request = json.loads(room_request)
+                for key, value in room_request.items():
                     room = Room.objects.get(pk=key)
                     number_of_guests = value
                     reservation_request = json.loads(reservation_request)
