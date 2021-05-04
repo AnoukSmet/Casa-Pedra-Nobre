@@ -1,0 +1,1 @@
+Casa Pedra Nobre Confirmation for Reservation Number {{ reservation.reservation_number }}

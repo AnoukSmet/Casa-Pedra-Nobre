@@ -1,0 +1,15 @@
+Hello {{ reservation.full_name }}
+
+This is a confirmation of your reservation at Casa Pedra Nobre. 
+You can find your reservation details below:
+
+Reservation number: {{ reservation.reservation_number }}
+Reservation date: {{ reservation.date }}
+
+Reservation total : {{ reservation.reservation_total }}
+
+If you have any questions, feel free to reach out to us. 
+
+See you soon in Portugal!
+
+The Casa Pedra Nobre Team
