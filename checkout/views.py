@@ -5,6 +5,8 @@ from reservation.contexts import reservation_item
 from .forms import ReservationForm
 from django.contrib import messages
 from rooms.models import Room
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from .models import ReservationLineItem, Reservation
 from datetime import datetime
 from django.conf import settings
@@ -120,6 +122,20 @@ def checkout(request):
                 currency=settings.STRIPE_CURRENCY,
             )
 
+            if request.user.is_authenticated:
+                try:
+                    profile = UserProfile.objects.get(user=request.user)
+                    reservation_form = ReservationForm(initial={
+                        'full_name': profile.default_full_name,
+                        'email': profile.user.email,
+                        'phone_number': profile.default_phone_number,
+                        'country': profile.default_country
+                    })
+                except UserProfile.DoesNotExist:
+                    reservation_form = ReservationForm()
+            else:
+                reservation_form = ReservationForm()
+
             if not stripe_public_key:
                 messages.warning(request, 'Stripe Public Key is missing.  \
                     Did you forget to set it in your environment?')
@@ -149,6 +165,23 @@ def checkout_success(request, reservation_number):
     save_info = request.session.get('save_info')
     reservation = get_object_or_404(
         Reservation, reservation_number=reservation_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        reservation.user_profile = profile
+        reservation.save()
+
+    if save_info:
+        profile_data = {
+            'default_full_name': reservation.full_name,
+            'default_email': reservation.email,
+            'default_phone_number': reservation.phone_number,
+            'default_country': reservation.country
+        }
+
+    user_profile_form = UserProfileForm(profile_data, instance=profile)
+    if user_profile_form.is_valid():
+        user_profile_form.save()
 
     messages.success(request, f'Reservation successfully processed! \
         Your reservation number is {reservation_number}. A confirmation \
