@@ -58,14 +58,54 @@ More info about the bed & breakfast is spread across the website. On the rooms p
 
 ## Rooms
 ### Responsiveness
+#### Where did I test?
+Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
+Test on various browers: Google Chrome, Safari, Opera & Firefox
+
+#### What did I test?
+* Quality and display of all the images: hero images, room images and breakfast images
+* Responsiveness of the additional information text
+* Display of the different amenities and policies  
+
+#### Conclusion
+The hero image for the rooms shows nicely across the various browsers and devices. 
+The image only takes up 60 vh instead of 100vh like on the homepage. This was done to not overhelm the user and already show what this page has to offer.   
+When you scroll down the rooms, on large screens, you will see the images of the room on the left side, automatically scrolling through various images.
+The text is nicely displayed on the right side with a call to action button to take you to the detail page of that specifc room. 
+On small and medium screens, the images are displayed above the text. The rooms are divided by a subtle yellow line. 
+
+Below the rooms the additional information text shows nicely and adjusts according the various devices and browers.
+Images show nicely, are of high quality and show the user the complete experience in the bed & breakfast. 
+The amenities, activities & experiences and policies are displayed in a nice list varying from 3 columns on large screens to 1 column on small screens. 
+
 ### Functionality
+In order to make the page more visually appealing, I wanted the carousel for each room type to move at a different speed.
+This I have done by setting the data-interval to different amount of seconds.
+
+The buttons to take the user to the detail page of each room work well. Same counts for the buttons on the rooms detail page to take you back to the rooms page. 
+
 ### User Experience
 #### User Story: I want to see which different rooms the accommodation has to offer
+When the user arrives on the website, it will find its way right away to the rooms.
+Or via the navigation or through the call to action button in the carousel on the homepage.  
+The rooms are nicely displayed on the rooms page with sufficient information about each room.
 
 #### User Story: I want to know what kind of amenities are included in the room
+In the description of each room type, most of the specific amenities are described like the products from rituals, hairdryer etc.  
+Below the rooms on this page, the user will find a long list of all the other amenities, services and facilities the bed & breakfast offers. 
+
 
 ## Reservation
 ### Responsiveness
+#### Where did I test?
+Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
+Test on various browers: Google Chrome, Safari, Opera & Firefox
+
+#### What did I test?
+
+#### Conclusion
+
+
 ### Functionality
 #### Step 1: Select check-in & check-out
 * Not possible to select data in the past
@@ -93,6 +133,14 @@ More info about the bed & breakfast is spread across the website. On the rooms p
 
 ## Gallery
 ### Responsiveness
+#### Where did I test?
+Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
+Test on various browers: Google Chrome, Safari, Opera & Firefox
+
+#### What did I test?
+
+#### Conclusion
+
 ### Functionality
 ### User Experience
 #### User Story: I want to see a lot of pictures so I can really visualize the place
@@ -100,6 +148,14 @@ More info about the bed & breakfast is spread across the website. On the rooms p
 
 ## Tourist Info
 ### Responsiveness
+#### Where did I test?
+Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
+Test on various browers: Google Chrome, Safari, Opera & Firefox
+
+#### What did I test?
+
+#### Conclusion
+
 ### Functionality
 ### User Experience
 #### User Story: I want to have some information about the surroundings of the accommodation
@@ -107,6 +163,14 @@ More info about the bed & breakfast is spread across the website. On the rooms p
 
 ## My Profile 
 ### Responsiveness
+#### Where did I test?
+Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
+Test on various browers: Google Chrome, Safari, Opera & Firefox
+
+#### What did I test?
+
+#### Conclusion
+
 ### Functionality
 ### User Experience
 #### User Story: "Still to write"
@@ -114,6 +178,14 @@ More info about the bed & breakfast is spread across the website. On the rooms p
 
 ## Navigation 
 ### Responsiveness
+#### Where did I test?
+Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
+Test on various browers: Google Chrome, Safari, Opera & Firefox
+
+#### What did I test?
+
+#### Conclusion
+
 ### Functionality
 * Link on homepage to reservation
 * Link in carousel on homepage to other pages
@@ -124,6 +196,14 @@ More info about the bed & breakfast is spread across the website. On the rooms p
 
 ## Social Media 
 ### Responsiveness
+#### Where did I test?
+Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
+Test on various browers: Google Chrome, Safari, Opera & Firefox
+
+#### What did I test?
+
+#### Conclusion 
+
 ### Functionality
 ### User Experience
 #### User Story:
@@ -131,6 +211,14 @@ More info about the bed & breakfast is spread across the website. On the rooms p
 
 ## Footer 
 ### Responsiveness
+#### Where did I test?
+Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
+Test on various browers: Google Chrome, Safari, Opera & Firefox
+
+#### What did I test?
+
+#### Conclusion
+
 ### Functionality
 ### User Experience
 #### User Story: I want to be able to get in contact with the propery in case I have some questions
@@ -139,6 +227,14 @@ More info about the bed & breakfast is spread across the website. On the rooms p
 
 ## Reservations overview for Admin 
 ### Responsiveness
+#### Where did I test?
+Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
+Test on various browers: Google Chrome, Safari, Opera & Firefox
+
+#### What did I test?
+
+#### Conclusion
+
 ### Functionality
 ### User Experience
 #### Site owner goals: I want to be able to see all the reservations
