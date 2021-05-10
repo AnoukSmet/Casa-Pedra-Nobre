@@ -102,34 +102,70 @@ Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 /
 Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
+#### Step 1: Select check-in & check-out
+* Display and quality of hero image 
+* Date input in hero image + button display
+
+#### Step 2: Display available and unavailable rooms based on availability
+* Display of data information from step 1
+* Display of available and unavailable rooms
+* For each room, the main image will be displayed + the intro text. 
+
+
+#### Step 3: Show reservation overview to user + reservation form
+* Reservation overview, including small overview of the selected room
+* Display of reservation form. 
+
+
+#### Step 4: Show reservation overview to user after payment was successfull. 
+* Display of the reservation confirmation
+
 
 #### Conclusion
+Hero image is of high quality and date input fields for check-in and check-out are responsive across devices. 
+In order to have enough space for the reservation data, the hero image is 100vh. 
+On step 2, the data from step 1 is displayed in a disabled state with a nice button to go back to step 1. 
+Rooms are displayed nicely and react responsive across various browsers and devices. 
+On small devices, image will be displayed on top of the text. On medium and large devices, the images will be displayed on the left of the text. 
 
+On large devices, reservation overview on the checkout page is displayed on the left with the form on the right. 
+On small and medium devices, the reservation overview is displayed on top of the form. 
+
+On the checkout success page, the reservation overview is nicely displayed into various sections. 
+The whole reservation process is responsive across browsers and devices. 
 
 ### Functionality
 #### Step 1: Select check-in & check-out
-* Not possible to select data in the past
-* Not possible to proceed with checkout date that is before check in
-* Limited reservations section to max 28 days
+* Flash message when user tries to select check-in and/or check-out data in the past
+* Flash message when user tries to select check-in date after check-out date 
+* Button to proceed to next step works as planned
+* Limited reservations section to max 28 days ***
 
 #### Step 2: Display available and unavailable rooms based on availability
-* Ability to select multiple rooms
-* Only allowed to select 1 or 2 people per room
+* For each room I have selected 1 main image which is being displayed for each room
+* The user is able to select multiple rooms
+* The user is only allowed to select the maximum possible occupancy for each room
 * Search again button to go back to step 1 to change the data
 
 #### Step 3: Show reservation overview to user + reservation form
 * Overview of reservation data + room overview
 * Reservation form that is prefilled when user is logged in
-* Payment form not being displayed when user is the superuser
+* When user is not logged in, a link to register or login is being displayed below the form
+* Save info functionality which saves the user info when logged in 
+* Payment form not being displayed when user is the superuser, this was done to allow the property to make reservations for guests without having to go through the payment.
+    This can be specifically usefull when guests would try to make a reservation by phone.
 
 #### Step 4: Show reservation overview to user after payment was successfull. 
-
+* Data is structured into different section which all get the correct data. 
 
 ### User Experience
 #### User Story: I want to be able to make a reservation on the website itself
+The user is able to make a reservation on the website. 
+The reservation process is intuitive and easy to use.
 
 #### User Story: I want to be able to choose the exact room in which I want to stay.
-
+On step 2, the user has the choice to select the exact room he/she wants to stay. 
+The user is also able to select multiple rooms.
 
 ## Gallery
 ### Responsiveness

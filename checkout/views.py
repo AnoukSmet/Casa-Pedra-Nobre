@@ -174,9 +174,9 @@ def checkout_success(request, reservation_number):
             'default_country': reservation.country
         }
 
-    user_profile_form = UserProfileForm(profile_data, instance=profile)
-    if user_profile_form.is_valid():
-        user_profile_form.save()
+        user_profile_form = UserProfileForm(profile_data, instance=profile)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
 
     messages.success(request, f'Reservation successfully processed! \
         Your reservation number is {reservation_number}. A confirmation \
