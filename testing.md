@@ -84,6 +84,9 @@ This I have done by setting the data-interval to different amount of seconds.
 
 The buttons to take the user to the detail page of each room work well. Same counts for the buttons on the rooms detail page to take you back to the rooms page. 
 
+### **Lighthouse report**
+""" Include 2 image performance screenshots """  
+
 ### User Experience
 #### User Story: I want to see which different rooms the accommodation has to offer
 When the user arrives on the website, it will find its way right away to the rooms.
@@ -123,7 +126,7 @@ Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### Conclusion
 Hero image is of high quality and date input fields for check-in and check-out are responsive across devices. 
-In order to have enough space for the reservation data, the hero image is 100vh. 
+In order to have enough space for the reservation data, the hero image is 100vh.   
 On step 2, the data from step 1 is displayed in a disabled state with a nice button to go back to step 1. 
 Rooms are displayed nicely and react responsive across various browsers and devices. 
 On small devices, image will be displayed on top of the text. On medium and large devices, the images will be displayed on the left of the text. 
@@ -158,6 +161,9 @@ The whole reservation process is responsive across browsers and devices.
 #### Step 4: Show reservation overview to user after payment was successfull. 
 * Data is structured into different section which all get the correct data. 
 
+### **Lighthouse report**
+""" Include 2 image performance screenshots """  
+
 ### User Experience
 #### User Story: I want to be able to make a reservation on the website itself
 The user is able to make a reservation on the website. 
@@ -174,12 +180,27 @@ Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 /
 Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
+* Display and quality of the images
+* Display of the modal 
 
 #### Conclusion
+Images are of high quality and display nicely on the various browsers and devices. 
+In the modal, the images are increased to the real size where the quality stays intact. 
+On large devices the images are displayed in 4 columns, medium devices on 2 columns and on small devices, they are displayed full width. 
+The height of the images is set to auto in order not to compromise the quality of the image. 
 
 ### Functionality
+In order to implement the modal to view the images on bigger size, I have used a small javascript library, called [Lightbox](https://cdnjs.com/libraries/lightbox2). 
+The images are nicely displayed, using an overlay on top of the main page. It includes arrow to scroll through the images and below the images, there is a counter giving the user a sense of where they are in the gallery. 
+
+### Lighthouse report
+
+""" Include 2 images from report """
+
 ### User Experience
 #### User Story: I want to see a lot of pictures so I can really visualize the place
+In total I have displayed around 50 images from the property and the surroundings of the bed & breakfast. 
+This helps the user to visualize the place and their potential upcoming stay. 
 
 
 ## Tourist Info
