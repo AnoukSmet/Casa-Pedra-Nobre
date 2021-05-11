@@ -234,6 +234,9 @@ When the user clicks on the full heart, it will be removed from the favourites a
 The heart is being displayed whether the user is logged in or not, but the functionality only works when the user is logged in. 
 When the user is not logged in, a modal opens up asking the user if he/she wants to register or login. 
 
+### Lighthouse report
+""" Include 2 images """
+
 ### User Experience
 #### User Story: I want to have some information about the surroundings of the accommodation
 The tourist information page provides a lot of information about the surroundings. 
@@ -248,12 +251,30 @@ Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 /
 Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
+* Quality and display of hero image 
+* Display of contact information of the user + form to edit
+* Display of any upcoming or past reservation for user
+* Display of the recommendations added to the favourites of the user
 
 #### Conclusion
+Hero image is of high quality and displayed nicely across devices and browsers. 
+On the top part of the page, on large devices, the reservations are displayed nicely in a 'box' on the left side of the screen and the contact info on the right side. 
+Below the favourites are displayed into the same cards as how they are displayed on the tourist info page. 
+On small and medium devices, the reservations are displayed at the top of the image with the contact details below. 
+Page to update contact displays nicely on the screen. 
 
 ### Functionality
+Contact information for profile, which is being used to prefill the contact form upon checkout. 
+Overview of past and upcoming reservations but the option the view the confirmation page. 
+The user will be taken to the checkout success page with a flash message that reminds the user that this is a past confirmation. 
+Display of the recommendations that were added to the favourites of the user.
+
+### Lighthouse report
+""" Include 2 images """
+
 ### User Experience
-#### User Story: "Still to write"
+This page / feature is not often implemented in a website for a bed & breakfast and exceeds the expectations for the user. 
+This makes the booking of their holidays a nicer process because it offers a more complete experience.
 
 
 ## Navigation 
