@@ -210,12 +210,35 @@ Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 /
 Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
+* Display and quality of hero image
+* Display of 3 main buttons to collapse out to show the recommendations
+* Display of recommendation card
+* Display and responsiveness of recommendation detail page 
+
 
 #### Conclusion
+Hero image is of high quality and displayed nicely across browsers and devices
+Buttons resize correctly depending of the device. When clicked on the buttons, the cards are displayed nicely. 
+On medium and large devices, they are displayed in 3 columns while on small devices they take up full width of the screen. 
+
+On the recommendation detail page, on medium and large devices, the image is displayed nicely on the left side of the screen with the detailled info on the right.
+A small introductory text is displayed on top of the image and text. 
+On small devices, the introductory text is displayed on top of image.  Below the image you will find the detailled information. 
+
 
 ### Functionality
+I have implemented a 'Add to favourites' functionality that allows the user to add a recommendation to its favourites. 
+When the user adds it, the heart displays full and the recommendation will appear on the profile page of the user. 
+When the user clicks on the full heart, it will be removed from the favourites and an empty heart will be displayed. 
+
+The heart is being displayed whether the user is logged in or not, but the functionality only works when the user is logged in. 
+When the user is not logged in, a modal opens up asking the user if he/she wants to register or login. 
+
 ### User Experience
 #### User Story: I want to have some information about the surroundings of the accommodation
+The tourist information page provides a lot of information about the surroundings. 
+I have split up the information into 3 different categories: places to visit, things to do & where to eat. 
+This way the user can specifically scroll through the recommendations he/she is interested in. 
 
 
 ## My Profile 
