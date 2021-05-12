@@ -32,9 +32,11 @@ Arrows to go left and right are displayed in the middle of the height of the car
 On large devices, image is being displayed on the left, with the description and button on the right. 
 
 ### **Functionality**
+Button 'Book now' within hero image works as planned and takes the user to the reservation page.
 Buttons to move left and right in the carousel work as intented.   
 Disabled automatic scrolling of the carousel to give the user the control to go to the next slide.   
 Indicator below carousel to let the user know how many slides there are and where user is located on that moment. 
+Link within the carousel work as planned and redirects the user to the corresponding page.
 
 ### **Lighthouse report**
 """ Include 2 image performance screenshots """  
@@ -284,15 +286,33 @@ Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 /
 Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
+* Display of nav links on large devices
+* Display of the logo 
+* Display of hamburger icon on small and medium devices
+* Buttons throughout the website 
 
 #### Conclusion
+On large screens, the logo is nicely centered on the navbar with on each side 3 nav links. 
+The profile navlink contains a dropdown which display nicely on the right side of the screen. 
+On medium and small devices, the navigation collapses and a hamburger icon is displayed on the right side of the screen. 
+Here the image is nicely displayed on the left, that counts as well for the navlinks in the dropdown.   
+Navigation is responsive across various browsers and devices. 
 
 ### Functionality
-* Link on homepage to reservation
-* Link in carousel on homepage to other pages
+All the navlinks in the navigation bar work as intented and take the user to the corresponding page. 
+When the user clicks on the logo, he/she will be redirected to the homepage / welcome page.   
+In order to highligh the navlink where the user was located, I had to compare the request.url to the corresponding url of that specific navlink. 
+If true, active class was added to the navlink. This way the highlighting of the active navlink works as planned. 
+
+### Lighthouse report
+""" Include 2 images """
 
 ### User Experience
 #### User Story: I want to have an intuitive navigation so I know right away where I can find which information
+The navigation is nicely displayed and is intuitive to use for the user. 
+The links are self explanatory so the user knows what he/she can expect when clicking on it.
+Across the website beside the main navigation, you have various buttons as well that lets you navigate through the website. 
+
 
 
 ## Social Media 
@@ -302,12 +322,23 @@ Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 /
 Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
+* Quality and display of background image
+* Display of social media icons
 
 #### Conclusion 
+The social media section display nicely across various browsers and devices.
+The text is well readible due to the overlay on the image. 
+Icons are self explanatory to the user. 
 
 ### Functionality
+The links in the social media works as intented and takes the user the corresponding website.
+They open in a separate tab so the user is not redirectd away from the website. 
+
 ### User Experience
-#### User Story:
+The social media section helps to interact more with the (potential) guest. 
+They can start following the bed & breakfast on Instagram, become friends on facebook or read reviews on Tripadvisor.
+It engages the user more and this way he/she can stay up to date about the latest news. 
+This section is being displayed on various (not all) pages. 
 
 
 ## Footer 

@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav class="navbar-dark navbar navbar-expand-lg " id="navigation-cpn">
-    <a class="navbar-brand d-lg-none" href="#">
+    <a class="navbar-brand d-lg-none" href="{% url 'home' %}">
         <img src="{{ MEDIA_URL}}logo.png" alt="logo" class="logo">
     </a>
 
@@ -10,7 +10,7 @@
     </button>
 
 
-    {% url 'some_urlpattern_name' as url %}
+    <!-- {% url 'some_urlpattern_name' as url %} -->
 
     <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
         <ul class="navbar-nav">
@@ -27,7 +27,7 @@
                 <a href="{% url 'reservation' %}" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Reservation</a>
             </li>
         </ul>
-        <a class="navbar-brand d-none d-lg-block" href="#">
+        <a class="navbar-brand d-none d-lg-block" href="{% url 'home' %}">
             <img src="{{ MEDIA_URL}}logo.png" alt="logo" class="logo">
         </a>
         <ul class="navbar-nav">
