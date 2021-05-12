@@ -236,6 +236,10 @@ When the user clicks on the full heart, it will be removed from the favourites a
 The heart is being displayed whether the user is logged in or not, but the functionality only works when the user is logged in. 
 When the user is not logged in, a modal opens up asking the user if he/she wants to register or login. 
 
+
+For each recommendation, I gathered more info related to the recommendation. For restaurants for example, I display the type of cuisine, opening hours etc.
+There is also a link to the website corresponding with the recommendation and a link to google maps where the exact route from the bed & breakfast to the specific recommendation is displayed. 
+
 ### Lighthouse report
 """ Include 2 images """
 
@@ -348,14 +352,34 @@ Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 /
 Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
+* General responsiveness of the footer
+* Display of the 3 different parts of the footer
 
 #### Conclusion
+After removing the padding of the footer container, the footer displays nicely across browsers and devices.
+On large and medium devices, the footer has 3 columns with the logo in the middle and contact info on each side of the logo.
+On small devices, the contact info takes up full width of the screen with the logo displayed in the middle.
 
 ### Functionality
+When the user clicks on the logo, he/she will be redirected to the homepage / welcome page.
+The email icon will open up a new email for the user with the email of the bed & breakfast already filled.
+Clicking on the whatsapp icon will open whatsapp when the user has it installed or open the page to download whatsapp if not. 
+It will open right away a chat, with the mobile number of the bed & breakfast.
+
+
 ### User Experience
 #### User Story: I want to be able to get in contact with the propery in case I have some questions
+In the footer, the user has various ways of reaching out to the bed & breakfast: email / phone / whatsapp .
+As it is standard convention to have this information in the footer, the user will have no difficulties to locate this information. 
+The footer is displayed on each page which makes it easier for the user to reach out.
 
 #### User Story: I want to know the address and how far / close it is to big cities
+The full address is mentioned in the footer.   
+Additional information concerning the location can be found across the website.
+For example: 
+* In the welcome slide of the carousel on the homepage
+* Distance to various nice cities and tourist attractions for each recommendation in the tourist info page. 
+ 
 
 ## Reservations overview for Admin 
 ### Responsiveness
@@ -364,13 +388,42 @@ Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 /
 Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
+* Display of the reservations
+* Responsiveness of the various tables on the page
 
 #### Conclusion
+The reservations are displayed nicely into various tables, giving sufficient information to the admin. 
+The tables respond well to various devices and browsers. 
+On smaller devices, a horizontal scroll is implemented to the user can still view all the necessary information.
+
 
 ### Functionality
+The reservations are split up in various sections:
+* Arrivals Today
+* Departures Today
+* Inhouse guests
+* Arrivals next 7 days
+* All upcoming reservations
+* All past reservations
+
+The first 3 sections are expanded by default so the admin can right away see the most important information. 
+Each reservation has a link to the confirmation that was sent to the user, containing all the info of the reservation. 
+Here a flash message is displayed to remind the admin that this email was sent to the guest as confirmation. 
+
+In order to implement the tables, I have used the [DataTables jQuery plug-in](https://datatables.net/).
+By calling the datatables function, you right away get a nice interactive table with pagination, search functionality, ordering functionality and you can choose how many entries per page you want to see. 
+
+
+### Lighthouse report
+""" Include 2 images """
+
 ### User Experience
 #### Site owner goals: I want to be able to see all the reservations
+On this page the owners can easily see all the reservations, displayed in various categories. 
+The tables make it easy for the admin to navigate through the reservations. 
 
 #### Site owner goals: I want to have a seperate section for arriving and inhouse reservations
-
 #### Site owner goals: I want to have a seperate section as well for the reservations for the next 7 days so I can plan in advance
+In order to meet this goal of the site owner, I have created a seperate section on the page for arrivals today and arrivals for the next 7 days.
+
+
