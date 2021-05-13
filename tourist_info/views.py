@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from .models import Recommendation, RecommendationCategory
+from django.contrib import messages
 # Create your views here.
 
 
@@ -34,8 +35,12 @@ def add_to_favorites(request, recommendation_id):
     recommendation = get_object_or_404(Recommendation, id=recommendation_id)
     if recommendation.favorite.filter(id=request.user.id).exists():
         recommendation.favorite.remove(request.user)
+        messages.success(request, f'{recommendation} has been successfully \
+            removed from your favorites')
     else:
         recommendation.favorite.add(request.user)
+        messages.success(request, f'{recommendation} has been successfully \
+        added to your favorites')
     return HttpResponseRedirect(reverse(
         'recommendation_detail', kwargs={
             'recommendation_id': recommendation_id}))
