@@ -10,3 +10,7 @@
 #### ::-webkit-calendar-picker-indicator { filter: invert(1);}
 
 ### Logo and some other images not showing
+
+
+### Email verification link not working
+#### Forgot {% load account %} in email_confirm.html
