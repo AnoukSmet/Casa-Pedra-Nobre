@@ -270,6 +270,9 @@ I have highlighted the relationships between the various models with colors.
 * Social Media section on various page allowing the user to interact and stay up to date about the latest news and promotions.
 * Reservation page that allows the user to book a stay for a certain period
 * Add to favorites functionality which allows the user to add restaurants, places to visit etc to start planning their trip.
+* Possibility for superuser / admin to make a reservation online without having to go through the payment. This so that owner can make reservations for users when they call for example.  
+    In order for the owner to know whether the reservation was already paid or not (if owner makes it, no payment is done yet), I have added a column on the reservations page which checks for the stripe pid. 
+    If there is no PID, the reservations shows as not paid yet. 
 
 <a></a>
 
