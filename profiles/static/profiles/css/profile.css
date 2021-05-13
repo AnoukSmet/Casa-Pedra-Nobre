@@ -114,3 +114,12 @@ select option[value=""] {
     color: #FFFFEB;
     text-decoration: none;
 }
+
+#link-to-tourist_info {
+    text-decoration: none;
+    color: #aa4e26;
+}
+
+#link-to-tourist_info:hover {
+    text-decoration: underline;
+}

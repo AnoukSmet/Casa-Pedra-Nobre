@@ -79,19 +79,26 @@
 <div class="container">
     <div class="row">
         <h2 class="heading col-12 ml-4 mb-4">My Favorites</h2>
-        {% for favorite in favorites %}
-        <div class="col-12 col-md-4">
-            <div class="card">
-                <img src="{{ favorite.image.url }}" class="card-img-top" alt="...">
-                <div>
-                    <h5 class="sub-heading mt-3 mb-2">{{ favorite }}</h5>
-                    <span class="favorite-category"><i class="fas fa-tag"></i> {{ favorite.category.friendly_name }}</span>
-                    <p class="paragraph">{{ favorite.intro }}.</p>
-                    <a href="{% url 'recommendation_detail' favorite.id %}" class="button">See more</a>
+        {% if favorites %}
+            {% for favorite in favorites %}
+            <div class="col-12 col-md-4">
+                <div class="card">
+                    <img src="{{ favorite.image.url }}" class="card-img-top" alt="...">
+                    <div>
+                        <h5 class="sub-heading mt-3 mb-2">{{ favorite }}</h5>
+                        <span class="favorite-category"><i class="fas fa-tag"></i> {{ favorite.category.friendly_name }}</span>
+                        <p class="paragraph">{{ favorite.intro }}.</p>
+                        <a href="{% url 'recommendation_detail' favorite.id %}" class="button">See more</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
+        {% else %}
+            <div class="col-12">
+                <p>You don't have any recommendations added yet to your favorites.</p>
+                <p>Visit our <a href="{% url 'tourist_info' %}" id="link-to-tourist_info">Tourist Information </a>page and start planning your trip.</p>
+            </div>
+        {% endif %}
     </div>
 </div>
 
