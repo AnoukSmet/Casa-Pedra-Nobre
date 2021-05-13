@@ -76,6 +76,11 @@
     white-space: pre-line;
 }
 
+#view-recommendations {
+    margin: 2rem 0;
+    text-align: center;
+}
+
 /* Modal */
 
 .modal-body {

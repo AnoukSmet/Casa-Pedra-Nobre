@@ -20,3 +20,6 @@
 
 ### Policies not showing on checkout success
 #### {% if amenity.category|stringformat:"s" == 'policies' %} <span class="d-block"> {{ amenity }}: {{ amenity.description }}</span>{% endif %}
+
+### Text coming out of hero image on rooms and tourist info
+#### Added margin bottom of 1.5rem
