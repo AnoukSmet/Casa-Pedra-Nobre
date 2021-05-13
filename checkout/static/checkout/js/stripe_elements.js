@@ -1,6 +1,6 @@
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe(stripePublicKey);
+var stripe = Stripe('pk_test_51Hk4KHKGfxT2cXnIH7FZfZRXkABR63JwpC0MX0l7K8lNNymOnosp4kSkgCRRj6bXJIiXoFOUUWPhjr470aC5b11000V6hyOjJp');
 var elements = stripe.elements();
 
 var style = {
@@ -20,7 +20,7 @@ var style = {
 };
 
 var card = elements.create('card', {style: style});
-card.mount('#stripe-card-element');
+card.mount('#card-element');
 
 // Handle realtime validation errors on the card element
 card.addEventListener('change', function (event) {

@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-8 room-description">
-                    <h2 class="heading mb-2">{{room}}</h2> 
+                    <h2 class="heading mb-2"><a href="#a{{ room.id }}" data-toggle="modal" data-target="#a{{ room.id }}">{{ room }}</a></h2> 
                     <p>
                         {{ room.intro }}
                     </p>
@@ -81,6 +81,28 @@
             </div>
         </div>
         <div class="hr"></div> 
+        <!-- Modal Room Detail -->
+
+
+        <div class="modal" id="a{{ room.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title heading">{{ room }}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ room.description }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary button" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
         {% endfor %}
         <div class="col-12 col-md-5 col-lg-4 mt-4">
             <button type="submit" class="button submit-rooms">Procceed to secure check out</button>
@@ -156,6 +178,10 @@
         </div>
     {% endif %}
 </div>
+
+
+
+
 
 {% include 'components/social-media/social-media.html' %}
 

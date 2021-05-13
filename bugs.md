@@ -14,3 +14,5 @@
 
 ### Email verification link not working
 #### Forgot {% load account %} in email_confirm.html
+
+### Error console stripe: Uncaught IntegrationError: Please call Stripe() with your publishable key. You used an empty string.

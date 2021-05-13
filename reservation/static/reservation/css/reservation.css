@@ -93,3 +93,23 @@ input[type='checkbox'] {
     height: 2.5rem;
     width: 2.5rem;
 }
+
+.show {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.room-description h2 a {
+    color: inherit;
+}
+
+.modal-body {
+    white-space: pre-line;
+}
+
+.close {
+    color: #aa4e26;
+}
+
+.close:hover {
+    color: #72351a;
+}

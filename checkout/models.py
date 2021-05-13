@@ -58,7 +58,6 @@ class ReservationLineItem(models.Model):
         max_digits=6, decimal_places=2, null=False,
         blank=False, editable=False)
     
-
     def _calculate_number_of_nights(self):
         check_in = self.check_in
         check_out = self.check_out
@@ -66,12 +65,12 @@ class ReservationLineItem(models.Model):
         self.number_of_nights = delta.days
 
     def save(self, *args, **kwargs):
-        if self.check_in < datetime.today().date():
-            raise ValidationError(
-                "Check in date needs to be equal or bigger than today")
-        if self.check_out <= self.check_in:
-            raise ValidationError(
-                "Check out date needs to be after check in date")
+        # if self.check_in < datetime.today().date():
+        #     raise ValidationError(
+        #         "Check in date needs to be equal or bigger than today")
+        # if self.check_out <= self.check_in:
+        #     raise ValidationError(
+        #         "Check out date needs to be after check in date")
         self._calculate_number_of_nights()
         self.lineitem_total = self.number_of_nights * self.room.price
         super().save(*args, **kwargs)
