@@ -8,7 +8,7 @@ Reservation date: {{ reservation.date }}
 
 Reservation total : {{ reservation.reservation_total }}
 
-If you have any questions, feel free to reach out to us. 
+If you have any questions concerning your reservation or the bed & breakfast, feel free to reach out to us. 
 
 See you soon in Portugal!
 

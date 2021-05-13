@@ -86,34 +86,39 @@ def reservation_detail(request):
             reservation_request["check_out"], '%Y-%m-%d').date()
         number_of_nights = (check_out - check_in).days
         data = request.POST
-        rooms = []
-        number_of_guests = []
-        selected_rooms = []
-        merged_reservation_data = {}
-        room_request = {}
-        for key, value in data.lists():
-            if key == "room_id":
-                for v in value:
-                    rooms.append(v)
-            elif key == "number_of_guests":
-                for v in value:
-                    number_of_guests.append(v)
-            elif key == "select-room":
-                for v in value:
-                    selected_rooms.append(v)
-        i = 0
-        while i < len(rooms):
-            merged_reservation_data[rooms[i]] = number_of_guests[i]
-            i += 1
+        if 'select-room' in data:
+            rooms = []
+            number_of_guests = []
+            selected_rooms = []
+            merged_reservation_data = {}
+            room_request = {}
+            for key, value in data.lists():
+                if key == "room_id":
+                    for v in value:
+                        rooms.append(v)
+                elif key == "number_of_guests":
+                    for v in value:
+                        number_of_guests.append(v)
+                elif key == "select-room":
+                    for v in value:
+                        selected_rooms.append(v)
+            i = 0
+            while i < len(rooms):
+                merged_reservation_data[rooms[i]] = number_of_guests[i]
+                i += 1
 
-        for k, v in merged_reservation_data.items():
-            for room in selected_rooms:
-                if room == k:
-                    room_request[k] = v
+            for k, v in merged_reservation_data.items():
+                for room in selected_rooms:
+                    if room == k:
+                        room_request[k] = v
 
-        request.session['room_request'] = room_request
+            request.session['room_request'] = room_request
 
-        return redirect('checkout')
+            return redirect('checkout')
+        else:
+            messages.error(request, 'You need to select at least 1 room \
+                in order to proceed.')
+            return redirect(reverse('reservation_detail'))
     else:
         form = request.session['reservation_request']
         check_in = datetime.strptime(form["check_in"], '%Y-%m-%d').date()

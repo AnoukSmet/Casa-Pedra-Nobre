@@ -23,3 +23,6 @@
 
 ### Text coming out of hero image on rooms and tourist info
 #### Added margin bottom of 1.5rem
+
+### Possible to proceed to checkout without selecting room
+#### if 'select-room' in data: else redirect + flash message
