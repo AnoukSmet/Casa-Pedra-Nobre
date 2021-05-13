@@ -18,31 +18,37 @@ def reservation(request):
         check_in = datetime.strptime(
                             form["check_in"], '%Y-%m-%d').date()
         check_out = datetime.strptime(form["check_out"], '%Y-%m-%d').date()
-        if check_in >= datetime.today().date():
-            if check_out > check_in:
-                for room in rooms:
-                    reservations = ReservationLineItem.objects.filter(
-                        room__id=room.id)
-                    if reservations:
-                        for reservation in reservations:
-                            if check_availability(
-                                    reservation.check_in,
-                                    reservation.check_out,
-                                    check_in,
-                                    check_out):
-                                unavailable_rooms.append(room.id)
-                            else:
-                                available_rooms.append(room.id)
-                    else:
-                        available_rooms.append(room.id)
-            else:
-                messages.error(request, 'Your check out date needs to be after the check in date.\
-                 Please select another date.')
-                return redirect(reverse('reservation'))
-        else:
-            messages.error(request, 'Your check in date can not be in the past. \
-                    Please select another date.')
+        if (check_out - check_in).days > 28:
+            messages.error(request, 'It is not possible to make a reservation online for more than 28 days. \
+                Please contact us by phone or email if you wish to \
+                     stay longer than 28 days.')
             return redirect(reverse('reservation'))
+        else:
+            if check_in >= datetime.today().date():
+                if check_out > check_in:
+                    for room in rooms:
+                        reservations = ReservationLineItem.objects.filter(
+                            room__id=room.id)
+                        if reservations:
+                            for reservation in reservations:
+                                if check_availability(
+                                        reservation.check_in,
+                                        reservation.check_out,
+                                        check_in,
+                                        check_out):
+                                    unavailable_rooms.append(room.id)
+                                else:
+                                    available_rooms.append(room.id)
+                        else:
+                            available_rooms.append(room.id)
+                else:
+                    messages.error(request, 'Your check out date needs to be after the check in date.\
+                    Please select another date.')
+                    return redirect(reverse('reservation'))
+            else:
+                messages.error(request, 'Your check in date can not be in the past. \
+                        Please select another date.')
+                return redirect(reverse('reservation'))
 
         available_rooms = list(dict.fromkeys(available_rooms))
         unavailable_rooms = list(dict.fromkeys(unavailable_rooms))
