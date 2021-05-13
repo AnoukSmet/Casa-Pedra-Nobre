@@ -16,3 +16,7 @@
 #### Forgot {% load account %} in email_confirm.html
 
 ### Error console stripe: Uncaught IntegrationError: Please call Stripe() with your publishable key. You used an empty string.
+
+
+### Policies not showing on checkout success
+#### {% if amenity.category|stringformat:"s" == 'policies' %} <span class="d-block"> {{ amenity }}: {{ amenity.description }}</span>{% endif %}

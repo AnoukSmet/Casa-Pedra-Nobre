@@ -4,7 +4,7 @@ from django.views.decorators.http import require_POST
 from reservation.contexts import reservation_item
 from .forms import ReservationForm
 from django.contrib import messages
-from rooms.models import Room
+from rooms.models import Room, Amenity
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from .models import ReservationLineItem, Reservation
@@ -157,6 +157,8 @@ def checkout(request):
 
 
 def checkout_success(request, reservation_number):
+    amenities = Amenity.objects.all()
+
     save_info = request.session.get('save_info')
     reservation = get_object_or_404(
         Reservation, reservation_number=reservation_number)
@@ -185,6 +187,7 @@ def checkout_success(request, reservation_number):
     template = "checkout/checkout_success.html"
     context = {
         "reservation": reservation,
+        "amenities": amenities
     }
 
     return render(request, template, context)

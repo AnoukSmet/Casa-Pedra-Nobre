@@ -65,6 +65,16 @@
                     <span class="d-block">Country: {{ reservation.country }}</span>
                     </p>
                 </div>
+                <div class="col-12">
+                    <h2 class="sub-heading mb-2">Please find again the general policies for your stay</h2>
+                    <p>
+                    {% for amenity in amenities %}
+                        {% if amenity.category|stringformat:"s" == 'policies' %}
+                            <span class="d-block"> {{ amenity }}: {{ amenity.description }}</span>
+                        {% endif %}
+                    {% endfor %}
+                    </p>
+                </div>
             </div>
         </div>
         {% if from_profile %}
