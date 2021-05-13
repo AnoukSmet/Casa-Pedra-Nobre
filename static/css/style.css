@@ -168,6 +168,14 @@ body {
     margin-bottom: 2rem;
 }
 
+
+.scroll-down {
+    background-color: transparent;
+    color: #aa4e26;
+    margin-top: 2rem;
+    padding: 0.5rem;
+    font-size: 3rem;
+}
 /* Carousel Homepage */
 
 .carousel-container {

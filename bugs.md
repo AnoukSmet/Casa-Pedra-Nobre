@@ -26,3 +26,6 @@
 
 ### Possible to proceed to checkout without selecting room
 #### if 'select-room' in data: else redirect + flash message
+
+### Server 500 error when submitting dates without filling them in
+#### if form["check_in"] and form["check_out"]:

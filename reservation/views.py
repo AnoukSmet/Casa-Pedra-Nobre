@@ -16,8 +16,6 @@ def reservation(request):
             'check_out': request.POST.get('check_out'),
         }
         if form["check_in"] and form["check_out"]:
-            
-    
             check_in = datetime.strptime(
                                 form["check_in"], '%Y-%m-%d').date()
             check_out = datetime.strptime(form["check_out"], '%Y-%m-%d').date()
