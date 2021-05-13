@@ -37,13 +37,14 @@
                                             <th scope="col">Check out</th>
                                             <th scope="col">Number of guests</th>
                                             <th scope="col">Paid</th>
+                                            <th scope="col">Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {% for reservation in arrivals_today %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -53,6 +54,7 @@
                                                         {% else %}
                                                             <td><i class="fas fa-times"></i></td>
                                                         {% endif %}
+                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -87,13 +89,14 @@
                                             <th scope="col">Check out</th>
                                             <th scope="col">Number of guests</th>
                                             <th scope="col">Paid</th>
+                                            <th scope="col">Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {% for reservation in departures %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -137,13 +140,14 @@
                                             <th scope="col">Check out</th>
                                             <th scope="col">Number of guests</th>
                                             <th scope="col">Paid</th>
+                                            <th scope="col">Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {% for reservation in inhouse_guests %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -187,13 +191,14 @@
                                             <th scope="col">Check out</th>
                                             <th scope="col">Number of guests</th>
                                             <th scope="col">Paid</th>
+                                            <th scope="col">Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {% for reservation in arrivals_next %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -236,13 +241,14 @@
                                         <th scope="col">Check out</th>
                                         <th scope="col">Number of guests</th>
                                         <th scope="col">Paid</th>
+                                        <th scope="col">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {% for reservation in upcoming_reservations %}
                                             {% for item in reservation.lineitems.all %}
                                                 <tr>
-                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
+                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
                                                     <td>{{ item.room }}</td>
                                                     <td>{{item.check_in }}</td>
                                                     <td>{{item.check_out }}</td>
@@ -281,13 +287,14 @@
                                             <th scope="col">Check out</th>
                                             <th scope="col">Nr. of guests</th>
                                             <th scope="col">Paid</th>
+                                            <th scope="col">Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {% for reservation in past_reservations %}
                                             {% for item in reservation.lineitems.all %}
                                                 <tr>
-                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}">{{ reservation.full_name }}</a></th>
+                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
                                                     <td>{{ item.room }}</td>
                                                     <td>{{item.check_in }}</td>
                                                     <td>{{item.check_out }}</td>
@@ -297,6 +304,7 @@
                                                     {% else %}
                                                         <td><i class="fas fa-times"></i></td>
                                                     {% endif %}
+                                                    <td><a href="{% url 'delete_reservation' reservation %}" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
                                                 </tr>
                                             {% endfor %}
                                         {% endfor %}

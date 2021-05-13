@@ -80,8 +80,6 @@ select option[value=""] {
 }
 
 
-/* Test */
-
 .accordion {
     width: 100%;
 }
@@ -122,4 +120,15 @@ select option[value=""] {
 
 #link-to-tourist_info:hover {
     text-decoration: underline;
+}
+
+
+
+.reservations-links {
+    text-decoration: none;
+    color: #aa4e26;
+}
+
+.reservations-links:hover {
+    color: #72351a;
 }

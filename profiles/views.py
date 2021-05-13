@@ -139,3 +139,18 @@ def reservation_detail(request, reservation_number):
         'admin': True,
     }
     return render(request, template, context)
+
+
+@login_required
+def delete_reservation(request, reservation_number):
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, you don't have access to this \
+            part of the site.")
+        return redirect(reverse('home'))
+    
+    reservation = get_object_or_404(Reservation,
+                                    reservation_number=reservation_number)
+    reservation.delete()
+    messages.info(request, f'Reservation with reservation number {reservation_number}\
+         has been successfully deleted.')
+    return redirect('view_reservations')
