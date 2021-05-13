@@ -363,6 +363,7 @@ body {
     .hero-text h1 {
         font-size: 7rem;
         letter-spacing: 1rem;
+        margin-bottom: 1.5rem;
     }
 
     .hero-text p {
