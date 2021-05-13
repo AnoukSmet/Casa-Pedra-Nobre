@@ -319,6 +319,14 @@ body {
     color: #aa4e26;
 }
 
+#signup_form label {
+    margin-bottom: 1rem;
+}
+
+input[type='checkbox'] { 
+    filter: hue-rotate(185deg);
+}
+
 /* Profile */
 
 #profile {

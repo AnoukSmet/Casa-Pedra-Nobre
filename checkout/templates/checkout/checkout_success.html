@@ -26,14 +26,14 @@
                     <h2 class="sub-heading mt-2">Rooms:</h2>
                 </div>
                 {% for item in reservation.lineitems.all %}
-                <div class="col-12 col-md-4 mt-4">
+                <div class="col-12 col-md-5 mt-4">
                     {% for image in item.room.images.all %}
                         {% if image.main_image %}
                         <img class="d-block" src="{{ image.image.url }}" alt="room-image" id="confirmation-room-image">
                         {% endif %}
                     {% endfor %}
                 </div>
-                <div class="col-12 col-md-8 mt-4">
+                <div class="col-12 col-md-7 mt-4">
                     <h2 class="sub-heading mb-4">{{ item.room }}</h2>
                     <p>Number of guests: {{ item.number_of_guests }}</p>
                     <p>Check in: {{ item.check_in }}</p>
