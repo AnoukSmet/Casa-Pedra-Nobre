@@ -277,6 +277,8 @@ I have highlighted the relationships between the various models with colors.
 * Dashboard for bed & breakfast owner with additional information:
     * Reservations divided by room booked and displayed nicely in a calendar
 * Add walks in the surroundings of the bed & breakfast on the tourist information page which the user can download
+* Implement additional functionality that calculates the price depending on the amount of guests, length of stay, season and so on.
+* Implement promotions for multiple nights which would be advertisement on a separate page with a link to book that specific promotion
 
 [Back to Top](#table-of-contents)
 
