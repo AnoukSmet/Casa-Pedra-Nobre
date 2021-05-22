@@ -38,6 +38,10 @@ Disabled automatic scrolling of the carousel to give the user the control to go 
 Indicator below carousel to let the user know how many slides there are and where user is located on that moment. 
 Link within the carousel work as planned and redirects the user to the corresponding page.
 
+Due to the image being full view height, the user might not realize there is more information on this page.
+To make this clear to the user, I have added a small arrow, pointing down, right below the book now button.
+The user can also click on this button which will take him/her to the carousel down on the page.
+
 ### **Lighthouse report**
 """ Include 2 image performance screenshots """  
 

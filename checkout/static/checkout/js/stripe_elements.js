@@ -50,7 +50,7 @@ form.addEventListener('submit', function(ev) {
     $('#checkout-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
 
-    var saveInfo = Boolean($('#id-save-info').attr('checked'));
+    var saveInfo = Boolean($('#id-save-info:checked').val());
     var comment = $('#id_comment').val();
     var eta = $('#id_eta').val();
 

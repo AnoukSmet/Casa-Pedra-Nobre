@@ -455,7 +455,7 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
 
 1. Set up AWS
 
-1. Go back to HEROKY and click "Deploy". Scroll down and click "Enable automatic deployment".
+1. Go back to HEROKU and click "Deploy". Scroll down and click "Enable automatic deployment".
 1. Just beneath, click "Deploy branch". Heroku will now start building the app. When the build is complete, click "view app" to open it.
 1. In order to commit your changes to the branch, use git push to push your changes. 
     
