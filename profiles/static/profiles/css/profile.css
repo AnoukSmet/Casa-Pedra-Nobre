@@ -73,16 +73,12 @@ select option[value=""] {
 }
 
 
-@media (min-width: 1024px){
-    .reservations-container {
-        margin-right: 5rem;
-    }
-}
-
+/* Reservations Page */
 
 .accordion {
     width: 100%;
 }
+
 
 .reservation-table {
     background-color: #fff;
@@ -123,7 +119,6 @@ select option[value=""] {
 }
 
 
-
 .reservations-links {
     text-decoration: none;
     color: #aa4e26;
@@ -132,3 +127,19 @@ select option[value=""] {
 .reservations-links:hover {
     color: #72351a;
 }
+
+
+.green {
+    color: #185A37;
+}
+
+.red {
+    color: #8b0000;
+}
+
+@media (min-width: 1024px){
+    .reservations-container {
+        margin-right: 5rem;
+    }
+}
+

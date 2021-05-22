@@ -50,9 +50,9 @@
                                                         <td>{{item.check_out }}</td>
                                                         <td>{{ item.number_of_guests }}</td>
                                                         {% if reservation.stripe_pid %}
-                                                            <td><i class="fas fa-check"></i></td>
+                                                            <td class="green"><i class="fas fa-check"></i></td>
                                                         {% else %}
-                                                            <td><i class="fas fa-times"></i></td>
+                                                            <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
                                                         <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
@@ -102,10 +102,11 @@
                                                         <td>{{item.check_out }}</td>
                                                         <td>{{ item.number_of_guests }}</td>
                                                         {% if reservation.stripe_pid %}
-                                                            <td><i class="fas fa-check"></i></td>
+                                                            <td class="green"><i class="fas fa-check"></i></td>
                                                         {% else %}
-                                                            <td><i class="fas fa-times"></i></td>
+                                                            <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
+                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -153,10 +154,11 @@
                                                         <td>{{item.check_out }}</td>
                                                         <td>{{ item.number_of_guests }}</td>
                                                         {% if reservation.stripe_pid %}
-                                                            <td><i class="fas fa-check"></i></td>
+                                                            <td class="green"><i class="fas fa-check"></i></td>
                                                         {% else %}
-                                                            <td><i class="fas fa-times"></i></td>
+                                                            <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
+                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -204,10 +206,11 @@
                                                         <td>{{item.check_out }}</td>
                                                         <td>{{ item.number_of_guests }}</td>
                                                         {% if reservation.stripe_pid %}
-                                                            <td><i class="fas fa-check"></i></td>
+                                                            <td class="green"><i class="fas fa-check"></i></td>
                                                         {% else %}
-                                                            <td><i class="fas fa-times"></i></td>
+                                                            <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
+                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -254,10 +257,11 @@
                                                     <td>{{item.check_out }}</td>
                                                     <td>{{ item.number_of_guests }}</td>
                                                     {% if reservation.stripe_pid %}
-                                                        <td><i class="fas fa-check"></i></td>
+                                                        <td class="green"><i class="fas fa-check"></i></td>
                                                     {% else %}
-                                                        <td><i class="fas fa-times"></i></td>
+                                                        <td class="red"><i class="fas fa-times"></i></td>
                                                     {% endif %}
+                                                    <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
                                                 </tr>
                                             {% endfor %}
                                         {% endfor %}
@@ -300,9 +304,9 @@
                                                     <td>{{item.check_out }}</td>
                                                     <td>{{ item.number_of_guests }}</td>
                                                     {% if reservation.stripe_pid %}
-                                                        <td><i class="fas fa-check"></i></td>
+                                                        <td class="green"><i class="fas fa-check"></i></td>
                                                     {% else %}
-                                                        <td><i class="fas fa-times"></i></td>
+                                                        <td class="red"><i class="fas fa-times"></i></td>
                                                     {% endif %}
                                                     <td><a href="{% url 'delete_reservation' reservation %}" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
                                                 </tr>

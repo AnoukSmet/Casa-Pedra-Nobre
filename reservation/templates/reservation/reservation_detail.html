@@ -25,7 +25,6 @@
 </div>
 
 
-
 <div class="container rooms"> 
     {% if available_rooms %}
     <form method="POST" action="{% url 'reservation_detail' %}" class="row justify-content-end" id="room-selection">
@@ -81,7 +80,7 @@
         <!-- Modal Room Detail -->
 
 
-        <div class="modal" id="a{{ room.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal room-detail" id="a{{ room.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">

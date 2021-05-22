@@ -109,7 +109,14 @@ input[type='checkbox'] {
 .close {
     color: #aa4e26;
 }
+.close span {
+    font-size: 3rem;
+}
 
 .close:hover {
     color: #72351a;
+}
+
+.room-detail button {
+    font-size: 1.6rem;
 }
