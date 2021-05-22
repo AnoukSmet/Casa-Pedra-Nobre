@@ -10,21 +10,18 @@
 
 <div class="container">
     <h2 class="heading mt-4">Prices and availability</h2>
-    <form method="POST" action="#" class="row">
-        {% csrf_token %}
-        <div class="col-12 mt-4">
-            <label for="check_in">Check-In:</label>
-            <input type="date" name="check_in" value="{{ check_in }}" disabled>
+    <div class="row">
+        <div class="col-12 col-lg-3 mt-4">
+            <span><strong>Check in</strong>: {{ check_in }}</span>
         </div>
-        <div class="col-12 mt-4">
-            <label for="check_out">Check-Out:</label>
-            <input type="date" name="check_out" value="{{ check_out }}" disabled>
+        <div class="col -12 col-lg-3 mt-4">
+            <span><strong>Check out</strong>: {{ check_out }}</span>
         </div>
-        <div class="col-12 mt-4 mb-4">
+        <div class="col-12 col-lg-3 mt-4">
             <a href="{% url 'reservation'%}" class="button">Search again</a>
         </div>
-    </form> 
-    <div class="hr" id="search-rooms-division"></div>
+    </div>
+    <div class="hr mt-5" id="search-rooms-division"></div>
 </div>
 
 
@@ -34,7 +31,7 @@
     <form method="POST" action="{% url 'reservation_detail' %}" class="row justify-content-end" id="room-selection">
         {% csrf_token %}
         <div class="col-12 col-md-5 col-lg-4">
-            <button type="submit" class="button submit-rooms">Procceed to secure check out</button>
+            <button type="submit" class="button submit-rooms mt-4">Procceed to secure check out</button>
         </div>
         <div class="col-12">
             <h2 class="heading mb-2 col-12">Available Rooms</h2>

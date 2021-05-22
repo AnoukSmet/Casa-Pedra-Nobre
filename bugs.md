@@ -36,3 +36,6 @@
 
 ### Confirmation email not being sent when comment and eta not filled in (Stripe needed info)
 #### Solve: when not filled in, replace value with N/A
+
+### Arrows carousel homepage
+#### Changed position top: 30rem and align-items to unset for small and medium devices
