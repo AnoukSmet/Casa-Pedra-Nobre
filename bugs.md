@@ -33,3 +33,6 @@
 
 ### Save info always reading checked 
 #### Solve: Boolean($('#id-save-info:checked').val());
+
+### Confirmation email not being sent when comment and eta not filled in (Stripe needed info)
+#### Solve: when not filled in, replace value with N/A

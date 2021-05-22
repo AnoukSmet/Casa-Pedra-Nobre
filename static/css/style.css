@@ -214,9 +214,13 @@ body {
 
 .carousel-control-next {
     justify-content: flex-end;
+    align-items: unset;
+    top: 30rem;
 }
  .carousel-control-prev {
-     justify-content: flex-start;
+    justify-content: flex-start;
+    align-items: unset;
+    top: 30rem;
  }
 
 .card {
@@ -398,10 +402,11 @@ input[type='checkbox'] {
         font-size: 2rem !important;
     }
 
-    /* .logo {
-    width: 13rem;
-    height: 13rem;
-    } */
+    .carousel-control-prev,
+    .carousel-control-next {
+        top: 0;
+        align-items: center;
+    }
 
     .social-body h4 {
         font-size: 3rem;
