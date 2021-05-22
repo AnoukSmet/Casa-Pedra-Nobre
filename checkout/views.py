@@ -22,14 +22,20 @@ def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
+        comment = request.POST.get('comment')
+        eta = request.POST.get('eta')
+        if len(comment) == 0:
+            comment = "N/A"
+        if len(eta) == 0:
+            eta = "N/A"
         stripe.PaymentIntent.modify(pid, metadata={
             'reservation_request': json.dumps(
                 request.session.get('reservation_request', {})),
             'room_request': json.dumps(
                 request.session.get('room_request', {})),
             'save_info': request.POST.get('save_info'),
-            'comment': request.POST.get('comment'),
-            'eta': request.POST.get('eta'),
+            'comment': comment,
+            'eta': eta,
             'username': request.user,
         })
         return HttpResponse(status=200)

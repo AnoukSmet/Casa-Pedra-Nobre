@@ -29,3 +29,7 @@
 
 ### Server 500 error when submitting dates without filling them in
 #### if form["check_in"] and form["check_out"]:
+
+
+### Save info always reading checked 
+#### Solve: Boolean($('#id-save-info:checked').val());

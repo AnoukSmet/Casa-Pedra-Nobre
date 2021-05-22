@@ -37,8 +37,8 @@ class StripeWH_Handler:
             [client_email]
         )
 
-
     def handle_payment_intent_succeeded(self, event):
+        print("Received")
         intent = event.data.object
         pid = intent.id
         reservation_request = intent.metadata.reservation_request
@@ -125,6 +125,7 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                             status=500)
         self._send_confirmation_email(reservation)
+        print('success')
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created reservation in webhook',
             status=200)

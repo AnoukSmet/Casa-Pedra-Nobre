@@ -54,6 +54,16 @@ form.addEventListener('submit', function(ev) {
     var comment = $('#id_comment').val();
     var eta = $('#id_eta').val();
 
+    if (comment.length == 0){
+        $("#id_comment").val('N/A')
+    }
+    if (eta.length == 0){
+        $("#id_eta").val('N/A')
+    }
+    console.log(comment)
+    console.log(comment.length)
+    console.log(eta)
+    console.log(eta.length)
 
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {
