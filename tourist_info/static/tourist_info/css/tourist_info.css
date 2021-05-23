@@ -40,6 +40,13 @@
     margin-bottom: 0;
 }
 
+/* Add Recommendation for superuser */
+
+#add-recommendation {
+    text-align: center;
+    margin-top: 2rem;
+}
+
 
 /* Recommendation Detail page */
 
@@ -85,4 +92,41 @@
 
 .modal-body {
     text-align: center;
+}
+
+
+/* Add Recommendation Page */
+
+#add-recommendation-title {
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+
+}
+
+.recommendation-form-fields {
+    border: 0.1rem solid #aa4e26;
+    color: #000;
+    margin: 2rem 0;
+}
+
+.recommendation-form-fields::placeholder,
+.form-control {
+    color: #000;
+    font-size: 1.6rem;
+    font-family: "Karla", Arial, Helvetica, sans-serif;
+    
+}
+
+.recommendation-form-fields:focus,
+.recommendation-form-fields:hover {
+    border: 0.1rem solid #72351a;
+    box-shadow: 0.1rem 0.1rem 0.6rem 0.1rem #72351a !important;
+    color: #000;
+}
+
+
+@media (min-width:992px) {
+    #add-recommendation {
+    text-align: right;
+    }
 }

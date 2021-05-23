@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse
 from .models import Recommendation, RecommendationCategory
+from .forms import RecommendationForm
 from django.contrib import messages
 # Create your views here.
 
@@ -44,3 +45,13 @@ def add_to_favorites(request, recommendation_id):
     return HttpResponseRedirect(reverse(
         'recommendation_detail', kwargs={
             'recommendation_id': recommendation_id}))
+
+
+def add_recommendation(request):
+    form = RecommendationForm()
+    template = 'tourist_info/add_recommendation.html'
+
+    context = {
+        'form': form
+    }
+    return render(request, template, context)
