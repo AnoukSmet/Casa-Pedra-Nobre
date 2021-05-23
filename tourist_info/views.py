@@ -75,6 +75,10 @@ def add_recommendation(request):
 
 @login_required
 def edit_recommendation(request, recommendation_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only property admins can do that.')
+        return redirect(reverse('home'))
+    
     recommendation = get_object_or_404(Recommendation, pk=recommendation_id)
 
     if request.method == "POST":
@@ -104,6 +108,10 @@ def edit_recommendation(request, recommendation_id):
 
 @login_required
 def delete_recommendation(request, recommendation_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only property admins can do that.')
+        return redirect(reverse('home'))
+
     recommendation = get_object_or_404(Recommendation, pk=recommendation_id)
     recommendation.delete()
     messages.success(request, 'Recommendation successfully deleted')
