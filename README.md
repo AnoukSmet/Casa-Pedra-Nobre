@@ -348,10 +348,10 @@ To clone the project:
     Alternatively, you can clone the repository using the following line in your terminal:
 
     ``` 
-    git clone "LINK"
+    git clone https://github.com/AnoukSmet/Casa-Pedra-Nobre.git
     ``` 
 
-1. Access the folder in your terminal window and install the application's [link to required modules]() using the following command:
+1. Access the folder in your terminal window and install the application's [link to required modules](https://github.com/AnoukSmet/Casa-Pedra-Nobre/blob/master/requirements.txt) using the following command:
 
     ```
     pip3 install -r requirements.txt
@@ -362,8 +362,13 @@ To clone the project:
     ```
     import os
 
-    os.environ[""] = ""
-    
+    os.environ["SECRET_KEY"] = "YOUR_SECRET_KEY"
+    os.environ["DEVELOPMENT"] = "True"
+
+    os.environ["STRIPE_PUBLIC_KEY"] = "STRIPE_PUBLIC_KEY"
+    os.environ["STRIPE_SECRET_KEY"] = "STRIPE_SECRET_KEY"
+    os.environ["STRIPE_WH_SECRET"] = "STRIPE_WH_SECRET"
+        
     ```
 
     If you plan on pushing this application to a public repository, ensure that env.py is added to your .gitignore file.
@@ -390,13 +395,20 @@ To clone the project:
 1. Once the app is created click on the resources button and choose the Heroku Postgres to attach a postgres database to your project.
     ![Add Postgres Database](wireframes/heroku_postgres.png)
 
-<!-- 1. Scroll down to "deployment method"-section. Choose "Github" for automatic deployment. -->
-<!-- 1. From the inputs below, make sure your github user is selected, and then enter the name for your repo. Click "search". When it finds the repo, click the "connect" button. -->
 1. Scroll back up and click "settings". Scroll down and click "Reveal config vars". Set up the same variables as in your env.py ():
     !You shouldn't set the DEBUG variable in under config vars, only in your env.py to prevent DEBUG being active on live website. 
 
     ```
-    DATABASE_URL 
+    AWS_ACCESS_KEY_ID = "AWS_ACCESS_KEY_ID"
+    AWS_SECRET_ACCESS_KEY = "AWS_SECRET_ACCESS_KEY"
+    DATABASE_URL = "This variable is automatically set when adding the Postgres Add on"
+    EMAIL_HOST_PASS = "EMAIL_HOST_PASS"
+    EMAIL_HOST_USER = "EMAIL_HOST_USER"
+    SECRET_KEY = "SECRET_KEY"
+    STRIPE_PUBLIC_KEY = "STRIPE_PUBLIC_KEY"
+    STRIPE_SECRET_KEY = "STRIPE_SECRET_KEY"
+    STRIPE_WH_SECRET = "STRIPE_WH_SECRET"
+    USE_AWS = True
     ```
 1. From this screen, copy the value of DATABASE_URL
 1. After this go to your settings.py and comment out the default database configuration and add:
@@ -409,6 +421,13 @@ To clone the project:
     ```
     python3 manage.py migrate
     ```
+
+
+1. Load the data into your newly created database by using the following command: 
+
+    ```
+    python3 manage.py loaddata <name of file containing the data>
+    ``` 
 
 1. After migrations are complete, change database configurations to:
 ```
@@ -453,11 +472,18 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
     git push
     ```
 
-1. Set up AWS
-
+1. Add your Heroku app URL to ALLOWED_HOSTS in your settings.py file
 1. Go back to HEROKU and click "Deploy". Scroll down and click "Enable automatic deployment".
 1. Just beneath, click "Deploy branch". Heroku will now start building the app. When the build is complete, click "view app" to open it.
 1. In order to commit your changes to the branch, use git push to push your changes. 
+
+
+1. Store your static files and media files on AWS. You can find more information about this on [Amazon S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html).
+    If you would like to follow a tutorial instead, visit [this tutorial on Youtube from Amazon Web Services](https://youtube.com/watch?v=e6w9LwZJFIA)
+
+1. Set up email service to send confirmation email and user verification email to the users. You can do this
+
+
     
 
 
