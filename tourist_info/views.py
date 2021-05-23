@@ -82,7 +82,7 @@ def edit_recommendation(request, recommendation_id):
                                   instance=recommendation)
         if form.is_valid:
             form.save()
-            messages.info(request, 'You have succesfully updated \
+            messages.info(request, 'You have successfully updated \
                 recommendation.')
             return redirect(reverse('recommendation_detail',
                             args=[recommendation.id]))
@@ -100,3 +100,11 @@ def edit_recommendation(request, recommendation_id):
         'recommendation': recommendation
     }
     return render(request, template, context)
+
+
+@login_required
+def delete_recommendation(request, recommendation_id):
+    recommendation = get_object_or_404(Recommendation, pk=recommendation_id)
+    recommendation.delete()
+    messages.success(request, 'Recommendation successfully deleted')
+    return redirect(reverse('tourist_info'))
