@@ -1,5 +1,6 @@
 from django import forms
 from .models import Recommendation, RecommendationCategory
+# from .widgets import CustomClearableFileInput
 
 
 class RecommendationForm(forms.ModelForm):
@@ -9,6 +10,7 @@ class RecommendationForm(forms.ModelForm):
                   'intro', 'description', 'link_to_website',
                   'link_to_google_maps', 'distance'
                   )
+        # image = forms.ImageField(label="Image", required=True, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         """

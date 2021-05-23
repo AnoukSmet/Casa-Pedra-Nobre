@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
-
 from reservation.contexts import reservation_item
 from .forms import ReservationForm
 from django.contrib import messages

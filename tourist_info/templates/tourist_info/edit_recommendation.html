@@ -10,9 +10,9 @@
 
 <div class="container" >
     <div class="row">
-        <h1 class="col-12 col-md-8 offset-md-2 text-center" id="add-recommendation-title">Add Recommendation</h1>
+        <h1 class="col-12 col-md-8 offset-md-2 text-center" id="edit-recommendation-title">Edit Recommendation</h1>
 
-        <form method="POST" action="{% url 'add_recommendation' %}" class="col-12 col-md-8 offset-md-2" enctype="multipart/form-data">
+        <form method="POST" action="{% url 'edit_recommendation' recommendation.id %}" class="col-12 col-md-8 offset-md-2" enctype="multipart/form-data">
             {% csrf_token %}
                 {% for field in form %}
                     {% if field.name != 'image' %}
@@ -21,11 +21,12 @@
                         {{ field }}
                     {% endif %}
                 {% endfor %}
-            <button type="submit" class="button mt-4 mb-4">Add Recommendation</button>
-            <a href="#" class="button mt-4 mb-4">Cancel</a>
+            <button type="submit" class="button mt-4 mb-4">Update Recommendation</button>
+            <a href="{% url 'recommendation_detail' recommendation.id %}" class="button mt-4 mb-4">Cancel</a>
         </form>
     </div>
 </div>
+
 
 {% include 'components/footer/footer.html' %}
 {% endblock %}

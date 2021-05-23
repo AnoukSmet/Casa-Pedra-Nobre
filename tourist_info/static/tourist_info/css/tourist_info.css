@@ -88,6 +88,22 @@
     text-align: center;
 }
 
+#view-recommendations a {
+    display: block;
+    margin-top: 1rem;
+}
+
+#update-recommendation {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+#update-recommendation a {
+    color: #aa4e26;
+    background-color: transparent;
+    font-size: 2rem;
+}
+
 /* Modal */
 
 .modal-body {
@@ -124,6 +140,13 @@
     color: #000;
 }
 
+
+@media (min-width: 425px) {
+    #view-recommendations a {
+    display: inline;
+    margin-top: 1rem;
+    }
+}
 
 @media (min-width:992px) {
     #add-recommendation {
