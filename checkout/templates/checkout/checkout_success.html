@@ -95,10 +95,3 @@
 {% include 'components/social-media/social-media.html' %}
 {% include 'components/footer/footer.html' %}
 {% endblock %}
-
-{% block postloadjs %}
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
-{% endblock %}

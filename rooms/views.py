@@ -17,7 +17,6 @@ def rooms(request):
     return render(request, template, context)
 
 
-
 def room_detail(request, room_id):
     room = get_object_or_404(Room, pk=room_id)
     template = 'rooms/room_detail.html'

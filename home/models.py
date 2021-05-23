@@ -10,7 +10,7 @@ class PageIntro(models.Model):
     image = models.ImageField()
     url_name = models.CharField(max_length=50, null=True, blank=True)
     display_order = models.PositiveIntegerField(
-        default="", validators=[MinValueValidator(1), MaxValueValidator(100)],
+        default=1, validators=[MinValueValidator(1), MaxValueValidator(100)],
         unique=True)
 
     def __str__(self):

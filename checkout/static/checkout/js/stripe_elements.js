@@ -1,6 +1,7 @@
+    
 var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
 var clientSecret = $('#id_client_secret').text().slice(1, -1);
-var stripe = Stripe('pk_test_51Hk4KHKGfxT2cXnIH7FZfZRXkABR63JwpC0MX0l7K8lNNymOnosp4kSkgCRRj6bXJIiXoFOUUWPhjr470aC5b11000V6hyOjJp');
+var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
 var style = {
@@ -60,10 +61,7 @@ form.addEventListener('submit', function(ev) {
     if (eta.length == 0){
         $("#id_eta").val('N/A')
     }
-    console.log(comment)
-    console.log(comment.length)
-    console.log(eta)
-    console.log(eta.length)
+
 
     var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
     var postData = {

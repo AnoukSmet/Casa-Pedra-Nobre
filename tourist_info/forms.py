@@ -10,7 +10,7 @@ class RecommendationForm(forms.ModelForm):
                   'intro', 'description', 'link_to_website',
                   'link_to_google_maps', 'distance'
                   )
-        
+
     image = forms.ImageField(label="Image", required=True,
                              widget=CustomClearableFileInput)
 
