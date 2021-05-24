@@ -47,7 +47,7 @@
     </head>
     <body>    
         {% if messages %}
-        <div class="message-container">
+        <div class="message-container toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
             {% for message in messages %}
                 {% with message.level as level %}
                     {% if level == 40 %}
@@ -69,7 +69,9 @@
 
         {% block postloadjs %}
             <script type="text/javascript">
+            
                 $('.toast').toast('show');
+                
 
             </script>
     {% endblock %}
