@@ -43,7 +43,10 @@ To make this clear to the user, I have added a small arrow, pointing down, right
 The user can also click on this button which will take him/her to the carousel down on the page.
 
 ### **Lighthouse report**
-""" Include 2 image performance screenshots """  
+#### Homepage Desktop
+![Lighthouse report Desktop Home](/images-readme/home-desktop.png)
+#### Homepage Mobile
+![Lighthouse report Mobile Home](/images-readme/home-mobile.png)
 
 In the beginning the performance was too low, around 60%. This was mainly caused by retrieving the images from AWS.
 After some research, I have added metadata to my AWS Bucket to increase the max age for Cache Control. 
@@ -91,7 +94,15 @@ This I have done by setting the data-interval to different amount of seconds.
 The buttons to take the user to the detail page of each room work well. Same counts for the buttons on the rooms detail page to take you back to the rooms page. 
 
 ### **Lighthouse report**
-""" Include 2 image performance screenshots """  
+#### Rooms Desktop
+![Lighthouse report Desktop Rooms](/images-readme/rooms-desktop.png)
+#### Rooms Mobile
+![Lighthouse report Mobile Rooms](/images-readme/rooms-mobile.png)
+
+#### Room Detail Desktop
+![Lighthouse report Desktop Room Detail](/images-readme/rooms-detail-desktop.png)
+#### Room Detail Mobile
+![Lighthouse report Mobile Room Detail](/images-readme/rooms-detail-mobile.png)
 
 ### User Experience
 #### User Story: I want to see which different rooms the accommodation has to offer
@@ -170,7 +181,26 @@ The whole reservation process is responsive across browsers and devices.
 * Data is structured into different section which all get the correct data. 
 
 ### **Lighthouse report**
-""" Include 2 image performance screenshots """  
+
+#### Reservation step 1 Desktop
+![Lighthouse report Desktop Reservation Step 1](/images-readme/reservation-step-1-desktop.png)
+#### Reservation step 1 Mobile
+![Lighthouse report Mobile Reservation Step 1](/images-readme/reservation-step-1-mobile.png)
+
+#### Reservation step 2 Desktop
+![Lighthouse report Desktop Reservation Step 2](/images-readme/reservation-step-2-desktop.png)
+#### Reservation step 2 Mobile
+![Lighthouse report Mobile Reservation Step 2](/images-readme/reservation-step-2-mobile.png)
+
+#### Checkout Desktop
+![Lighthouse report Desktop Checkout](/images-readme/checkout-desktop.png)
+#### Checkout Mobile
+![Lighthouse report Mobile Checkout](/images-readme/checkout-mobile.png)
+
+#### Checkout Success Desktop
+![Lighthouse report Desktop Checkout Success](/images-readme/checkout-success-desktop.png)
+#### Checkout Success Mobile
+![Lighthouse report Mobile Checkout Success](/images-readme/checkout-success-mobile.png)
 
 ### User Experience
 #### User Story: I want to be able to make a reservation on the website itself
@@ -203,7 +233,11 @@ The images are nicely displayed, using an overlay on top of the main page. It in
 
 ### Lighthouse report
 
-""" Include 2 images from report """
+#### Gallery Desktop
+![Lighthouse report Desktop Gallery](/images-readme/gallery-desktop.png)
+#### Gallery Mobile
+![Lighthouse report Mobile Gallery](/images-readme/gallery-mobile.png)
+
 
 ### User Experience
 #### User Story: I want to see a lot of pictures so I can really visualize the place
@@ -247,7 +281,16 @@ For each recommendation, I gathered more info related to the recommendation. For
 There is also a link to the website corresponding with the recommendation and a link to google maps where the exact route from the bed & breakfast to the specific recommendation is displayed. 
 
 ### Lighthouse report
-""" Include 2 images """
+
+#### Tourist Info Desktop
+![Lighthouse report Desktop Tourist Info](/images-readme/tourist-info-desktop.png)
+#### Tourist Info Mobile
+![Lighthouse report Mobile Tourist Info](/images-readme/tourist-info-mobile.png)
+
+#### Recommendation Detail  Desktop
+![Lighthouse report Desktop Recommendation Detail](/images-readme/recommendation-detail-desktop.png)
+#### Recommendation Detail Mobile
+![Lighthouse report Mobile Recommendation Detail](/images-readme/recommendation-detail-mobile.png)
 
 ### User Experience
 #### User Story: I want to have some information about the surroundings of the accommodation
@@ -282,7 +325,11 @@ The user will be taken to the checkout success page with a flash message that re
 Display of the recommendations that were added to the favourites of the user.
 
 ### Lighthouse report
-""" Include 2 images """
+
+#### Profile Desktop
+![Lighthouse report Desktop Profile](/images-readme/profile-desktop.png)
+#### Profile Mobile
+![Lighthouse report Mobile Profile](/images-readme/profile-mobile.png)
 
 ### User Experience
 This page / feature is not often implemented in a website for a bed & breakfast and exceeds the expectations for the user. 
@@ -315,7 +362,8 @@ In order to highligh the navlink where the user was located, I had to compare th
 If true, active class was added to the navlink. This way the highlighting of the active navlink works as planned. 
 
 ### Lighthouse report
-""" Include 2 images """
+![Lighthouse report Desktop](/images-readme/)
+![Lighthouse report Mobile](/images-readme/)
 
 ### User Experience
 #### User Story: I want to have an intuitive navigation so I know right away where I can find which information
