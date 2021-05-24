@@ -136,12 +136,45 @@ If not, the user is not able to proceed to the next step and a flash messages is
 Conclusion: server error 500 does not appear anymore and user is informed correctly what he/she did wrong. 
 
 ### Dupplicate rooms
+On the reservation detail page where the available and unavailable rooms are beings displayed, a lot of dupplicate rooms were showing. 
+This was caused by me comparing the reservationr request data (Check in and check out) to all the existing reservations in the system. 
+If the data didn't overlap, the room was added to the available rooms and when the data overlapped, the room was added to the unavailable rooms. 
+
+Even if the room had already been added to unavailable rooms, it was still being added to available rooms. 
+First I removed all the dupplicates by looping through them and only if the room is not in the new list, add it. 
+Then I also check if the room is available, if it is already in unavailable rooms. If it is, I remove it from the available rooms. 
+
+This resolves the issue. I am aware that there is still room for improvement like only comparing to a limited amount of relevant reservating instead of comparing to all reservations. 
+The performance of this query will decrease the more reservations the bed & breakfast has. 
+
+Conclusion: the bug has been resolved and for the scope of the website, the fix is a good solution which has no impact on the performance for the user. 
 
 ### Save info always reading checked 
-Solve: Boolean($('#id-save-info:checked').val());
+By default I have checked the 'Save Info' box on the checkout page. 
+Somehow I was not getting the correct value of the checkbox when the form was submitted, it always returned True. 
+When I set the default to False, I was always returning False. 
 
-### Confirmation email not being sent when comment and eta not filled in (Stripe needed info)
-Solve: when not filled in, replace value with N/A
+I have updated the code in stripe elements js file to 'Boolean($('#id-save-info:checked').val());'
+
+Conclusion: the above fix has resolved the bug and the correct value of the checkbox is returned.
+
+### Confirmation email not being sent when comment and eta not filled in
+The confirmation email was not being sent whenever the user didn't fill in the comment and/or eta in the checkout form.
+This error was caused by me including the comment and eta in the stripe Payment Intent (for in case reservation needs to be created when user for example closes the browser).
+
+I didn't want to make this information mandatory for the user as it didn't make much sense. 
+Instead I check the value of these 2 fields before submitting and when the user hasn't filled in any comment or eta, I add the value 'N/A' to the field.
+
+Now there is always a value which results in Stripe not throwing an error. 
+
+Conclusion: Bug has been resolved and confirmation emails are sent even when comment and eta are not filled in.
 
 ### Confirmation email not being sent when CPN makes reservation
-Manually call email function when reservation has no stripe_pid
+When the superuser / admin makes a reservation for the guests, the stripe payment step is being skipped.
+Therefor the send email function is never called when the admin makes a reservation. 
+
+In order to still send a confirmation email to the user so the owner of the b&b doesn't have to do this manually,
+I added the send mail function to the checkout views and on the checkout success function I call that function whenever the reservation doesn't have a stripe pid.
+
+Conclusion: email is always sent to the guest, even when admin makes the reservation for them.  
+The email itself also checks for the pid and if it is not there, guest is informed that the payment will be done at the property.
