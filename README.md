@@ -338,6 +338,8 @@ I have created the project using Github, from there I used [Gitpod](https://gitp
 Then I used commits to git followed by "git push" to my GitHub repository. 
 I've deployed this project to Heroku and used "git push heroku master" to make sure my pushes to GitHub were also made to Heroku. 
 
+For this project you need to create an account on Stripe for the reservation module as well as an account on AWS in order to store your static and media files.
+
 This project can be ran locally by following the following steps: 
 I used Gitpod for development, so the following steps will be specific to Gitpod. 
 You will need to adjust them depending on your IDE. You can find more information about installing packages using pip and virtual environments [here](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
@@ -370,6 +372,8 @@ To clone the project:
     os.environ["STRIPE_WH_SECRET"] = "STRIPE_WH_SECRET"
         
     ```
+    
+    If you're not sure how to get the above Stripe variables, please visit the [Stripe Documentation](https://stripe.com/docs)
 
     If you plan on pushing this application to a public repository, ensure that env.py is added to your .gitignore file.
 
@@ -392,8 +396,10 @@ To clone the project:
 ### To deploy your project on Heroku, use the following steps: 
 
 1. Login to your Heroku account and create a new app. Choose your region. 
-1. Once the app is created click on the resources button and choose the Heroku Postgres to attach a postgres database to your project.
-    ![Add Postgres Database](wireframes/heroku_postgres.png)
+1. Once the app is created click on the resources button and under Add-ons, look for the Heroku Postgres to attach a postgres database to your project.
+    Select the Hobby Dev - Free plan and click 'Submit order form'
+
+    ![Heroku Postgress Add on](/images-readme/heroku-postgress-addon.png)
 
 1. Scroll back up and click "settings". Scroll down and click "Reveal config vars". Set up the same variables as in your env.py ():
     !You shouldn't set the DEBUG variable in under config vars, only in your env.py to prevent DEBUG being active on live website. 
@@ -402,8 +408,6 @@ To clone the project:
     AWS_ACCESS_KEY_ID = "AWS_ACCESS_KEY_ID"
     AWS_SECRET_ACCESS_KEY = "AWS_SECRET_ACCESS_KEY"
     DATABASE_URL = "This variable is automatically set when adding the Postgres Add on"
-    EMAIL_HOST_PASS = "EMAIL_HOST_PASS"
-    EMAIL_HOST_USER = "EMAIL_HOST_USER"
     SECRET_KEY = "SECRET_KEY"
     STRIPE_PUBLIC_KEY = "STRIPE_PUBLIC_KEY"
     STRIPE_SECRET_KEY = "STRIPE_SECRET_KEY"
@@ -411,10 +415,10 @@ To clone the project:
     USE_AWS = True
     ```
 1. From this screen, copy the value of DATABASE_URL
-1. After this go to your settings.py and comment out the default database configuration and add:
+1. After this go to your settings.py the casa_pedra_nobre directory and comment out the default database configuration and add:
     ```
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('< Put your DATABASE_URL here >'))
+        'default': dj_database_url.parse('Put your DATABASE_URL here'))
     }
     ```
 1. Migrate again with the following command
@@ -422,6 +426,13 @@ To clone the project:
     python3 manage.py migrate
     ```
 
+
+1. Create a superuser for the postgres database so you can have access to the django admin by setting up the credentials with the following command
+    ```
+    python3 manage.py createsuperuser
+    ```
+
+    --> Don't forget to login to the admin page and check the boxes 'Verified and primary"
 
 1. Load the data into your newly created database by using the following command: 
 
@@ -445,12 +456,8 @@ To clone the project:
 ```
 This set up will allow your site to use Postgres in deployment and sqlite3 in development.
 
-1. Create a superuser for the postgres database so you can have access to the django admin by setting up the credentials with the following command
-    ```
-    python3 manage.py createsuperuser
-    ```
 
-1. Create a Procfile freeze your requirements by running the following commands: 
+1. Make sure you have your requirements.txt file and your Procfile. In case you don't, follow the below steps:
     Requirements:
     ```
     pip3 freeze --local > requirements.txt
@@ -473,7 +480,15 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
     ```
 
 1. Add your Heroku app URL to ALLOWED_HOSTS in your settings.py file
-1. Go back to HEROKU and click "Deploy". Scroll down and click "Enable automatic deployment".
+1. Disable collect static so that Heroku doesn't try to collect static files when you deploy by typing the following command in the terminal
+    ```
+    heroku config:set DISABLE_COLLECTSTATIC=1
+    ```
+1. Go back to HEROKU and click "Deploy" in the navigation. 
+1. Scroll down to Deployment method and Select Github. 
+1. Look for your repository and click connect. 
+1. Under automatic deploys, click 'Enable automatic deploys'
+
 1. Just beneath, click "Deploy branch". Heroku will now start building the app. When the build is complete, click "view app" to open it.
 1. In order to commit your changes to the branch, use git push to push your changes. 
 
@@ -481,10 +496,35 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
 1. Store your static files and media files on AWS. You can find more information about this on [Amazon S3 Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html).
     If you would like to follow a tutorial instead, visit [this tutorial on Youtube from Amazon Web Services](https://youtube.com/watch?v=e6w9LwZJFIA)
 
-1. Set up email service to send confirmation email and user verification email to the users. You can do this
+1. Set up email service to send confirmation email and user verification email to the users. You can do this by following the next steps (Gmail only)
 
+(Be aware that this migth be different for other providers or the process might have changed over time)
 
-    
+* Go to your email account and go to your account settings
+* Under Security, scroll down to Signing in to Google and make sure 2 step verification is turned on
+* Under the same heading (Signing in to Google) you will see the 'App passwords' option.
+* Click on the option, select mail for the app and under device type select other and fill in 'Django'
+* You will now get a password which you should copy and set it as a config variable in Heroku:
+
+```
+    EMAIL_HOST_PASS = 'Password you just copied'
+    EMAIL_HOST_USER = 'Your gmail account
+```
+* Go to your settings.py in casa_pedra_nobre directory and add the following:
+
+```
+    if "DEVELOPMENT" in os.environ:
+        EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+        DEFAULT_FROM_EMAIL = 'your gmail account'
+    else:
+        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        EMAIL_USE_TLS = True
+        EMAIL_PORT = 587
+        EMAIL_HOST = 'smtp.gmail.com'
+        EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+        EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+        DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+```
 
 
 [Back to Top](#table-of-contents)
