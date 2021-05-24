@@ -92,3 +92,14 @@
     width: 100%;
     height: auto;
 }
+
+#room-description {
+    white-space: pre-wrap;
+}
+
+#price-info {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    margin: 2rem 0;
+}
