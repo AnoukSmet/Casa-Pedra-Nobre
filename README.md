@@ -282,6 +282,8 @@ I have highlighted the relationships between the various models with colors.
 * Add walks in the surroundings of the bed & breakfast on the tourist information page which the user can download
 * Implement additional functionality that calculates the price depending on the amount of guests, length of stay, season and so on.
 * Implement promotions for multiple nights which would be advertisement on a separate page with a link to book that specific promotion
+* Improve performance by using responsive images and minifying my css files
+* Give the admin the possibility to edit reservations instead of only deleting and creating a new one
 
 [Back to Top](#table-of-contents)
 
@@ -533,4 +535,19 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
 
 ## **Credits**
 
-* https://epicbootstrap.com/snippets/lightbox-gallery 
+* Thank you to the creator(s) of the [Lightbox Gallery](https://epicbootstrap.com/snippets/lightbox-gallery), it has really helped me with the display of my image gallery  
+
+* Thank you as well to the creator(s) of the [Datatables CDN](https://cdn.datatables.net/). This helped to provide a nice overview of all the reservations.
+
+* Big thanks to the Stackoverflow Community who has helped me through a lot of problems. It is incredible to see how everyone is to eager to help each other. 
+
+* A special thanks to my mentor Simen Eventyret_mentor, who once again, supported me throughout this challenging project.
+    He has believed in me and this project when I didn't and has guided me through it. Thanks for the amazing help over the last couple of months!
+
+This project was ofcourse very close to my heart, having run this bed & breakfast myself for more than 2 years. 
+It was an honor for me to work on this project and I would like to thank my parents for delivering a lot of the content and images.
+I also want to thank them and my husband-to-be Artur for the amazing (and critical, as it is also very close to their heart) testing they did. 
+This has been a great help in order to improve the user experience even more. 
+
+
+

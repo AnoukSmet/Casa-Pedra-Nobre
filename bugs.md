@@ -104,7 +104,12 @@ When I added this, the issue was resolved and the user can now easily verify it'
 Conclusion: bug has been resolved and email verification is now working properly. 
 
 ### Error console stripe: Uncaught IntegrationError: Please call Stripe() with your publishable key. You used an empty string.
+This error was appearing in the console as the Stripe Public Key was not recognised when the admin was completing the checkout form. 
+This is normal because when the admin make a reservation, they don't need to go through the payment step. 
+In order to prevent this error from happening, I have wrapped the loading the stripe elements js in an if statement. 
+If the user is a superuser, I don't load the js file as it is not needed then. 
 
+Conclusion: the fix explained above resolved the error that was displaying in the console. I'm not 100% sure if there isn't a better solution for now, this is the best solution for my knowledge.
 
 ### Policies not showing on checkout success
 On the checkout success page I wanted to display the policies once again so the user is reminded when the check-in + check-out is etc. 

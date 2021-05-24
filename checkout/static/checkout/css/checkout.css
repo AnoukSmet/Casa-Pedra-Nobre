@@ -75,6 +75,15 @@ input[type='checkbox'] {
     width: 1.6rem;
 }
 
+.text-info {
+    color: #aa4e26 !important;
+}
+
+.text-info:hover,
+a.text-info:focus, a.text-info:hover {
+    color: #72351a !important;
+}
+
 /* Check out success */
 
 .reservation-summary {
@@ -85,6 +94,10 @@ input[type='checkbox'] {
 #confirmation-room-image {
     width: 28rem;
     height: auto;
+}
+
+.checkout-policies {
+    white-space: pre-wrap;
 }
 
 /* Loading spinner */
