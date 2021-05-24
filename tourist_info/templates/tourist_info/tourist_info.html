@@ -59,7 +59,7 @@
                 {% for recommendation in recommendations %}
                     {% if recommendation.category == category %}
                     <div class="card col-12 col-md-4">
-                        <img src="{{ recommendation.image.url }}" class="card-img-top" alt="...">
+                        <img src="{{ recommendation.image.url }}" class="card-img-top" alt="recommendation-image">
                         <div>
                             <h5 class="sub-heading mt-3 mb-2">{{ recommendation }}</h5>
                             <p class="paragraph">{{ recommendation.intro }}.</p>

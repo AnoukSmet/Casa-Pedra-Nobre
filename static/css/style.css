@@ -191,7 +191,7 @@ body {
     height: auto;
     margin: 1rem auto;
     margin-bottom: 4rem;
-
+    max-width: 30rem;
 }
 
 .carousel-control-prev,

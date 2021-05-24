@@ -51,6 +51,7 @@
     height: auto;
     border-radius: 1rem;
     margin-bottom: 1rem;
+    max-width: 30rem;
 }
 
 .amenities {
@@ -91,6 +92,7 @@
 .room-images img {
     width: 100%;
     height: auto;
+    max-width: 30rem;
 }
 
 #room-description {
