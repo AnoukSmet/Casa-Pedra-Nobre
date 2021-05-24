@@ -56,8 +56,8 @@ body {
 }
 
 .logo {
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
 }
 
 .navbar-dark .navbar-brand {
@@ -157,18 +157,18 @@ body {
   color: #FCBC49;
   width: 100%;
   font-family: "Baskervville", Arial, Helvetica, sans-serif;
-  padding: 2rem;
+  padding: 0.2rem;
 }
 
 .hero-text h1 {
-    font-size: 3.3rem;
-    margin-bottom: 4rem;
-    letter-spacing: 0.3rem;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2rem;
     
 }
 
 .hero-text p {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
 }
 

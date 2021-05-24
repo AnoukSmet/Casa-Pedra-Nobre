@@ -147,8 +147,9 @@ The whole reservation process is responsive across browsers and devices.
 #### Step 1: Select check-in & check-out
 * Flash message when user tries to select check-in and/or check-out data in the past
 * Flash message when user tries to select check-in date after check-out date 
+* Check out date automatically updates when user fills in check in date to check in date + 1
 * Button to proceed to next step works as planned
-* Limited reservations section to max 28 days ***
+* Limited reservations section to maximum 28 days
 
 #### Step 2: Display available and unavailable rooms based on availability
 * For each room I have selected 1 main image which is being displayed for each room

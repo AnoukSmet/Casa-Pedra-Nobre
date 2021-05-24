@@ -1,5 +1,5 @@
 #reservation {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/reservation_hero.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/reservation_hero.jpg");      
 }
 
 #reservation-hero-text {
@@ -7,7 +7,7 @@
 }
 
 #reservation-hero-text h1 {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 #reservation-hero-text p {
     margin-bottom: 4rem;
@@ -16,6 +16,7 @@
 #reservation-request-form {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
     padding: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .reservation-label {
@@ -119,4 +120,22 @@ input[type='checkbox'] {
 
 .room-detail button {
     font-size: 1.6rem;
+}
+
+@media (min-height: 320px) {
+    #reservation {
+    overflow-y: scroll;   
+    }
+    #reservation-hero-text {
+    top: 95%;
+    }
+}
+
+@media (min-height: 530px) {
+    #reservation {
+    overflow-y: hidden;   
+    }
+    #reservation-hero-text {
+    top: 60%;
+    }
 }

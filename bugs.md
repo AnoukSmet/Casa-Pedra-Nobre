@@ -2,18 +2,63 @@
 
 ## Responsiveness
 
-### Footer was coming out of screen
+### Footer was coming out on the right side of the screen
+Because of this issue, there was a horizontal scroll with a white strip on the side on each page.
+This was resolved by removing the padding on the footer-container class.
 
-Resolved by removing padding on footer-container
+Conclusion: footer works as intended and is completely responsive.
+
 
 ### Toggler Icon Navbar not showing
-Resolved by adding navbar-dark to navbar and overwriting this
+When implementing the navigation bar from bootstrap, I removed the navbar-dark as I wanted to apply my own styling. 
+This results in the toggler Icon not being displayed on the screen. 
+This was resolved by adding navbar-dark class againvto the navbar and overwriting the styling.
 
-### Date Icon reservation request black
-::-webkit-calendar-picker-indicator { filter: invert(1);}
+Conclusion: Toggler icon is displayed on the screen while still implementing personalised design.
 
-### Text coming out of hero image on rooms and tourist info
-Added margin bottom of 1.5rem
+### Date Icon on the reservation request form displayed in black instead of white color
+![Datepicker-black](/images-readme/bug-datepicker-black.png)
+
+Resolved by adding the following code: 
+
+```
+    ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+```
+
+Conclusion: The color of the calendar icon in the datepicker now displays in the color white which is more in line with the design.
+
+### Text coming out of hero image on various pages like reservation form
+![Datepicker-black](/images-readme/bug-herotext.png)
+
+I have resolved this responsiveness issue by adding the following:
+
+```
+    @media (min-height: 320px) {
+        #reservation {
+            overflow-y: scroll;   
+        }
+        #reservation-hero-text {
+            top: 95%;
+        }
+    }
+
+    @media (min-height: 530px) {
+        #reservation {
+            overflow-y: hidden;   
+        }
+        #reservation-hero-text {
+            top: 60%;
+        }
+    }
+```
+
+This resolved the issue for mobile devices in horizontal mode for the reservation page.
+To resolve this responsiveness issue for the other page, I have decreased the font-size and added a margin-bottom. 
+
+Conclusion: the fix described above has resolved the responsiveness issue.   
+For the reservations page, this might not be the best user experience to have the scroll but it is a much better user experience than before. 
 
 ### Arrows carousel homepage
 Changed position top: 30rem and align-items to unset for small and medium devices
