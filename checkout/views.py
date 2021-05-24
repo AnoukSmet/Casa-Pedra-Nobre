@@ -1,21 +1,24 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from datetime import datetime
+import json
+import stripe
+
+from django.shortcuts import render, redirect, reverse,\
+    get_object_or_404, HttpResponse
 from django.views.decorators.http import require_POST
-from reservation.contexts import reservation_item
-from .forms import ReservationForm
 from django.contrib import messages
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
+
+
+from reservation.contexts import reservation_item
+
 from rooms.models import Room, Amenity
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
+
+from .forms import ReservationForm
 from .models import ReservationLineItem, Reservation
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from datetime import datetime
-from django.conf import settings
-import stripe
-import json
-
-
-# Create your views here.
 
 
 @require_POST
@@ -52,7 +55,8 @@ def checkout(request):
     try:
         if request.method == "POST":
             reservation_items = reservation_item(request)
-            reservation_request = request.session.get('reservation_request', {})
+            reservation_request = request.session.get(
+                'reservation_request', {})
             form_data = {
                 'full_name': request.POST['full_name'],
                 'email': request.POST['email'],
@@ -67,7 +71,8 @@ def checkout(request):
                 if not request.user.is_superuser:
                     pid = request.POST.get('client_secret').split('_secret')[0]
                     reservation.stripe_pid = pid
-                reservation.original_reservation = json.dumps(reservation_request)
+                reservation.original_reservation = json.dumps(
+                    reservation_request)
                 reservation.reservation_total = reservation_items[
                     "reservation_total"]
                 reservation.save()
@@ -162,7 +167,8 @@ def checkout(request):
                 }
             return render(request, template, context)
     except Exception as e:
-        messages.error(request, 'Looks like something went wrong. Our apologies for the inconvenience.')
+        messages.error(request, 'Looks like something went wrong. \
+            Our apologies for the inconvenience.')
         return HttpResponse(content=e, status=400)
 
 
