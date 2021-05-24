@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+<!-- Hero container with small introductory text -->
 <div class="header-container header-container-small" id="profile">
     {% include 'components/navigation/navbar.html' %}
     <div class="hero-text">
@@ -13,9 +14,10 @@
         <p>View your bookings and start planning your trip by adding restaurants, places to visit and so on to your favorites!</p>
     </div>
 </div>
+
+<!-- Overview of past and upcoming reservations + profile information -->
 <div class="container">
-    <div class="row ml-0 mr-0">
-        
+    <div class="row ml-0 mr-0">  
         <div class="col-12 col-lg-7 reservations-container">
             {% if reservations %}
             <h2 class="heading mb-4 mt-2">Your reservations</h2>
@@ -76,6 +78,7 @@
     </div>
 </div>
 
+<!-- Overview of recommendation added to favorites -->
 <div class="container">
     <div class="row">
         <h2 class="heading col-12 ml-4 mb-4">My Favorites</h2>
@@ -83,7 +86,7 @@
             {% for favorite in favorites %}
             <div class="col-12 col-md-4">
                 <div class="card">
-                    <img src="{{ favorite.image.url }}" class="card-img-top" alt="...">
+                    <img src="{{ favorite.image.url }}" class="card-img-top" alt="{{favorite}}">
                     <div>
                         <h5 class="sub-heading mt-3 mb-2">{{ favorite }}</h5>
                         <span class="favorite-category"><i class="fas fa-tag"></i> {{ favorite.category.friendly_name }}</span>
@@ -103,9 +106,7 @@
 </div>
 
 
-
 {% include 'components/social-media/social-media.html' %}
-
 {% include 'components/footer/footer.html' %}
 
 {% endblock %}

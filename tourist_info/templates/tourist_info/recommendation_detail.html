@@ -8,6 +8,8 @@
 {% block content %}
 {% include 'components/navigation/navbar.html' %}
 
+<!-- Page that displays detailed information about recommendation -->
+
 <div class="container" >
     <div class="row">
         <div class="col-12" id="update-recommendation">
@@ -36,7 +38,7 @@
             <p>{{ recommendation.intro }}</p>
         </div>
         <div class="col-12 col-md-6" >
-            <img src="{{ recommendation.image.url }}" alt="..." id="recommendation-image">
+            <img src="{{ recommendation.image.url }}" alt="recommendation-image" id="recommendation-image">
         </div>
         <div class="col-12 col-md-6" id="additional-info">
             <p>{{ recommendation.description }}</p>
@@ -47,9 +49,9 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal that shows when user wants to user add to favorites functionality without being logged in -->
 
-<div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodalLabel" aria-hidden="true">
+<div class="modal fade" id="loginmodal" tabindex="-1" aria-labelledby="loginmodal" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-body">
@@ -74,7 +76,8 @@
 
 {% block postloadjs %}
     {{ block.super }}
-
+    <!-- Initialize tooltip for additional explanation heart icon (Add / remove to favorites ) -->
+    
     <script type="text/javascript">
     $(document).ready(function(){
         $('[data-toggle="tooltip"]').tooltip(); 

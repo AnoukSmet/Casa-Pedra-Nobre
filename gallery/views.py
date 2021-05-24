@@ -10,6 +10,11 @@ from tourist_info.models import Recommendation
 def gallery(request):
     template = "gallery/gallery.html"
 
+    """
+    Split images into property images and surroundings
+    Based on the image category
+    """
+
     images_cpn = []
     images_surroundings = []
 
@@ -20,10 +25,17 @@ def gallery(request):
         elif str(image.category) == 'surroundings':
             images_surroundings.append(image)
 
+    """
+    Add all room images to property images
+    """
     room_images = Image.objects.all()
     for image in room_images:
         images_cpn.append(image)
 
+    """
+    Add all recommendation images expect for
+    the restaurant images to the surroundings
+    """
     recommendations = Recommendation.objects.all()
     for recommendation in recommendations:
         if str(recommendation.category) != 'where_to_eat':

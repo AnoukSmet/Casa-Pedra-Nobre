@@ -6,6 +6,8 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- Hero container with inside a form to fill in check-in and check-out -->
 <div class="header-container" id="reservation">
     {% include 'components/navigation/navbar.html' %}
     <div class="hero-text" id="reservation-hero-text">
@@ -49,6 +51,7 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <!-- Sets checkout date on change of check-in to check-in + 1 day -->
     <script type="text/javascript">
     $('#check_in').change(function() {
         var date = new Date($('#check_in').val());

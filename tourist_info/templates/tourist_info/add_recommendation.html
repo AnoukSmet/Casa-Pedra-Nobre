@@ -8,10 +8,11 @@
 {% block content %}
 {% include 'components/navigation/navbar.html' %}
 
+<!-- Add Recommendation page for admin -->
+
 <div class="container" >
     <div class="row">
         <h1 class="col-12 col-md-8 offset-md-2 text-center" id="add-recommendation-title">Add Recommendation</h1>
-
         <form method="POST" action="{% url 'add_recommendation' %}" class="col-12 col-md-8 offset-md-2" enctype="multipart/form-data">
             {% csrf_token %}
                 {% for field in form %}
@@ -33,6 +34,8 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <!-- When image is selected, display name of image -->
+    
     <script type="text/javascript">
         $('#new-image').change(function() {
             var file = $('#new-image')[0].files[0];

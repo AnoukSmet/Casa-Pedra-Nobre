@@ -180,12 +180,14 @@ body {
     padding: 0.5rem;
     font-size: 3rem;
 }
+
 /* Carousel Homepage */
 
 .carousel-container {
     margin-top: 5rem;
     margin-bottom: 5rem;
 }
+
 .carousel-item img {
     width: 90%;
     height: auto;
@@ -323,7 +325,6 @@ body {
     margin: 0;
 } 
 
-
 /* Account settings */
 
 .account-container {
@@ -428,6 +429,7 @@ input[type='checkbox'] {
         padding: 0.5rem !important;
     }
 }
+
 @media (min-width: 1440px) {
     .nav-link {
         padding: 1.8rem !important;

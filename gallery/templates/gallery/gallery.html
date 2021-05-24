@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block content %}
+<!-- Hero image + title including links to propery images and surroundings -->
 <div class="header-container" id="gallery">
     {% include 'components/navigation/navbar.html' %}
     <div class="hero-text">
@@ -16,7 +17,7 @@
     </div>
 </div>
 
-
+<!-- Images of Casa Pedra Nobre itself -->
 <div class="photo-gallery" id="casapedranobre">
     <div class="container">
         <div class="intro">
@@ -24,13 +25,13 @@
         </div>
         <div class="row photos">
             {% for photo in images_cpn %}
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{ photo.image.url }}" data-lightbox="photos_cpn"><img class="img-fluid" src="{{ photo.image.url }}" alt=""></a></div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{ photo.image.url }}" data-lightbox="photos_cpn"><img class="img-fluid" src="{{ photo.image.url }}" alt="{{photo.image.url}}"></a></div>
             {% endfor %}
         </div>
     </div>
 </div> 
 
-
+<!-- Images of the surroundings of Casa Pedra Nobre -->
 <div class="photo-gallery" id="surroundings">
     <div class="container">
         <div class="intro">
@@ -38,7 +39,7 @@
         </div>
         <div class="row photos">
             {% for photo in images_surroundings %}
-                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{ photo.image.url }}" data-lightbox="photos_surroundings"><img class="img-fluid" src="{{ photo.image.url }}" alt=""></a></div>
+                <div class="col-sm-6 col-md-4 col-lg-3 item"><a href="{{ photo.image.url }}" data-lightbox="photos_surroundings"><img class="img-fluid" src="{{ photo.image.url }}" alt="{{photo.image.url}}"></a></div>
             {% endfor %}
         </div>
     </div>
@@ -54,5 +55,6 @@
 
 {% block postloadjs %}
     {{ block.super }}
+    <!-- Lightbox Gallery CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
 {% endblock %}

@@ -8,6 +8,7 @@
 {% block content %}
 {% include 'components/navigation/navbar.html' %}
 
+<!-- Display filled in data of step 1 (check-in / check-out) -->
 <div class="container">
     <h2 class="heading mt-4">Prices and availability</h2>
     <div class="row">
@@ -24,7 +25,7 @@
     <div class="hr mt-5" id="search-rooms-division"></div>
 </div>
 
-
+<!-- Display of available rooms and unavailable rooms -->
 <div class="container rooms"> 
     {% if available_rooms %}
     <form method="POST" action="{% url 'reservation_detail' %}" class="row justify-content-end" id="room-selection">
@@ -77,10 +78,10 @@
             </div>
         </div>
         <div class="hr"></div> 
-        <!-- Modal Room Detail -->
 
+        <!-- Modal that shows additional room information -->
 
-        <div class="modal room-detail" id="a{{ room.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal room-detail" id="a{{ room.id }}" tabindex="-1" aria-labelledby="{{ room.id }}" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -136,6 +137,7 @@
         {% endif %}
     </div>
     {% else %}
+    <!-- This is displayed when there are no available rooms for these data -->
         <div class="row">
             <div class="col-12" id="sold-out">
                 <h2 class="heading mb-2 col-12">Sold out</h2>
@@ -174,10 +176,6 @@
         </div>
     {% endif %}
 </div>
-
-
-
-
 
 {% include 'components/social-media/social-media.html' %}
 

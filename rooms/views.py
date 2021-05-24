@@ -5,6 +5,9 @@ from .models import Room, AmenityCategory, Amenity
 
 
 def rooms(request):
+    """
+    Display rooms page with rooms and amenities
+    """
     rooms = Room.objects.all()
     categories = AmenityCategory.objects.all()
     amenities = Amenity.objects.all()
@@ -18,6 +21,9 @@ def rooms(request):
 
 
 def room_detail(request, room_id):
+    """
+    Display detailed page of specific room
+    """
     room = get_object_or_404(Room, pk=room_id)
     template = 'rooms/room_detail.html'
     context = {

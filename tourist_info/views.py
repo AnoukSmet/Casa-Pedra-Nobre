@@ -7,6 +7,9 @@ from django.contrib import messages
 
 
 def tourist_info(request):
+    """
+    Display the different recommendations under the correct category
+    """
     recommendations = Recommendation.objects.all()
     categories = RecommendationCategory.objects.all()
 
@@ -20,6 +23,9 @@ def tourist_info(request):
 
 
 def recommendation_detail(request, recommendation_id):
+    """
+    Displays additional information about recommendation
+    """
     recommendation = get_object_or_404(Recommendation, pk=recommendation_id)
     is_favorite = False
     if recommendation.favorite.filter(id=request.user.id).exists():
@@ -34,6 +40,10 @@ def recommendation_detail(request, recommendation_id):
 
 
 def add_to_favorites(request, recommendation_id):
+    """
+    Function that checks if recommendation is already added to your favorites
+    If yes, removes it and otherwise adds it
+    """
     recommendation = get_object_or_404(Recommendation, id=recommendation_id)
     if recommendation.favorite.filter(id=request.user.id).exists():
         recommendation.favorite.remove(request.user)
@@ -50,6 +60,9 @@ def add_to_favorites(request, recommendation_id):
 
 @login_required
 def add_recommendation(request):
+    """
+    View to render add recommendation page for superuser
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only property admins can do that.')
         return redirect(reverse('home'))
@@ -75,6 +88,9 @@ def add_recommendation(request):
 
 @login_required
 def edit_recommendation(request, recommendation_id):
+    """
+    View to render edit recommendation page for superuser
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only property admins can do that.')
         return redirect(reverse('home'))
@@ -108,6 +124,9 @@ def edit_recommendation(request, recommendation_id):
 
 @login_required
 def delete_recommendation(request, recommendation_id):
+    """
+    View that lets the superuser remove a recommendation
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only property admins can do that.')
         return redirect(reverse('home'))

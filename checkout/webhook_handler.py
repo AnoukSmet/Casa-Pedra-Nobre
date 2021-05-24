@@ -45,10 +45,13 @@ class StripeWH_Handler:
         save_info = intent.metadata.save_info
         comment = intent.metadata.comment
         eta = intent.metadata.eta
-        
+
         billing_details = intent.charges.data[0].billing_details
         reservation_total = round(intent.charges.data[0].amount / 100, 2)
 
+        """
+        Save reservation info in Profile if user check save info box
+        """
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
@@ -60,6 +63,11 @@ class StripeWH_Handler:
                 profile.default_country = billing_details.address.country,
                 profile.save()
 
+        """ 
+        Check 5 times if reservation exists
+        If not, create reservation + lineitems
+        If yes, break out of loop and send success email
+        """
         reservation_exists = False
         attempt = 1
         while attempt <= 5:
@@ -124,7 +132,6 @@ class StripeWH_Handler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                             status=500)
         self._send_confirmation_email(reservation)
-        print('success')
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: Created reservation in webhook',
             status=200)

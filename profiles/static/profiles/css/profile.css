@@ -1,3 +1,5 @@
+/* My Profile */
+
 .profile-container {
     border: 0.1rem solid #aa4e26;
     margin: 2rem 0;    
@@ -20,7 +22,6 @@
     float: right;
     margin: 1rem 0;  
 }
-
 
 .contact-form-fields {
     border: 0.1rem solid #aa4e26;
@@ -72,13 +73,11 @@ select option[value=""] {
     color: #72351a;
 }
 
-
 /* Reservations Page */
 
 .accordion {
     width: 100%;
 }
-
 
 .reservation-table {
     background-color: #fff;
@@ -118,7 +117,6 @@ select option[value=""] {
     text-decoration: underline;
 }
 
-
 .reservations-links {
     text-decoration: none;
     color: #aa4e26;
@@ -128,7 +126,6 @@ select option[value=""] {
     color: #72351a;
 }
 
-
 .green {
     color: #185A37;
 }
@@ -136,6 +133,8 @@ select option[value=""] {
 .red {
     color: #8b0000;
 }
+
+/* Media Query */
 
 @media (min-width: 1024px){
     .reservations-container {

@@ -23,6 +23,9 @@ from .models import ReservationLineItem, Reservation
 
 @require_POST
 def cache_checkout_data(request):
+    """
+    Cache checkout data
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -53,6 +56,10 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     try:
+        """
+        Creates reservations + reservation lineitems
+        when checkout form is submitted
+        """
         if request.method == "POST":
             reservation_items = reservation_item(request)
             reservation_request = request.session.get(
@@ -124,6 +131,10 @@ def checkout(request):
             stripe_total = round(reservation_total * 100)
             stripe.api_key = stripe_secret_key
             if not request.user.is_superuser:
+                """
+                Display checkout form with payment \
+                for users that are not admins
+                """
                 intent = stripe.PaymentIntent.create(
                     amount=stripe_total,
                     currency=settings.STRIPE_CURRENCY,
@@ -158,6 +169,10 @@ def checkout(request):
                 return render(request, template, context)
 
             else:
+                """
+                If user is superuser, display empty checkout form
+                Payment section will not be displayed
+                """
                 template = 'checkout/checkout.html'
                 context = {
                     'reservation_form': reservation_form,
@@ -178,14 +193,24 @@ def checkout_success(request, reservation_number):
     reservation = get_object_or_404(
         Reservation, reservation_number=reservation_number)
 
+    """
+    When reservations doesn't have stripe_pid
+    Manually trigger send confirmation email function
+    """
     if reservation.stripe_pid == '':
         send_confirmation_email(reservation)
 
+    """
+    Save reservation under userprofile is user is authenticated
+    """
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         reservation.user_profile = profile
         reservation.save()
 
+    """
+    If users check save info, save reservation data in profile
+    """
     if save_info:
         profile_data = {
             'default_full_name': reservation.full_name,
@@ -212,6 +237,10 @@ def checkout_success(request, reservation_number):
 
 
 def send_confirmation_email(reservation):
+    """
+    Send email confirmation function in case
+    superuser created the reservation
+    """
     client_email = reservation.email
     subject = render_to_string(
         'checkout/confirmation_emails/confirmation_email_subject.txt',

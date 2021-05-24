@@ -15,22 +15,28 @@ def reservation(request):
             'check_in': request.POST.get('check_in'),
             'check_out': request.POST.get('check_out'),
         }
+        # Checks if users filled in check-in and check-out
         if form["check_in"] and form["check_out"]:
             check_in = datetime.strptime(
                                 form["check_in"], '%Y-%m-%d').date()
             check_out = datetime.strptime(form["check_out"], '%Y-%m-%d').date()
+            # checks if reservation is not for longer than 28 days
             if (check_out - check_in).days > 28:
                 messages.error(request, 'It is not possible to make a reservation online for more than 28 days. \
                     Please contact us by phone or email if you wish to \
                         stay longer than 28 days.')
                 return redirect(reverse('reservation'))
             else:
+                # checks if check-in is equal or later than today
                 if check_in >= datetime.today().date():
+                    # checks that check-out is after check-in
                     if check_out > check_in:
                         for room in rooms:
                             reservations = ReservationLineItem.objects.filter(
                                 room__id=room.id)
                             if reservations:
+                                # Compares reservation request to each reservation
+                                # to check for overlap
                                 for reservation in reservations:
                                     if check_availability(
                                             reservation.check_in,
@@ -55,9 +61,12 @@ def reservation(request):
                  in order to view prices and availability')
             return redirect(reverse('reservation'))
 
+        # Removes dupplicates
         available_rooms = list(dict.fromkeys(available_rooms))
         unavailable_rooms = list(dict.fromkeys(unavailable_rooms))
 
+        # when rooms is already in unavailable rooms,
+        # remove from available rooms
         i = 0
         while i < len(available_rooms):
             for available_room in available_rooms:
@@ -76,6 +85,10 @@ def reservation(request):
 
 def check_availability(
         check_in, check_out, check_in_request, check_out_request):
+    """
+    Checks overlap with requested check-in and check-out
+    Compared to existing reservations
+    """
     overlap = False
     if check_in_request == check_out or check_out_request == check_in:
         overlap = False
@@ -97,12 +110,14 @@ def reservation_detail(request):
             reservation_request["check_out"], '%Y-%m-%d').date()
         number_of_nights = (check_out - check_in).days
         data = request.POST
+        # Checks if user has selected at least 1 room
         if 'select-room' in data:
             rooms = []
             number_of_guests = []
             selected_rooms = []
             merged_reservation_data = {}
             room_request = {}
+            # Stores key value pairs with room id and number of guests
             for key, value in data.lists():
                 if key == "room_id":
                     for v in value:
@@ -131,6 +146,7 @@ def reservation_detail(request):
                 in order to proceed.')
             return redirect(reverse('reservation_detail'))
     else:
+        # Displays available and unavailable rooms
         form = request.session['reservation_request']
         check_in = datetime.strptime(form["check_in"], '%Y-%m-%d').date()
         check_out = datetime.strptime(form["check_out"], '%Y-%m-%d').date()

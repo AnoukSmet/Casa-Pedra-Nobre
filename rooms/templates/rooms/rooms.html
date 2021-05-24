@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- Hero container with small intro text -->
+
 <div class="header-container header-container-small" id="rooms">
     {% include 'components/navigation/navbar.html' %}
     <div class="hero-text">
@@ -13,6 +16,8 @@
         <p>Check out our 3 large double rooms below and pick your favorite!</p>
     </div>
 </div>
+
+<!-- Display of different room types with image and small intro texts -->
 
 <div class="container rooms-container">
     {% for room in rooms %}
@@ -39,6 +44,9 @@
         <div class="hr"></div>    
     {% endfor %}
 </div>
+
+
+<!-- Additional information including breakfast, amenities and policies -->
 
 <div class="container information-container">
     <div class="row">
@@ -100,6 +108,8 @@
 {% block postloadjs %}
     {{ block.super }}
 
+    <!-- Set interval for each carousel to different speed to optimize user experience  -->
+    
     <script type="text/javascript">
 
         const firstCarousel = document.getElementById('1')

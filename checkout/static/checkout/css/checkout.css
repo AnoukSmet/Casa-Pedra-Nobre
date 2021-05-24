@@ -22,7 +22,7 @@
 }
 
 
-/* Checkout  */
+/* Checkout page */
 
 #checkout-room-image {
     width: 20rem;
@@ -68,7 +68,6 @@ select option[value=""] {
     color: #000;
 }
 
-
 input[type='checkbox'] { 
     filter: hue-rotate(170deg);
     height: 1.6rem;
@@ -84,7 +83,7 @@ a.text-info:focus, a.text-info:hover {
     color: #72351a !important;
 }
 
-/* Check out success */
+/* Check out success page */
 
 .reservation-summary {
     border: 0.1rem solid #aa4e26;
@@ -110,7 +109,7 @@ a.text-info:focus, a.text-info:hover {
     width: 100%;
     height: 100%;
     background: #aa4e26;
-    opacity: 0.5rem;
+    opacity: 0.5;
     z-index: 9999;
 }
 

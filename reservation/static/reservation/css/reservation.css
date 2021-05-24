@@ -1,3 +1,5 @@
+/* Reservation page to fill in check-in / check-out */
+
 #reservation {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/media/reservation_hero.jpg");      
 }
@@ -35,6 +37,8 @@
 ::-webkit-calendar-picker-indicator {
     filter: invert(1);
 }
+
+/* Reservation detail page  */
 
 .submit-rooms {
     margin-bottom: 2rem;
@@ -121,6 +125,8 @@ input[type='checkbox'] {
 .room-detail button {
     font-size: 1.6rem;
 }
+
+/* Media Query that implements horizontal scroll depending on heigth */
 
 @media (min-height: 320px) {
     #reservation {

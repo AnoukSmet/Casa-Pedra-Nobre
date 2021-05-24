@@ -9,6 +9,12 @@ from checkout.models import Reservation
 
 @login_required
 def profile(request):
+    """
+    Display Profile page with the following information:
+    * Profile Info
+    * Upcoming and past reservations
+    * Recommendation added to favorites
+    """
     user = request.user
     profile = get_object_or_404(UserProfile, user=user)
     favorites = user.favorite.all()
@@ -36,6 +42,9 @@ def profile(request):
 
 @login_required
 def edit_profile(request):
+    """
+    Gives the user the possibility to update profle info
+    """
     profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == "POST":
         form = UserProfileForm(request.POST, instance=profile)
@@ -57,6 +66,10 @@ def edit_profile(request):
 
 @login_required
 def reservation_confirmation(request, reservation_number):
+    """
+    Displays reservation overview with clear message that
+    this confirmation is from the past
+    """
     reservation = get_object_or_404(Reservation,
                                     reservation_number=reservation_number)
 
@@ -74,6 +87,10 @@ def reservation_confirmation(request, reservation_number):
 
 @login_required
 def view_reservations(request):
+    """
+    Admin page which shows all the reservations for the property
+    Reservations are divided up into 6 different sections
+    """
     if not request.user.is_superuser:
         messages.error(request, "Sorry, you don't have access to this \
             part of the site.")
@@ -127,6 +144,14 @@ def view_reservations(request):
 
 @login_required
 def reservation_detail(request, reservation_number):
+    """ 
+    Displays complete reservation overview to admin
+    """
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, you don't have access to this \
+            part of the site.")
+        return redirect(reverse('home'))
+
     reservation = get_object_or_404(Reservation,
                                     reservation_number=reservation_number)
 
@@ -143,6 +168,9 @@ def reservation_detail(request, reservation_number):
 
 @login_required
 def delete_reservation(request, reservation_number):
+    """
+    Lets admin delete a reservation
+    """
     if not request.user.is_superuser:
         messages.error(request, "Sorry, you don't have access to this \
             part of the site.")

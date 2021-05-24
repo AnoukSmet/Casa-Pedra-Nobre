@@ -4,6 +4,9 @@ from .models import PageIntro
 
 
 def index(request):
+    """
+    Display homepage with PageIntro's
+    """
     page_intros = PageIntro.objects.all()
     template = 'home/index.html'
     context = {

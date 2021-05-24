@@ -56,10 +56,10 @@ form.addEventListener('submit', function(ev) {
     var eta = $('#id_eta').val();
 
     if (comment.length == 0){
-        $("#id_comment").val('N/A')
+        $("#id_comment").val('N/A');
     }
     if (eta.length == 0){
-        $("#id_eta").val('N/A')
+        $("#id_eta").val('N/A');
     }
 
 
@@ -96,8 +96,8 @@ form.addEventListener('submit', function(ev) {
                 <span>${result.error.message}</span>
                 `;
                 $(errorDiv).html(html);
-                $('#checkout-form').fadeToggle(100)
-                $('#loading-overlay').fadeToggle(100)
+                $('#checkout-form').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
                 card.update({ 'disabled': false});
                 $('#submit-button').attr('disabled', false);
 
@@ -109,5 +109,5 @@ form.addEventListener('submit', function(ev) {
         });
     }).fail(function () {
         location.reload();
-    })
+    });
 });

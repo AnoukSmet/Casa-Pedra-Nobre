@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+<!-- Hero container with link to reservations page -->
+
 <div class="header-container" id="homepage">
     {% include 'components/navigation/navbar.html' %}
     <div class="hero-text">
@@ -14,7 +16,7 @@
     </div>
 </div>
 
-
+<!-- Carousel displaying Page Intros from other pages of website -->
 <div class="container-fluid carousel-container" id="page-intro">
     <div class="row">
         <div id="intro-carousel" class="carousel slide carousel-fade col-12" data-bs-ride="carousel">
@@ -62,13 +64,14 @@
 </div>
 
 {% include 'components/social-media/social-media.html' %}
-
 {% include 'components/footer/footer.html' %}
 
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
+
+    <!-- Disabled the automatic sliding of the carousel -->
 
     <script type="text/javascript">
         $(function() {

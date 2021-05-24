@@ -114,7 +114,6 @@
     text-align: center;
 }
 
-
 /* Add Recommendation Page */
 
 #add-recommendation-title,
@@ -134,8 +133,7 @@
 .form-control {
     color: #000;
     font-size: 1.6rem;
-    font-family: "Karla", Arial, Helvetica, sans-serif;
-    
+    font-family: "Karla", Arial, Helvetica, sans-serif; 
 }
 
 .recommendation-form-fields:focus,
@@ -160,6 +158,8 @@
     cursor: pointer;
     opacity: 0;
 }
+
+/* Media Queries */
 
 @media (min-width: 425px) {
     #view-recommendations a {

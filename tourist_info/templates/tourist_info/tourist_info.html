@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block content %}
+
+<!-- Hero image + small intro text -->
+
 <div class="header-container header-container-small" id="tourist_info">
     {% include 'components/navigation/navbar.html' %}
     <div class="hero-text">
@@ -14,8 +17,8 @@
     </div>
 </div>
 
+<!-- Possibility to add recommendation when user is superuser -->
 {% if request.user.is_superuser %}
-
     <div class="container">
         <div class="row">
             <div class="col-12" id="add-recommendation">
@@ -23,9 +26,9 @@
             </div>
         </div>
     </div>
-
 {% endif %}
 
+<!-- Intro text + explanation add to favorites section -->
 <div class="container">
     <div class="row">
         <div class="col-12" id="tourist-info-intro">
@@ -44,6 +47,7 @@
     </div>
 </div>
 
+<!-- Displays all the different categories in accordion style + relevant recommendation below -->
 <div class="container tourist-info-container">
     <div class="accordion" id="accordionExample">
     {% for category in categories %}
@@ -53,7 +57,6 @@
                     {{ category.friendly_name }}
                 </a>
             </div>
-            
             <div id="{{ category }}" class="collapse" aria-labelledby="{{category.friendly_name}}" data-parent="#accordionExample">
                 <div class="card-body row">
                 {% for recommendation in recommendations %}
