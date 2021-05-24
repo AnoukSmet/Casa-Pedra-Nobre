@@ -164,6 +164,7 @@ The whole reservation process is responsive across browsers and devices.
 * Save info functionality which saves the user info when logged in 
 * Payment form not being displayed when user is the superuser, this was done to allow the property to make reservations for guests without having to go through the payment.
     This can be specifically usefull when guests would try to make a reservation by phone.
+* User is allowed to fill in numbers as well as letters on ETA field. This allow answers like 'Between 14h00 and 15h00'
 
 #### Step 4: Show reservation overview to user after payment was successfull. 
 * Data is structured into different section which all get the correct data. 

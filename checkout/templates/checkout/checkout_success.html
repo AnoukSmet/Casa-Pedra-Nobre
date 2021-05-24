@@ -70,7 +70,13 @@
                     <p>
                     {% for amenity in amenities %}
                         {% if amenity.category|stringformat:"s" == 'policies' %}
+                            {% if amenity|stringformat:"s" == 'Check in' %}
+                                <span class="d-block">{{ amenity.description }}</span>
+                            {% elif amenity|stringformat:"s" == 'Check out' %}
+                                <span class="d-block">{{ amenity.description }}</span>
+                            {% else %}
                             <span class="d-block"> {{ amenity }}: {{ amenity.description }}</span>
+                            {% endif %}
                         {% endif %}
                     {% endfor %}
                     </p>

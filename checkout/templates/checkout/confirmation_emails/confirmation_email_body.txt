@@ -6,9 +6,9 @@ You can find your reservation details below:
 Reservation number: {{ reservation.reservation_number }}
 
 {% if reservation.stripe_pid %}
-    The payment for your booking for the total of {{ reservation.reservation_total }} has been successfull. 
+    The payment for your booking for the total of €{{ reservation.reservation_total }} has been successfull. 
 {% else %}
-    The total for your booking of {{ reservation.reservation_total }} will be charged upon arrival.
+    The total for your booking of €{{ reservation.reservation_total }} will be charged upon arrival.
 {% endif %}
 
 You have booked the following room(s):
@@ -16,7 +16,7 @@ You have booked the following room(s):
 {% for item in reservation.lineitems.all %}
     Room: {{ item.room }} for {{ item.number_of_guests }} {% if item.number_of_guests > 1 %} guests. {% else %} guest. {% endif %}
     From: {{ item.check_in }} To: {{ item.check_out }}
-    Total for this room: {{ item.lineitem_total }}
+    Total for this room: €{{ item.lineitem_total }}
 {% endfor %}
 
 If you have any questions concerning your reservation or the bed & breakfast, feel free to reach out to us. 

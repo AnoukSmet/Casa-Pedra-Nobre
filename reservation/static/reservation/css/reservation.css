@@ -107,14 +107,14 @@ input[type='checkbox'] {
     white-space: pre-line;
 }
 
-.close {
+.modal-close {
     color: #aa4e26;
 }
-.close span {
+.modal-close span {
     font-size: 3rem;
 }
 
-.close:hover {
+.modal-close:hover {
     color: #72351a;
 }
 
