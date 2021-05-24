@@ -7,6 +7,8 @@ from rooms.models import Room, Amenity
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 from .models import ReservationLineItem, Reservation
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from datetime import datetime
 from django.conf import settings
 import stripe
@@ -170,6 +172,9 @@ def checkout_success(request, reservation_number):
     reservation = get_object_or_404(
         Reservation, reservation_number=reservation_number)
 
+    if reservation.stripe_pid == '':
+        send_confirmation_email(reservation)
+
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         reservation.user_profile = profile
@@ -198,3 +203,21 @@ def checkout_success(request, reservation_number):
     }
 
     return render(request, template, context)
+
+
+def send_confirmation_email(reservation):
+    client_email = reservation.email
+    subject = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_subject.txt',
+        {'reservation': reservation})
+    body = render_to_string(
+        'checkout/confirmation_emails/confirmation_email_body.txt',
+        {'reservation': reservation,
+            'contact_email': settings.DEFAULT_FROM_EMAIL})
+
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [client_email]
+    )

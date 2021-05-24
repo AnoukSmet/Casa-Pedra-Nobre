@@ -38,7 +38,6 @@ class StripeWH_Handler:
         )
 
     def handle_payment_intent_succeeded(self, event):
-        print("Received")
         intent = event.data.object
         pid = intent.id
         reservation_request = intent.metadata.reservation_request

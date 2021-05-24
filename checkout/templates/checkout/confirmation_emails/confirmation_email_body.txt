@@ -4,9 +4,14 @@ This is a confirmation of your reservation at Casa Pedra Nobre.
 You can find your reservation details below:
 
 Reservation number: {{ reservation.reservation_number }}
-Reservation total : {{ reservation.reservation_total }}
 
-You have booked the following rooms:
+{% if reservation.stripe_pid %}
+    The payment for your booking for the total of {{ reservation.reservation_total }} has been successfull. 
+{% else %}
+    The total for your booking of {{ reservation.reservation_total }} will be charged upon arrival.
+{% endif %}
+
+You have booked the following room(s):
 
 {% for item in reservation.lineitems.all %}
     Room: {{ item.room }} for {{ item.number_of_guests }} {% if item.number_of_guests > 1 %} guests. {% else %} guest. {% endif %}
@@ -15,7 +20,6 @@ You have booked the following rooms:
 {% endfor %}
 
 If you have any questions concerning your reservation or the bed & breakfast, feel free to reach out to us. 
-
 
 
 See you soon in Portugal!

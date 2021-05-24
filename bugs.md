@@ -45,3 +45,5 @@ Solve: Boolean($('#id-save-info:checked').val());
 ### Confirmation email not being sent when comment and eta not filled in (Stripe needed info)
 Solve: when not filled in, replace value with N/A
 
+### Confirmation email not being sent when CPN makes reservation
+Manually call email function when reservation has no stripe_pid
