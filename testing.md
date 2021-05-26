@@ -14,6 +14,10 @@
 * [Add to favorites](#add-to-favorites)
 
 
+All the html files have been passed without any issue through the [HTML Validator](https://validator.w3.org/).
+All the css files have been passed without any issue through the [CSS Validator](https://jigsaw.w3.org/css-validator/).
+All the javascript files have been passed without any issue throught the [Javascript Validator](https://jshint.com/).
+
 
 ## Homepage
 ### **Responsiveness**

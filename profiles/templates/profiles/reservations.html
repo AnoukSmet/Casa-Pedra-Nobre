@@ -55,7 +55,7 @@
                                                         {% else %}
                                                             <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
-                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
+                                                        <td><a href="{% url 'delete_reservation' reservation%}" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -106,7 +106,7 @@
                                                         {% else %}
                                                             <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
-                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
+                                                        <td><a href="{% url 'delete_reservation' reservation%}" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -158,7 +158,7 @@
                                                         {% else %}
                                                             <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
-                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
+                                                        <td><a href="{% url 'delete_reservation' reservation%}" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -210,7 +210,7 @@
                                                         {% else %}
                                                             <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
-                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
+                                                        <td><a href="{% url 'delete_reservation' reservation %}" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -261,7 +261,7 @@
                                                     {% else %}
                                                         <td class="red"><i class="fas fa-times"></i></td>
                                                     {% endif %}
-                                                    <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
+                                                    <td><a href="{% url 'delete_reservation' reservation %}" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                 </tr>
                                             {% endfor %}
                                         {% endfor %}

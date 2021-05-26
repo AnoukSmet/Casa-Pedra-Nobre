@@ -72,7 +72,8 @@ def reservation(request):
             for available_room in available_rooms:
                 if available_room in unavailable_rooms:
                     available_rooms.remove(available_room)
-            i += 1
+        i += 1
+
 
         request.session['reservation_request'] = form
         request.session['available_rooms'] = available_rooms

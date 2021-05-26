@@ -24,7 +24,7 @@
             </li>
             <li class="nav-item">
                 {% url 'reservation' as url %}
-                <a href="{% url 'reservation' %}" aria-label="Link to reservation {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Reservation</a>
+                <a href="{% url 'reservation' %}" aria-label="Link to reservation" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Reservation</a>
             </li>
         </ul>
         <a class="navbar-brand d-none d-lg-block" href="{% url 'home' %}" aria-label="Link to homepage">

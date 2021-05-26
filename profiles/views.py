@@ -5,6 +5,7 @@ from django.contrib import messages
 from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
 from checkout.models import Reservation
+from rooms.models import Amenity
 
 
 @login_required
@@ -72,6 +73,8 @@ def reservation_confirmation(request, reservation_number):
     """
     reservation = get_object_or_404(Reservation,
                                     reservation_number=reservation_number)
+    
+    amenities = Amenity.objects.all()
 
     messages.info(request, f'This is a past confirmation for reservation \
          number {reservation_number}. \
@@ -81,6 +84,7 @@ def reservation_confirmation(request, reservation_number):
     context = {
         'reservation': reservation,
         'from_profile': True,
+        'amenities': amenities,
     }
     return render(request, template, context)
 
@@ -144,7 +148,7 @@ def view_reservations(request):
 
 @login_required
 def reservation_detail(request, reservation_number):
-    """ 
+    """
     Displays complete reservation overview to admin
     """
     if not request.user.is_superuser:
@@ -152,6 +156,7 @@ def reservation_detail(request, reservation_number):
             part of the site.")
         return redirect(reverse('home'))
 
+    amenities = Amenity.objects.all()
     reservation = get_object_or_404(Reservation,
                                     reservation_number=reservation_number)
 
@@ -162,6 +167,7 @@ def reservation_detail(request, reservation_number):
     context = {
         'reservation': reservation,
         'admin': True,
+        'amenities': amenities,
     }
     return render(request, template, context)
 
