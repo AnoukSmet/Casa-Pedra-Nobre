@@ -336,12 +336,41 @@ body {
     color: #aa4e26;
 }
 
-#signup_form label {
-    margin-bottom: 1rem;
+.allauth-form label:not([for="id_remember"]) {
+    display: none;
+}
+
+.allauth-form label[for="id_remember"] {
+    margin-left: 0.5rem;
+}
+
+.allauth-form input::placeholder {
+    color: #000;
+    font-size: 1.6rem;
+    font-family: "Karla", Arial, Helvetica, sans-serif;
+}
+
+.allauth-form input {
+    font-size: 1.6rem;
+    border: 0.1rem solid #aa4e26;
+    color: #000;
+}
+
+.allauth-form input:hover,
+.allauth-form input:focus {
+    color: #000;
+    border: 0.1rem solid #72351a;
+    box-shadow: 0.1rem 0.1rem 0.6rem 0.1rem #72351a !important;
 }
 
 input[type='checkbox'] { 
     filter: hue-rotate(185deg);
+}
+
+input[type='checkbox']:hover,
+input[type='checkbox']:focus { 
+    border: none !important;
+    box-shadow: none !important;
 }
 
 /* Profile */
