@@ -281,7 +281,6 @@ When the user clicks on the full heart, it will be removed from the favourites a
 The heart is being displayed whether the user is logged in or not, but the functionality only works when the user is logged in. 
 When the user is not logged in, a modal opens up asking the user if he/she wants to register or login. 
 
-
 For each recommendation, I gathered more info related to the recommendation. For restaurants for example, I display the type of cuisine, opening hours etc.
 There is also a link to the website corresponding with the recommendation and a link to google maps where the exact route from the bed & breakfast to the specific recommendation is displayed. 
 
@@ -485,6 +484,3 @@ The tables make it easy for the admin to navigate through the reservations.
 #### Site owner goals: I want to have a seperate section as well for the reservations for the next 7 days so I can plan in advance
 In order to meet this goal of the site owner, I have created a seperate section on the page for arrivals today and arrivals for the next 7 days.
 
-
-## Add to favorites
-### Functionality

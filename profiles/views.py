@@ -17,9 +17,9 @@ def profile(request):
     * Recommendation added to favorites
     """
     user = request.user
-    profile = get_object_or_404(UserProfile, user=request.user)
+    user_profile = get_object_or_404(UserProfile, user=request.user)
     favorites = user.favorite.all()
-    reservations = profile.reservations.all()
+    reservations = user_profile.reservations.all()
     upcoming_reservations = []
     past_reservations = []
     for reservation in reservations:
@@ -31,7 +31,7 @@ def profile(request):
                 past_reservations.append(reservation)
     template = 'profiles/profile.html'
     context = {
-        "profile": profile,
+        "profile": user_profile,
         "reservations": reservations,
         "upcoming_reservations": upcoming_reservations,
         "past_reservations": past_reservations,
@@ -46,9 +46,9 @@ def edit_profile(request):
     """
     Gives the user the possibility to update profle info
     """
-    profile = get_object_or_404(UserProfile, user=request.user)
+    profile_to_edit = get_object_or_404(UserProfile, user=request.user)
     if request.method == "POST":
-        form = UserProfileForm(request.POST, instance=profile)
+        form = UserProfileForm(request.POST, instance=profile_to_edit)
         if form.is_valid:
             form.save()
             messages.success(request, "Profile updated succesfully")
@@ -57,7 +57,7 @@ def edit_profile(request):
             messages.error(request, "Updated failed. \
                 Please ensure the form is valid")
     else:
-        profile_form = UserProfileForm(instance=profile)
+        profile_form = UserProfileForm(instance=profile_to_edit)
     template = 'profiles/edit_profile.html'
     context = {
         'form': profile_form,

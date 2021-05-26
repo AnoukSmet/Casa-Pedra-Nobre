@@ -239,6 +239,33 @@ For each page I created 3 wireframes: desktop, tablet and mobile.
 [Gallery](wireframes/gallery.png)  
 [Profile](wireframes/profile.png)
 
+While I was working on the project, I have made some decision that vary from the original wireframes.
+This because I thought that my new ideas contributed better for a good user experience. 
+Below you can find the major differences + reasoning behind it: 
+
+#### Reservation Step 1 
+Here I have decided to implement the form inside the hero image instead of below. 
+Before the hero image took up 100vh of the screen and the user had to scroll down to insert the data. 
+While when you are on the reservations page, that is the main thing you want to do. So it should be easily within reach. 
+
+As I received some great feedback about the image from users who were testing the website, I decided to combine the 2 instead. 
+This change has improved the user experience as they don't have to look for where to insert check-in and check-out data while still keeping the page visually appealing.
+
+#### Display of images in Gallery
+For the Gallery I have decided to show a small preview of all the images instead of one image larger, with a couple of small previews below. 
+The user can still click on the image to see it bigger but the user can see all the images at first sight without having to scroll trough the carousel.
+
+The images are one of the most important aspects for users to choose their next holiday, I didn't want the user to miss out on viewing all the images. 
+
+#### Tourist Info
+Instead of displaying the recommendation in a carousel for each category, I have decided to show 3 main buttons on the page. 
+The user can easily shows which category he or she wants to see first. When clicking on the button, the recommendation will appear nicely below in card form. 
+
+It was after doing some research that I decided to go with this approach. It is not considered good practice to include a carousel that has many slides. 
+As I didn't want to exclude recommendations, I decided to go for this approach. 
+This way the user also doesn't have to scroll down in order to see the different categories available but sees them at first sight.
+
+
 ### **Flowcharts**
 
 I have decided to make a flowchart for the reservation process to completely understand each step.    

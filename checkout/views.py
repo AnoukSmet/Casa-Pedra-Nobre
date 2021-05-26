@@ -203,6 +203,7 @@ def checkout_success(request, reservation_number):
     """
     Save reservation under userprofile is user is authenticated
     """
+
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         reservation.user_profile = profile
@@ -221,6 +222,9 @@ def checkout_success(request, reservation_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
+            else:
+                messages.error(request, "There was an error with your form. \
+                    Please double check your information.")
 
     messages.success(request, f'Reservation successfully processed! \
         Your reservation number is {reservation_number}. A confirmation \
