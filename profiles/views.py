@@ -17,7 +17,7 @@ def profile(request):
     * Recommendation added to favorites
     """
     user = request.user
-    profile = get_object_or_404(UserProfile, user=user)
+    profile = get_object_or_404(UserProfile, user=request.user)
     favorites = user.favorite.all()
     reservations = profile.reservations.all()
     upcoming_reservations = []
@@ -73,7 +73,7 @@ def reservation_confirmation(request, reservation_number):
     """
     reservation = get_object_or_404(Reservation,
                                     reservation_number=reservation_number)
-    
+
     amenities = Amenity.objects.all()
 
     messages.info(request, f'This is a past confirmation for reservation \

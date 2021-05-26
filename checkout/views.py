@@ -208,20 +208,19 @@ def checkout_success(request, reservation_number):
         reservation.user_profile = profile
         reservation.save()
 
-    """
-    If users check save info, save reservation data in profile
-    """
-    if save_info:
-        profile_data = {
-            'default_full_name': reservation.full_name,
-            'default_email': reservation.email,
-            'default_phone_number': reservation.phone_number,
-            'default_country': reservation.country
-        }
-
-        user_profile_form = UserProfileForm(profile_data, instance=profile)
-        if user_profile_form.is_valid():
-            user_profile_form.save()
+        """
+        If users check save info, save reservation data in profile
+        """
+        if save_info:
+            profile_data = {
+                'default_full_name': reservation.full_name,
+                'default_email': reservation.email,
+                'default_phone_number': reservation.phone_number,
+                'default_country': reservation.country
+            }
+            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            if user_profile_form.is_valid():
+                user_profile_form.save()
 
     messages.success(request, f'Reservation successfully processed! \
         Your reservation number is {reservation_number}. A confirmation \

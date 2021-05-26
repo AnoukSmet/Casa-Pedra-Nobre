@@ -62,22 +62,24 @@ def reservation(request):
             return redirect(reverse('reservation'))
 
         # Removes dupplicates
-        available_rooms = list(dict.fromkeys(available_rooms))
-        unavailable_rooms = list(dict.fromkeys(unavailable_rooms))
+        new_available_rooms = list(dict.fromkeys(available_rooms))
+        new_unavailable_rooms = list(dict.fromkeys(unavailable_rooms))
+
+    
 
         # when rooms is already in unavailable rooms,
         # remove from available rooms
         i = 0
-        while i < len(available_rooms):
-            for available_room in available_rooms:
-                if available_room in unavailable_rooms:
-                    available_rooms.remove(available_room)
-        i += 1
-
+        while i <= len(new_available_rooms):
+            for available_room in new_available_rooms:
+                if available_room in new_unavailable_rooms:
+                    new_available_rooms.remove(available_room)
+            i = i + 1
+    
 
         request.session['reservation_request'] = form
-        request.session['available_rooms'] = available_rooms
-        request.session['unavailable_rooms'] = unavailable_rooms
+        request.session['available_rooms'] = new_available_rooms
+        request.session['unavailable_rooms'] = new_unavailable_rooms
 
         return HttpResponseRedirect(reverse('reservation_detail'))
     else:
