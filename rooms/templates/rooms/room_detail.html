@@ -13,12 +13,12 @@
 <div class="container">
     <div class="row room-detail">
         <div class="col-12 mb-4">
-            <p class="back mt-2"><a href="{% url 'rooms' %}"><i class="fas fa-long-arrow-alt-left"></i> Back to rooms</a></p>
+            <p class="back mt-2"><a href="{% url 'rooms' %}" aria-label="Back to rooms overview"><i class="fas fa-long-arrow-alt-left"></i> Back to rooms</a></p>
             <h1 class="headig mt-4">{{ room }}</h1>
             <p id="room-description"> {{ room.description }}</p>
             <p id="price-info">Price per night for 2 guests: €{{room.price}}</p>
             <p>
-                <a href="{% url 'reservation' %}" class="button">Reserve now!</a>
+                <a href="{% url 'reservation' %}" class="button" aria-label="Link to reservation page">Reserve now!</a>
             </p>
         </div>
         {% for image in room.images.all %}

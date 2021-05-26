@@ -22,7 +22,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12" id="add-recommendation">
-                <a href="{% url 'add_recommendation' %}" class="button">Add recommendation</a>
+                <a href="{% url 'add_recommendation' %}" class="button" aria-label="Add recommendation">Add recommendation</a>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
     {% for category in categories %}
         <div class="card recommendation-cards mb-4">
             <div class="card-header recommendation-category" id="{{category.friendly_name}}">
-                <a data-toggle="collapse" href="#{{ category }}" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
+                <a data-toggle="collapse" href="#{{ category }}" aria-label="Collapse recommendations" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
                     {{ category.friendly_name }}
                 </a>
             </div>
@@ -66,7 +66,7 @@
                         <div>
                             <h5 class="sub-heading mt-3 mb-2">{{ recommendation }}</h5>
                             <p class="paragraph">{{ recommendation.intro }}.</p>
-                            <a href="{% url 'recommendation_detail' recommendation.id %}" class="button">See more</a>
+                            <a href="{% url 'recommendation_detail' recommendation.id %}" class="button" aria-label="View recommendation detail">See more</a>
                         </div>
                     </div>            
                     {% endif %}

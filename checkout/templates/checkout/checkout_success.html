@@ -86,12 +86,12 @@
         </div>
         {% if from_profile %}
             <div class="col-12 mb-4 pl-0">
-                <a href="{% url 'profile'  %}" class="button profile-button">Back to my profile</a>
+                <a href="{% url 'profile'  %}" class="button profile-button" aria-label="Back to profile">Back to my profile</a>
             </div>
         {% endif %}
         {% if admin %}
             <div class="col-12 mb-4 pl-0">
-                <a href="{% url 'view_reservations'  %}" class="button profile-button">Back to reservations overview</a>
+                <a href="{% url 'view_reservations'  %}" class="button profile-button" aria-label="Back to reservations overview">Back to reservations overview</a>
             </div>
         {% endif %}
     </div>

@@ -14,26 +14,26 @@
     <div class="row">
         <div class="col-12" id="update-recommendation">
             {% if request.user.is_superuser %}
-                <a href="{% url 'edit_recommendation' recommendation.id %}" class="button"><i class="fas fa-edit"></i></a>
-                <a href="{% url 'delete_recommendation' recommendation.id %}" class="button"><i class="fas fa-trash-alt"></i></a>
+                <a href="{% url 'edit_recommendation' recommendation.id %}" class="button" aria-label="Edit recommendation"><i class="fas fa-edit"></i></a>
+                <a href="{% url 'delete_recommendation' recommendation.id %}" class="button" aria-label="Delete recommendation"><i class="fas fa-trash-alt"></i></a>
             {% endif %}
         </div>
         <div class="col-12" id="view-recommendations">
-            <a href="{% url 'tourist_info' %}" class="button"> View all recommendations</a>
+            <a href="{% url 'tourist_info' %}" class="button" aria-label="View all recommendations"> View all recommendations</a>
             {% if request.user.is_authenticated %}
-                <a href="{% url 'profile' %}" class="button">Go to your favorites</a>
+                <a href="{% url 'profile' %}" class="button" aria-label="View favorites">Go to your favorites</a>
             {% endif %}
         </div>
         <div class="col-12" id="recommendation-intro">
             <h2 class="heading" >{{ recommendation }}</h2>
             {% if request.user.is_authenticated %}
                 {% if is_favorite %}
-                    <a href="{% url 'add_to_favorites' recommendation.id %}" data-toggle="tooltip" title="Remove from favorites!"><i class="fas fa-heart"></i></a>
+                    <a href="{% url 'add_to_favorites' recommendation.id %}" aria-label="Remove from favorites" data-toggle="tooltip" title="Remove from favorites!"><i class="fas fa-heart"></i></a>
                 {% else %}
-                    <a href="{% url 'add_to_favorites' recommendation.id %}" data-toggle="tooltip" title="Add to favorites!"><i class="far fa-heart"></i></a>
+                    <a href="{% url 'add_to_favorites' recommendation.id %}" aria-label="Add to favorites" data-toggle="tooltip" title="Add to favorites!"><i class="far fa-heart"></i></a>
                 {% endif %}
             {% else %}
-                <a href="#loginmodal" data-toggle="modal" data-target="#loginmodal"><i class="far fa-heart"></i></a>
+                <a href="#loginmodal" data-toggle="modal" data-target="#loginmodal" aria-label="Open signin/up modal"><i class="far fa-heart"></i></a>
             {% endif %}
             <p>{{ recommendation.intro }}</p>
         </div>
@@ -43,8 +43,8 @@
         <div class="col-12 col-md-6" id="additional-info">
             <p>{{ recommendation.description }}</p>
             <p>Distance from Casa Pedra Nobre: {{ recommendation.distance }}km</p>
-            <a href="{{ recommendation.link_to_website }}" target="_blank" class="button recommendation-buttons" rel="noopener">Visit the website</a>
-            <a href="{{ recommendation.link_to_google_maps }}" target="_blank" class="button recommendation-buttons" rel="noopener">View route on Google Maps</a>
+            <a href="{{ recommendation.link_to_website }}" target="_blank" aria-label="Link to recommendation website" class="button recommendation-buttons" rel="noopener">Visit the website</a>
+            <a href="{{ recommendation.link_to_google_maps }}" target="_blank" aria-label="Link to google maps" class="button recommendation-buttons" rel="noopener">View route on Google Maps</a>
         </div>
     </div>
 </div>
@@ -56,8 +56,8 @@
         <div class="modal-content">
         <div class="modal-body">
             <p class="mb-4">Create an account or login to start adding our recommendations to your favorites!</p>
-            <a class="button" href="{% url 'account_signup' %}">Sign up</a> 
-            <a class="button" href="{% url 'account_login' %}">Sign in</a>
+            <a class="button" href="{% url 'account_signup' %}" aria-label="Sign up">Sign up</a> 
+            <a class="button" href="{% url 'account_login' %}" aria-label="Sign in">Sign in</a>
         </div>
         <div class="modal-footer">
             <button type="button" class="button" data-dismiss="modal">Close</button>

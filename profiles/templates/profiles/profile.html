@@ -33,7 +33,7 @@
                         <span class="d-block col-12 col-md-6">{{ item.check_in }} - {{ item.check_out }}</span>
                         {% endfor %}
                         <div class="col-12">
-                            <a href="{% url 'reservation_confirmation' reservation %}" class="button profile-button mb-2">View confirmation</a>
+                            <a href="{% url 'reservation_confirmation' reservation %}" class="button profile-button mb-2" aria-label="View reservation confirmation">View confirmation</a>
                         </div>
                     {% endfor %}  
                 {% else %}
@@ -50,7 +50,7 @@
                         <span class="d-block col-12 col-md-6">{{ item.check_in }} - {{ item.check_out }}</span>
                         {% endfor %}
                         <div class="col-12">
-                            <a href="{% url 'reservation_confirmation' reservation %}" class="button profile-button mb-2">View confirmation</a>
+                            <a href="{% url 'reservation_confirmation' reservation %}" class="button profile-button mb-2" aria-label="View reservations confirmation">View confirmation</a>
                         </div>
                     {% endfor %} 
                 {% else %}
@@ -73,7 +73,7 @@
                 <span class="d-block col-12">Country:</span>
                 <span class="d-block col-12 ml-4">{% if profile.default_country %} {{ profile.default_country.name }} {% endif %}</span>
             </div>
-            <a href="{% url 'edit_profile' %}" class="button profile-button">Edit profile information</a>
+            <a href="{% url 'edit_profile' %}" class="button profile-button" aria-label="Edit profile">Edit profile information</a>
         </div>
     </div>
 </div>
@@ -91,7 +91,7 @@
                         <h5 class="sub-heading mt-3 mb-2">{{ favorite }}</h5>
                         <span class="favorite-category"><i class="fas fa-tag"></i> {{ favorite.category.friendly_name }}</span>
                         <p class="paragraph">{{ favorite.intro }}.</p>
-                        <a href="{% url 'recommendation_detail' favorite.id %}" class="button">See more</a>
+                        <a href="{% url 'recommendation_detail' favorite.id %}" class="button" aria-label="Link to recommendation detail">See more</a>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
         {% else %}
             <div class="col-12">
                 <p>You don't have any recommendations added yet to your favorites.</p>
-                <p>Visit our <a href="{% url 'tourist_info' %}" id="link-to-tourist_info">Tourist Information </a>page and start planning your trip.</p>
+                <p>Visit our <a href="{% url 'tourist_info' %}" id="link-to-tourist_info" aria-label="Link to tourist info page">Tourist Information </a>page and start planning your trip.</p>
             </div>
         {% endif %}
     </div>

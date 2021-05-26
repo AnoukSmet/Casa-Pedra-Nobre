@@ -10,7 +10,8 @@
 * [Navigation](#navigation)
 * [Social Media](#social-media)
 * [Footer](#footer)
-* [Reservations overview for Admin ](#reservations-overview-for-admin )
+* [Reservations overview for Admin ](#reservations-overview-for-admin)
+* [Add to favorites](#add-to-favorites)
 
 
 
@@ -481,3 +482,5 @@ The tables make it easy for the admin to navigate through the reservations.
 In order to meet this goal of the site owner, I have created a seperate section on the page for arrivals today and arrivals for the next 7 days.
 
 
+## Add to favorites
+### Functionality

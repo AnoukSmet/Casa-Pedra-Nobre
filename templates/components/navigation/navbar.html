@@ -1,7 +1,7 @@
 {% load static %}
 
 <nav class="navbar-dark navbar navbar-expand-lg " id="navigation-cpn">
-    <a class="navbar-brand d-lg-none" href="{% url 'home' %}">
+    <a class="navbar-brand d-lg-none" href="{% url 'home' %}" aria-label="Link to homepage">
         <img src="{{ MEDIA_URL}}logo.png" alt="logo" class="logo">
     </a>
 
@@ -16,46 +16,46 @@
         <ul class="navbar-nav">
             <li class="nav-item">
                 {% url 'home' as url %}
-                <a href="{% url 'home' %}" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Welcome <span class="sr-only">(current)</span></a>
+                <a href="{% url 'home' %}" aria-label="Link to homepage" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Welcome <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 {% url 'rooms' as url %}
-                <a href="{% url 'rooms' %}" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Rooms</a>
+                <a href="{% url 'rooms' %}" aria-label="Link to rooms" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Rooms</a>
             </li>
             <li class="nav-item">
                 {% url 'reservation' as url %}
-                <a href="{% url 'reservation' %}" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Reservation</a>
+                <a href="{% url 'reservation' %}" aria-label="Link to reservation {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Reservation</a>
             </li>
         </ul>
-        <a class="navbar-brand d-none d-lg-block" href="{% url 'home' %}">
+        <a class="navbar-brand d-none d-lg-block" href="{% url 'home' %}" aria-label="Link to homepage">
             <img src="{{ MEDIA_URL}}logo.png" alt="logo" class="logo">
         </a>
         <ul class="navbar-nav">
             <li class="nav-item">
                 {% url 'gallery' as url %}
-                <a href="{% url 'gallery' %}" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Gallery</a>
+                <a href="{% url 'gallery' %}" aria-label="Link to gallery" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Gallery</a>
             </li>
             <li class="nav-item">
                 {% url 'tourist_info' as url %}
-                <a href="{% url 'tourist_info' %}" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Tourist Info</a>
+                <a href="{% url 'tourist_info' %}" aria-label="Link to tourist info" {% if request.path == url %} class="nav-link active" {% else %} class="nav-link"{% endif %}>Tourist Info</a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Profile</a>
+                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" aria-label="Profile dropdown" role="button" data-toggle="dropdown" aria-expanded="false">Profile</a>
                 <div class="dropdown-menu border-0" aria-labelledby="user-options" id="account-dropdown">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                             {% url 'view_reservations' as url %}
-                            <a href="{% url 'view_reservations' %}" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>Reservations</a>
+                            <a href="{% url 'view_reservations' %}" aria-label="Link to view reservations" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>Reservations</a>
                         {% endif %}
                         {% url 'profile' as url %}
-                        <a href="{% url 'profile' %}" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>My Profile</a>
+                        <a href="{% url 'profile' %}" aria-label="Link to profile" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>My Profile</a>
                         {% url 'account_logout' as url %}
-                        <a href="{% url 'account_logout' %}" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>Logout</a>
+                        <a href="{% url 'account_logout' %}" aria-label="Link to logout" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>Logout</a>
                     {% else %}
                         {% url 'account_signup' as url %}
-                        <a href="{% url 'account_signup' %}" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>Register</a>
+                        <a href="{% url 'account_signup' %}" aria-label="Link to sign up" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>Register</a>
                         {% url 'account_login' as url %}
-                        <a href="{% url 'account_login' %}" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>Login</a>
+                        <a href="{% url 'account_login' %}" aria-label="Link to login" {% if request.path == url %} class="dropdown-item active" {% else %} class="dropdown-item"{% endif %}>Login</a>
                     {% endif %}
                 </div>
             </li>

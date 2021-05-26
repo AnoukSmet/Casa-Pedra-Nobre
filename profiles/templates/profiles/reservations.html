@@ -21,7 +21,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="reservations-collapse">
-                        <a data-toggle="collapse" href="#arrivals-today" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn">
+                        <a data-toggle="collapse" href="#arrivals-today" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn" aria-label="Collapse arrivals today">
                             Arrivals today
                         </a>
                     </div>
@@ -45,7 +45,7 @@
                                             {% for reservation in arrivals_today %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links" aria-label="view reservation">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -55,7 +55,7 @@
                                                         {% else %}
                                                             <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
-                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
+                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -72,7 +72,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="reservations-collapse">
-                        <a data-toggle="collapse" href="#departures" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn">
+                        <a data-toggle="collapse" href="#departures" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn" aria-label="Collapse departures today">
                             Departures today
                         </a>
                     </div>
@@ -96,7 +96,7 @@
                                             {% for reservation in departures %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links" aria-label="view reservation">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -106,7 +106,7 @@
                                                         {% else %}
                                                             <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
-                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
+                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -123,7 +123,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="reservations-collapse">
-                        <a data-toggle="collapse" href="#inhouse" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn">
+                        <a data-toggle="collapse" href="#inhouse" role="button" aria-expanded="true" aria-controls="collapseExample" class="col-12 btn" aria-label="Collapse inhouse guests today">
                             Inhouse Guests
                         </a>
                     </div>
@@ -148,7 +148,7 @@
                                             {% for reservation in inhouse_guests %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links" aria-label="view reservation">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -158,7 +158,7 @@
                                                         {% else %}
                                                             <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
-                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
+                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -175,7 +175,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="reservations-collapse">
-                        <a data-toggle="collapse" href="#arrivals-next-7" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
+                        <a data-toggle="collapse" href="#arrivals-next-7" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn" aria-label="Collapse arrivals next 7 days">
                             Arrivals in the next 7 days
                         </a>
                     </div>
@@ -200,7 +200,7 @@
                                             {% for reservation in arrivals_next %}
                                                 {% for item in reservation.lineitems.all %}
                                                     <tr>
-                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
+                                                        <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links" aria-label="view reservation">{{ reservation.full_name }}</a></th>
                                                         <td>{{ item.room }}</td>
                                                         <td>{{item.check_in }}</td>
                                                         <td>{{item.check_out }}</td>
@@ -210,7 +210,7 @@
                                                         {% else %}
                                                             <td class="red"><i class="fas fa-times"></i></td>
                                                         {% endif %}
-                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
+                                                        <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                     </tr>
                                                 {% endfor %}
                                             {% endfor %}
@@ -227,7 +227,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="reservations-collapse">
-                        <a data-toggle="collapse" href="#upcoming-reservations" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
+                        <a data-toggle="collapse" href="#upcoming-reservations" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn" aria-label="Collapse upcoming reservations">
                             All upcoming reservations
                         </a>
                     </div>
@@ -251,7 +251,7 @@
                                         {% for reservation in upcoming_reservations %}
                                             {% for item in reservation.lineitems.all %}
                                                 <tr>
-                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
+                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links" aria-label="view reservation">{{ reservation.full_name }}</a></th>
                                                     <td>{{ item.room }}</td>
                                                     <td>{{item.check_in }}</td>
                                                     <td>{{item.check_out }}</td>
@@ -261,7 +261,7 @@
                                                     {% else %}
                                                         <td class="red"><i class="fas fa-times"></i></td>
                                                     {% endif %}
-                                                    <td><a href="{% url 'delete_reservation' reservation" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
+                                                    <td><a href="{% url 'delete_reservation' reservation" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                 </tr>
                                             {% endfor %}
                                         {% endfor %}
@@ -275,7 +275,7 @@
             <div class="col-12">
                 <div class="card mb-4">
                     <div class="reservations-collapse">
-                        <a data-toggle="collapse" href="#past-reservations" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn">
+                        <a data-toggle="collapse" href="#past-reservations" role="button" aria-expanded="false" aria-controls="collapseExample" class="col-12 btn" aria-label="Collapse past reservations">
                             All past reservations
                         </a>
                     </div>
@@ -298,7 +298,7 @@
                                         {% for reservation in past_reservations %}
                                             {% for item in reservation.lineitems.all %}
                                                 <tr>
-                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links">{{ reservation.full_name }}</a></th>
+                                                    <th scope="row"><a href="{% url 'reservation_detail' reservation %}" class="reservations-links" aria-label="view reservation">{{ reservation.full_name }}</a></th>
                                                     <td>{{ item.room }}</td>
                                                     <td>{{item.check_in }}</td>
                                                     <td>{{item.check_out }}</td>
@@ -308,7 +308,7 @@
                                                     {% else %}
                                                         <td class="red"><i class="fas fa-times"></i></td>
                                                     {% endif %}
-                                                    <td><a href="{% url 'delete_reservation' reservation %}" class="reservations-links"><i class="fas fa-trash-alt"></i></a></td>
+                                                    <td><a href="{% url 'delete_reservation' reservation %}" class="reservations-links" aria-label="delete reservation"><i class="fas fa-trash-alt"></i></a></td>
                                                 </tr>
                                             {% endfor %}
                                         {% endfor %}

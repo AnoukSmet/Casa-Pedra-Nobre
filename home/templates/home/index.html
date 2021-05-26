@@ -9,9 +9,9 @@
     <div class="hero-text">
         <h1>Casa Pedra Nobre</h1>
         <p>Guesthouse at the Silver Coast in Portugal</p>
-        <a class="button" href="{% url 'reservation' %}">Book now!</a>
+        <a class="button" href="{% url 'reservation' %}" aria-label="Link to reservation page">Book now!</a>
         <p class="mt-4">
-            <a href="#page-intro" class="button scroll-down"><i class="fas fa-arrow-down"></i></a>
+            <a href="#page-intro" class="button scroll-down" aria-label="Scroll down icon"><i class="fas fa-arrow-down"></i></a>
         </p>
     </div>
 </div>
@@ -34,7 +34,7 @@
                         <div class="card">
                             <div class="row">
                                 <div class="col-lg-6 d-flex align-items-center">
-                                    <img src="{{ item.image.url }}" class="d-block" alt="">    
+                                    <img src="{{ item.image.url }}" class="d-block" alt="page-intro-image">    
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="card-body">
@@ -43,7 +43,7 @@
                                             {{ item.description }}
                                         </p>
                                         {% if item.url_name %}
-                                            <a href="{{ item.url_name }}" class="button card-button">See more...</a>
+                                            <a href="{{ item.url_name }}" class="button card-button" aria-label="Link to {{item }} page">See more...</a>
                                         {% endif %}
                                     </div>
                                 </div>
@@ -53,10 +53,10 @@
                     {% endfor %}
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#intro-carousel" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#intro-carousel" role="button" data-slide="prev" aria-label="Next button carousel">
                 <span class="visually-hidden"><i class="fas fa-arrow-circle-left"></i></span>
             </a>
-            <a class="carousel-control-next" href="#intro-carousel" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#intro-carousel" role="button" data-slide="next" aria-label="Previous button carousel">
                 <span class="visually-hidden"><i class="fas fa-arrow-circle-right"></i></span>
             </a>
         </div>
