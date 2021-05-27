@@ -1,6 +1,6 @@
 # **Casa Pedra Nobre**
 
-``` Mock up Image ```
+![Mock up Casa Pedra Nobre](wireframes/mockup.png)
 
 ## **Goal for this project** 
 Welcome to Casa Pedra Nobre, a bed & breakfast at the Silver Coast in Portugal.  
