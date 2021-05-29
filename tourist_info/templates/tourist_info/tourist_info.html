@@ -52,12 +52,12 @@
     <div class="accordion" id="tourist-info-accordion">
     {% for category in categories %}
         <div class="card recommendation-cards mb-4">
-            <div class="card-header recommendation-category" id="recommendation-collapse">
+            <div class="card-header recommendation-category" id="a{{category}}">
                 <a data-toggle="collapse" href="#{{ category }}" aria-label="Collapse recommendations" role="button" aria-expanded="false" aria-controls="{{ category }}" class="col-12 btn">
                     {{ category.friendly_name }}
                 </a>
             </div>
-            <div id="{{ category }}" class="collapse" aria-labelledby="recommendation-collapse" data-parent="#tourist-info-accordion" aria-controls="{{ category }}">
+            <div id="{{ category }}" class="collapse" aria-labelledby="a{{category}}" data-parent="#tourist-info-accordion" aria-controls="{{ category }}">
                 <div class="card-body row">
                 {% for recommendation in recommendations %}
                     {% if recommendation.category == category %}

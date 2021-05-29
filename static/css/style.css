@@ -384,7 +384,7 @@ input[type='checkbox']:focus {
 .message-container {
     position: fixed;
     top: 4rem;
-    right: 1.6rem;
+    right: 0.5rem;
     z-index: 99999999999;
     background-color: #72351a;
 }
@@ -415,13 +415,13 @@ input[type='checkbox']:focus {
 
 @media (min-width: 768px) {
     .hero-text h1 {
-        font-size: 7rem;
+        font-size: 5rem;
         letter-spacing: 1rem;
         margin-bottom: 1.5rem;
     }
 
     .hero-text p {
-    font-size: 4rem;
+    font-size: 2.5rem;
     }
 
     .carousel-control-prev,
@@ -434,6 +434,14 @@ input[type='checkbox']:focus {
     .nav-link {
         padding: 1.2rem !important;
         font-size: 2rem !important;
+    }
+
+    .hero-text h1 {
+        font-size: 7rem;
+    }
+
+    .hero-text p {
+    font-size: 4rem;
     }
 
     .carousel-control-prev,

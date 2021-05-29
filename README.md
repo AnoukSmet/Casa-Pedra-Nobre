@@ -1,6 +1,6 @@
 # **Casa Pedra Nobre**
 
-![Mock up Casa Pedra Nobre](wireframes/mockup.png)
+![Mock up Casa Pedra Nobre](images-readme/mockup.png)
 
 ## **Goal for this project** 
 Welcome to Casa Pedra Nobre, a bed & breakfast at the Silver Coast in Portugal.  
@@ -12,7 +12,7 @@ This project was developed as my final project to complete the Full Stack Web De
 I challenged myself for this last project by going out of the scope of the course because this project is close to my heart.   
 This bed & breakfast belongs to my parents for which I did the start up in 2015.   
 I managed the bed & breakfast for more than 2 years after which I passed it on to my parents to start my next adventure.  
-You can find the original website here [Casa Pedra Nobre](www.casapedranobre.pt).
+You can find the original website here [Casa Pedra Nobre](https://casapedranobre.pt/).
 
 Thank you for visiting my project!  
 If you have any feedback or questions, head over to my GitHub contact details and feel free to reach out to me.
@@ -271,14 +271,14 @@ This way the user also doesn't have to scroll down in order to see the different
 I have decided to make a flowchart for the reservation process to completely understand each step.    
 I have used [Draw.io](https://draw.io/) to make this flowchart which you can view below: 
 
-![Flowchart](wireframes/flowchart_reservation_process.png)
+![Flowchart](images-readme/flowchart_reservation_process.png)
 
 ### **Database Structure**
 
 For the project I set up 9 database Models which you can see in the image below. 
 I have highlighted the relationships between the various models with colors.
 
-![Database Structure](wireframes/database_structure.png)
+![Database Structure](images-readme/database_structure.png)
 
 [Back to Top](#table-of-contents)
 
