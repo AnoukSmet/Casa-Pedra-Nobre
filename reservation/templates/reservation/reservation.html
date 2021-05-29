@@ -53,10 +53,10 @@
     {{ block.super }}
     <!-- Sets checkout date on change of check-in to check-in + 1 day -->
     <script type="text/javascript">
-    $('#check_in').change(function() {
-        var date = new Date($('#check_in').val());
-        date.setDate(date.getDate() + 1);
-        $('#check_out').val(date.toISOString().substr(0, 10));
-    })
+        $('#check_in').change(function() {
+            var date = new Date($('#check_in').val());
+            date.setDate(date.getDate() + 1);
+            $('#check_out').val(date.toISOString().substr(0, 10));
+        })
     </script>
 {% endblock %}
