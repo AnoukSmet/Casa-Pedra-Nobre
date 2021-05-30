@@ -45,6 +45,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
     * [Libraries and Frameworks](#libraries-and-frameworks)
     * [Tools](#tools)
 * [Testing](#testing)
+* [Bugs](#bugs)
 * [Deployment](#deployment)
     * [Local Deployment](#local-deployment)
     * [Heroku Deployment](#heroku-deployment)
@@ -150,12 +151,12 @@ You can find more information about the colors below.
 As CPN is THE place for guests to come and unwind, I wanted to user calming colors with a southern accent.
 
 
-``` Color Palette ```
+![Color Scheme](images-readme/color-scheme-cpn.png)
 
-* #0C1E50
-* #FCBC49
-* #FFFFEB
-* 853D1E
+* #AA4226: This color is mainly used for the buttons, hover effect on navigation bar, hover on social media icons
+* #FCBC49: The yellow is used for navigation link, headings in hero images, text in social media section and footer
+* #FFFFEB: This color is used as text color for the buttons and as hover color for the profile dropdown in the navigation
+* 72351A: This darker orange is the main hover color for all the buttons across the website
 
 I have used a contrast checker in order to make sure that the contrast is sufficient.
 This way my content will be easily readable. 
@@ -226,7 +227,7 @@ My website will have the following pages:
 --- 
 <a></a>
 
-## **Wireframes, Flowcharts and Database Structure**
+## **Wireframes and Flowcharts**
 
 ### **Wireframes**
 I used [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website.   
@@ -266,6 +267,13 @@ As I didn't want to exclude recommendations, I decided to go for this approach.
 This way the user also doesn't have to scroll down in order to see the different categories available but sees them at first sight.
 
 
+#### Subscription section
+On the wireframes, you can see that the social media section consisted out of a subscription part and a social media part.
+After careful consideration I decided to remove the subscription part and only display links to social media. 
+Nowadays people intend less and less to read subscription emails as they end up between many emails. 
+Instead they will check social media for potential promotions, things to do etc. 
+
+
 ### **Flowcharts**
 
 I have decided to make a flowchart for the reservation process to completely understand each step.    
@@ -275,8 +283,8 @@ I have used [Draw.io](https://draw.io/) to make this flowchart which you can vie
 
 ### **Database Structure**
 
-For the project I set up 9 database Models which you can see in the image below. 
-I have highlighted the relationships between the various models with colors.
+For the project I set up 12 database Models which you can see in the image below. 
+I have highlighted the relationships between the various models.
 
 ![Database Structure](images-readme/database_structure.png)
 
@@ -422,7 +430,7 @@ To clone the project:
     Add /admin to the end to access the admin panel with your superuser credentials
 
     
-### To deploy your project on Heroku, use the following steps: 
+### Heroku Deployment 
 
 1. Login to your Heroku account and create a new app. Choose your region. 
 1. Once the app is created click on the resources button and under Add-ons, look for the Heroku Postgres to attach a postgres database to your project.
@@ -544,7 +552,7 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
 ```
     if "DEVELOPMENT" in os.environ:
         EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-        DEFAULT_FROM_EMAIL = 'your gmail account'
+        DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
     else:
         EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
         EMAIL_USE_TLS = True
@@ -552,7 +560,7 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
         EMAIL_HOST = 'smtp.gmail.com'
         EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
         EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
-        DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+        DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
 ```
 
 

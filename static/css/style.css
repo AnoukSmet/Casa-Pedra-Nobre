@@ -98,7 +98,7 @@ body {
 }
 
 .dropdown-item.active, .dropdown-item:active {
-    color: #fff;
+    color: #FFFFEB;
     background-color: transparent;
 }
 
@@ -142,7 +142,7 @@ body {
 }
 
 .dropdown-item:hover {
-    color: #fff;
+    color: #FFFFEB;
     background: rgba(0, 0, 0, 0.95); 
 }
 
