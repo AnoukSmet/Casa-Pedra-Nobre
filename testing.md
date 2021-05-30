@@ -15,34 +15,34 @@
 
 All the html files have been passed without any issue through the [HTML Validator](https://validator.w3.org/).
 All the css files have been passed without any issue through the [CSS Validator](https://jigsaw.w3.org/css-validator/).
-All the javascript files have been passed without any issue throught the [Javascript Validator](https://jshint.com/).
+All the javascript files have been passed without any issue through the [Javascript Validator](https://jshint.com/).
 
 
 ## Homepage
 ### **Responsiveness**
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 * Quality and display of hero image
 * Display of carousel  
 
 #### Conclusion
-Hero image looks nice across devices and browers. Image is of high quality.  
-Carousel looks well across devices and browers.   
+Hero image looks nice across devices and browsers. Image is of high quality.  
+Carousel looks well across devices and browsers.   
 From small devices (from 320px onwards) until tablets, image is display above the text. Carousel resizes the height depending of the content of the slide.
 Arrows to go left and right are displayed in the middle of the height of the carousel.   
 On large devices, image is being displayed on the left, with the description and button on the right. 
 
 ### **Functionality**
 Button 'Book now' within hero image works as planned and takes the user to the reservation page.
-Buttons to move left and right in the carousel work as intented.   
+Buttons to move left and right in the carousel work as intended.   
 Disabled automatic scrolling of the carousel to give the user the control to go to the next slide.   
 Indicator below carousel to let the user know how many slides there are and where user is located on that moment. 
 Link within the carousel work as planned and redirects the user to the corresponding page.
 
-Due to the image being full view height, the user might not realize there is more information on this page.
+Due to the image being full view height, the user might not realise there is more information on this page.
 To make this clear to the user, I have added a small arrow, pointing down, right below the book now button.
 The user can also click on this button which will take him/her to the carousel down on the page.
 
@@ -54,18 +54,18 @@ The user can also click on this button which will take him/her to the carousel d
 
 In the beginning the performance was too low, around 60%. This was mainly caused by retrieving the images from AWS.
 After some research, I have added metadata to my AWS Bucket to increase the max age for Cache Control. 
-This immediately brought my perfomance up to 81%.
+This immediately brought my performance up to 81%.
 
 ### **User Experience**
 #### User Story: I want the website to be visually appealing so I can already imagine myself being on holiday there
 Drone image from the house with the slight overlay immediately creates a 'Wow' feeling while not overwhelming the user.
-When you scroll down to the carousel, you immediately see a sneak peek from each page, give the user the feeling to 'wanting' to keep on exploring. 
+When you scroll down to the carousel, you immediately see a sneak peek from each page, give the user the feeling of 'wanting' to keep on exploring. 
 This feeling I have recreated across each page in order to not lose the interest of the user. 
 
 
 #### User Story: I want to have some information about the property and it's location
 On the first slide of the carousel, the user can find some information about the property.  
-It includes a couple of more known places closeby as well as some info about the house and when it was renovated.   
+It includes a couple of more known places close-by as well as some info about the house and when it was renovated.   
 More info about the bed & breakfast is spread across the website. On the rooms page you can find more info about the rooms, amenities, breakfast, check-in & check-out and so on. 
 
 
@@ -73,7 +73,7 @@ More info about the bed & breakfast is spread across the website. On the rooms p
 ### Responsiveness
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 * Quality and display of all the images: hero images, room images and breakfast images
@@ -84,10 +84,10 @@ Test on various browers: Google Chrome, Safari, Opera & Firefox
 The hero image for the rooms shows nicely across the various browsers and devices. 
 The image only takes up 60 vh instead of 100vh like on the homepage. This was done to not overhelm the user and already show what this page has to offer.   
 When you scroll down the rooms, on large screens, you will see the images of the room on the left side, automatically scrolling through various images.
-The text is nicely displayed on the right side with a call to action button to take you to the detail page of that specifc room. 
+The text is nicely displayed on the right side with a call to action button to take you to the detail page of that specific room. 
 On small and medium screens, the images are displayed above the text. The rooms are divided by a subtle yellow line. 
 
-Below the rooms the additional information text shows nicely and adjusts according the various devices and browers.
+Below the rooms the additional information text shows nicely and adjusts according the various devices and browsers.
 Images show nicely, are of high quality and show the user the complete experience in the bed & breakfast. 
 The amenities, activities & experiences and policies are displayed in a nice list varying from 3 columns on large screens to 1 column on small screens. 
 
@@ -123,7 +123,7 @@ Below the rooms on this page, the user will find a long list of all the other am
 ### Responsiveness
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 #### Step 1: Select check-in & check-out
@@ -141,7 +141,7 @@ Test on various browers: Google Chrome, Safari, Opera & Firefox
 * Display of reservation form. 
 
 
-#### Step 4: Show reservation overview to user after payment was successfull. 
+#### Step 4: Show reservation overview to user after payment was successful. 
 * Display of the reservation confirmation
 
 
@@ -174,14 +174,14 @@ The whole reservation process is responsive across browsers and devices.
 
 #### Step 3: Show reservation overview to user + reservation form
 * Overview of reservation data + room overview
-* Reservation form that is prefilled when user is logged in
+* Reservation form that is pre-filled when user is logged in
 * When user is not logged in, a link to register or login is being displayed below the form
 * Save info functionality which saves the user info when logged in 
 * Payment form not being displayed when user is the superuser, this was done to allow the property to make reservations for guests without having to go through the payment.
-    This can be specifically usefull when guests would try to make a reservation by phone.
+    This can be specifically useful when guests would try to make a reservation by phone.
 * User is allowed to fill in numbers as well as letters on ETA field. This allow answers like 'Between 14h00 and 15h00'
 
-#### Step 4: Show reservation overview to user after payment was successfull. 
+#### Step 4: Show reservation overview to user after payment was successful. 
 * Overview of reserved room is being displayed with the relevant information concerning the reservations
 * Policies are correctly being displayed to remind guests
 
@@ -229,7 +229,7 @@ The user is also able to select multiple rooms.
 ### Responsiveness
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 * Display and quality of the images
@@ -254,16 +254,16 @@ The images are nicely displayed, using an overlay on top of the main page. It in
 
 
 ### User Experience
-#### User Story: I want to see a lot of pictures so I can really visualize the place
+#### User Story: I want to see a lot of pictures so I can really visualise the place
 In total I have displayed around 50 images from the property and the surroundings of the bed & breakfast. 
-This helps the user to visualize the place and their potential upcoming stay. 
+This helps the user to visualise the place and their potential upcoming stay. 
 
 
 ## Tourist Info
 ### Responsiveness
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 * Display and quality of hero image
@@ -316,7 +316,7 @@ This way the user can specifically scroll through the recommendations he/she is 
 ### Responsiveness
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 * Quality and display of hero image 
@@ -332,7 +332,7 @@ On small and medium devices, the reservations are displayed at the top of the im
 Page to update contact displays nicely on the screen. 
 
 ### Functionality
-Contact information for profile, which is being used to prefill the contact form upon checkout. 
+Contact information for profile, which is being used to pre-fill the contact form upon checkout. 
 Overview of past and upcoming reservations but the option the view the confirmation page. 
 The user will be taken to the checkout success page with a flash message that reminds the user that this is a past confirmation. 
 Display of the recommendations that were added to the favourites of the user.
@@ -353,7 +353,7 @@ This makes the booking of their holidays a nicer process because it offers a mor
 ### Responsiveness
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 * Display of nav links on large devices
@@ -369,9 +369,9 @@ Here the image is nicely displayed on the left, that counts as well for the navl
 Navigation is responsive across various browsers and devices. 
 
 ### Functionality
-All the navlinks in the navigation bar work as intented and take the user to the corresponding page. 
+All the navlinks in the navigation bar work as intended and take the user to the corresponding page. 
 When the user clicks on the logo, he/she will be redirected to the homepage / welcome page.   
-In order to highligh the navlink where the user was located, I had to compare the request.url to the corresponding url of that specific navlink. 
+In order to highlight the navlink where the user was located, I had to compare the request.url to the corresponding url of that specific navlink. 
 If true, active class was added to the navlink. This way the highlighting of the active navlink works as planned. 
 
 ### Lighthouse report
@@ -390,7 +390,7 @@ Across the website beside the main navigation, you have various buttons as well 
 ### Responsiveness
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 * Quality and display of background image
@@ -398,12 +398,12 @@ Test on various browers: Google Chrome, Safari, Opera & Firefox
 
 #### Conclusion 
 The social media section display nicely across various browsers and devices.
-The text is well readible due to the overlay on the image. 
+The text is well readable due to the overlay on the image. 
 Icons are self explanatory to the user. 
 
 ### Functionality
-The links in the social media works as intented and takes the user the corresponding website.
-They open in a separate tab so the user is not redirectd away from the website. 
+The links in the social media works as intended and takes the user the corresponding website.
+They open in a separate tab so the user is not redirected away from the website. 
 
 ### User Experience
 The social media section helps to interact more with the (potential) guest. 
@@ -416,7 +416,7 @@ This section is being displayed on various (not all) pages.
 ### Responsiveness
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 * General responsiveness of the footer
@@ -435,7 +435,7 @@ It will open right away a chat, with the mobile number of the bed & breakfast.
 
 
 ### User Experience
-#### User Story: I want to be able to get in contact with the propery in case I have some questions
+#### User Story: I want to be able to get in contact with the property in case I have some questions
 In the footer, the user has various ways of reaching out to the bed & breakfast: email / phone / whatsapp .
 As it is standard convention to have this information in the footer, the user will have no difficulties to locate this information. 
 The footer is displayed on each page which makes it easier for the user to reach out.
@@ -452,7 +452,7 @@ For example:
 ### Responsiveness
 #### Where did I test?
 Test on various devices: MacBook Pro / iPhone 6S / Acer / iPhone 8 / iPhone 11 / iPad.   
-Test on various browers: Google Chrome, Safari, Opera & Firefox
+Test on various browsers: Google Chrome, Safari, Opera & Firefox
 
 #### What did I test?
 * Display of the reservations
@@ -480,14 +480,14 @@ Here a flash message is displayed to remind the admin that this email was sent t
 In order to implement the tables, I have used the [DataTables jQuery plug-in](https://datatables.net/).
 By calling the datatables function, you right away get a nice interactive table with pagination, search functionality, ordering functionality and you can choose how many entries per page you want to see. 
 
-After carefull consideration I decided to include a modal asking the superuser to confirm if he/she wants to proceed with the deleting of the reservations. 
+After careful consideration I decided to include a modal asking the superuser to confirm if he/she wants to proceed with the deleting of the reservations. 
 This to avoid that reservations are removed by accident. The modal works as planned and mentions the reservation number and full name of the reservation to the admin.
 
 For this page I still see a lot of possible improvements in order to make this a good user experience for the superuser. 
 Examples of this are:
 * Possibility to edit reservations
-* When deleting reservations, confirmation email send to user including infomation about possible pay back of paid amount. 
-* Include a status of cancelled in case the admin doens't want to delete the reservation but mark them as cancelled instead. 
+* When deleting reservations, confirmation email send to user including information about possible pay back of paid amount. 
+* Include a status of cancelled in case the admin doesn't want to delete the reservation but mark them as cancelled instead. 
 
 ### Lighthouse report
 #### View reservations Desktop
@@ -503,15 +503,15 @@ Performance is lower than it should be, especially on mobile devices. This is ma
 On this page the owners can easily see all the reservations, displayed in various categories. 
 The tables make it easy for the admin to navigate through the reservations. 
 
-#### Site owner goals: I want to have a seperate section for arriving and inhouse reservations
-#### Site owner goals: I want to have a seperate section as well for the reservations for the next 7 days so I can plan in advance
-In order to meet these goals of the site owner, I have created a seperate section on the page for arrivals today and arrivals for the next 7 days.
+#### Site owner goals: I want to have a separate section for arriving and inhouse reservations
+#### Site owner goals: I want to have a separate section as well for the reservations for the next 7 days so I can plan in advance
+In order to meet these goals of the site owner, I have created a separate section on the page for arrivals today and arrivals for the next 7 days.
 
 
 ## GENERAL CONCLUSION
 
-Webiste is respnsiveness across various devices and browers, creating a good user experience for the user. 
-On point of performance, I still see some oppportunities to have this improved:
+Website is responsiveness across various devices and browsers, creating a good user experience for the user. 
+On point of performance, I still see some opportunities to have this improved:
 * Working with svg format for my images to make them more responsive
 * Minifying my files
 * Improving database queries (for example: only compare new reservation request to reservations that could interfere (+ / - 28 days ) instead of to all reservations

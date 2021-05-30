@@ -12,7 +12,7 @@ Conclusion: footer works as intended and is completely responsive.
 ### Toggler Icon Navbar not showing
 When implementing the navigation bar from bootstrap, I removed the navbar-dark as I wanted to apply my own styling. 
 This results in the toggler Icon not being displayed on the screen. 
-This was resolved by adding navbar-dark class againvto the navbar and overwriting the styling.
+This was resolved by adding navbar-dark class again to the navbar and overwriting the styling.
 
 Conclusion: Toggler icon is displayed on the screen while still implementing personalised design.
 
@@ -99,7 +99,7 @@ Conclusion: Fix has resolved the issue and all images are nicely being displayed
 ### Email verification link not working
 Emails that are sent to the user in order to verify their accounts was not working.
 After various research I noticed I didn't load the {% load account %} tag in email_confirm.html.
-When I added this, the issue was resolved and the user can now easily verify it's account. 
+When I added this, the issue was resolved and the user can now easily verify its account. 
 
 Conclusion: bug has been resolved and email verification is now working properly. 
 
@@ -140,16 +140,16 @@ If not, the user is not able to proceed to the next step and a flash messages is
 
 Conclusion: server error 500 does not appear anymore and user is informed correctly what he/she did wrong. 
 
-### Dupplicate rooms
-On the reservation detail page where the available and unavailable rooms are beings displayed, a lot of dupplicate rooms were showing. 
-This was caused by me comparing the reservationr request data (Check in and check out) to all the existing reservations in the system. 
+### Duplicate rooms
+On the reservation detail page where the available and unavailable rooms are beings displayed, a lot of duplicate rooms were showing. 
+This was caused by me comparing the reservation request data (Check in and check out) to all the existing reservations in the system. 
 If the data didn't overlap, the room was added to the available rooms and when the data overlapped, the room was added to the unavailable rooms. 
 
 Even if the room had already been added to unavailable rooms, it was still being added to available rooms. 
-First I removed all the dupplicates by looping through them and only if the room is not in the new list, add it. 
+First I removed all the duplicates by looping through them and only if the room is not in the new list, add it. 
 Then I also check if the room is available, if it is already in unavailable rooms. If it is, I remove it from the available rooms. 
 
-This resolves the issue. I am aware that there is still room for improvement like only comparing to a limited amount of relevant reservating instead of comparing to all reservations. 
+This resolves the issue. I am aware that there is still room for improvement like only comparing to a limited amount of relevant reservations instead of comparing to all reservations. 
 The performance of this query will decrease the more reservations the bed & breakfast has. 
 
 Conclusion: the bug has been resolved and for the scope of the website, the fix is a good solution which has no impact on the performance for the user. 
