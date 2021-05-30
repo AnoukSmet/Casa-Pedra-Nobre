@@ -54,7 +54,7 @@ The user can also click on this button which will take him/her to the carousel d
 
 In the beginning the performance was too low, around 60%. This was mainly caused by retrieving the images from AWS.
 After some research, I have added metadata to my AWS Bucket to increase the max age for Cache Control. 
-This immediately brought my perfomance up to 
+This immediately brought my perfomance up to 81%.
 
 ### **User Experience**
 #### User Story: I want the website to be visually appealing so I can already imagine myself being on holiday there
@@ -110,8 +110,8 @@ The buttons to take the user to the detail page of each room work well. Same cou
 
 ### User Experience
 #### User Story: I want to see which different rooms the accommodation has to offer
-When the user arrives on the website, it will find its way right away to the rooms.
-Or via the navigation or through the call to action button in the carousel on the homepage.  
+When the user arrives on the website, it will find its way right away to the rooms page.
+User can go via the navigation or through the call to action button in the carousel on the homepage.  
 The rooms are nicely displayed on the rooms page with sufficient information about each room.
 
 #### User Story: I want to know what kind of amenities are included in the room
@@ -182,7 +182,8 @@ The whole reservation process is responsive across browsers and devices.
 * User is allowed to fill in numbers as well as letters on ETA field. This allow answers like 'Between 14h00 and 15h00'
 
 #### Step 4: Show reservation overview to user after payment was successfull. 
-* Data is structured into different section which all get the correct data. 
+* Overview of reserved room is being displayed with the relevant information concerning the reservations
+* Policies are correctly being displayed to remind guests
 
 
 For the reservation procedure, they are still quite some points of improvement that I see for the future. 
@@ -488,7 +489,10 @@ Examples of this are:
 * Include a status of cancelled in case the admin doens't want to delete the reservation but mark them as cancelled instead. 
 
 ### Lighthouse report
-""" Include 2 images """
+#### View reservations Desktop
+![Lighthouse report Desktop View Reservations](/images-readme/view-reservations-desktop.png)
+#### Homepage Mobile
+![Lighthouse report Mobile View Reservations](/images-readme/view-reservations-mobile.png)
 
 
 Performance is lower than it should be, especially on mobile devices. This is mainly caused by the Datatables CDN.
