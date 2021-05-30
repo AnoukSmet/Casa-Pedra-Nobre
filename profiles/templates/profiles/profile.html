@@ -23,7 +23,7 @@
             <h2 class="heading mb-4 mt-2">Your reservations</h2>
             <div class="row">
                 {% if upcoming_reservations %}
-                    <h3 class="col-12 sub-heading ml-4 mb-3">Upcoming Reservations</h3>
+                    <h3 class="col-12 sub-heading mb-3 pl-4">Upcoming Reservations</h3>
                     {% for reservation in upcoming_reservations %}
                         <span class="d-block col-12 col-md-5 mt-2">Reservation Nr. :</span>
                         <span class="d-block col-12 col-md-7 mt-2" id="reservation-number">{{ reservation }}</span>
@@ -37,10 +37,10 @@
                         </div>
                     {% endfor %}  
                 {% else %}
-                    <h3 class="col-12 sub-heading ml-4 mb-3">No Upcoming Reservations</h3>
+                    <h3 class="col-12 sub-heading mb-3 pl-4">No Upcoming Reservations</h3>
                 {% endif %}      
                 {% if past_reservations %}
-                    <h3 class="col-12 sub-heading ml-4">Past Reservations</h3> 
+                    <h3 class="col-12 sub-heading pl-4">Past Reservations</h3> 
                     {% for reservation in past_reservations %}
                         <span class="d-block col-12 col-md-5 mt-2">Reservation Nr. :</span>
                         <span class="d-block col-12 col-md-7 mt-2" id="past-reservation-number">{{ reservation }}</span>
@@ -54,7 +54,7 @@
                         </div>
                     {% endfor %} 
                 {% else %}
-                    <h3 class="col-12 sub-heading ml-4">No Past Reservations</h3>     
+                    <h3 class="col-12 sub-heading pl-4">No Past Reservations</h3>     
                 {% endif %}  
             </div>
             {% else %}
@@ -81,7 +81,7 @@
 <!-- Overview of recommendation added to favorites -->
 <div class="container">
     <div class="row">
-        <h2 class="heading col-12 ml-4 mb-4">My Favorites</h2>
+        <h2 class="heading col-12 pl-4 mb-4">My Favorites</h2>
         {% if favorites %}
             {% for favorite in favorites %}
             <div class="col-12 col-md-4">
