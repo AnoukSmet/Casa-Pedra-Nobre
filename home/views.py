@@ -7,7 +7,8 @@ def index(request):
     """
     Display homepage with PageIntro's
     """
-    page_intros = PageIntro.objects.all()
+    page_intros = PageIntro.objects.all().order_by('display_order')
+
     template = 'home/index.html'
     context = {
         'page_intros': page_intros,
