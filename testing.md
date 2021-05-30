@@ -505,7 +505,7 @@ The tables make it easy for the admin to navigate through the reservations.
 
 #### Site owner goals: I want to have a seperate section for arriving and inhouse reservations
 #### Site owner goals: I want to have a seperate section as well for the reservations for the next 7 days so I can plan in advance
-In order to meet this goal of the site owner, I have created a seperate section on the page for arrivals today and arrivals for the next 7 days.
+In order to meet these goals of the site owner, I have created a seperate section on the page for arrivals today and arrivals for the next 7 days.
 
 
 ## GENERAL CONCLUSION

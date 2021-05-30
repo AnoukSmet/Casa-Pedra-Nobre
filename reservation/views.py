@@ -85,7 +85,8 @@ def reservation(request):
     else:
         return render(request, 'reservation/reservation.html')
 
-
+# Credits to Alexandre Pinto for the check availability logic which I adjusted for my situation
+# https://github.com/alexpnt/django-calendar/blob/master/events/models.py
 def check_availability(
         check_in, check_out, check_in_request, check_out_request):
     """

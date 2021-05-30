@@ -586,6 +586,24 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
 
 ## **Credits**
 
+* Credits to [Alexandre Pinto](https://github.com/alexpnt/django-calendar/blob/master/events/models.py) for the logic behind checking availability for the rooms.  
+    In the beginning I was quite unsure on how to approach this until I encountered the following function 
+
+    ```
+    def check_overlap(self, fixed_start, fixed_end, new_start, new_end):
+        overlap = False
+        if new_start == fixed_end or new_end == fixed_start:    #edge case
+            overlap = False
+        elif (new_start >= fixed_start and new_start <= fixed_end) or (new_end >= fixed_start and new_end <= fixed_end): #innner limits
+            overlap = True
+        elif new_start <= fixed_start and new_end >= fixed_end: #outter limits
+            overlap = True
+
+        return overlap
+    ```
+
+    I have been able to adjust this function to work with dates instead of times which turned out to be the solution I was looking for. 
+    
 * Thank you to the creator(s) of the [Lightbox Gallery](https://epicbootstrap.com/snippets/lightbox-gallery), it has really helped me with the display of my image gallery  
 
 * Thank you as well to the creator(s) of the [Datatables CDN](https://cdn.datatables.net/). This helped to provide a nice overview of all the reservations.
