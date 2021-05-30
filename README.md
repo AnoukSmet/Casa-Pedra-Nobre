@@ -61,7 +61,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 
 ### **User Goals**
 
-* The landing page should create a instant good feeling, motivating the user to look at the rest the of site.
+* The landing page should create an instant good feeling, motivating the user to look at the rest the of site.
 * The website has to work well on all kind of devices like mobile phones, tables and desktops.
 * Ability to see the various rooms that the accommodation offers.
 * Have some information about the surroundings of the accommodation like restaurants, places to visit etc.
@@ -80,24 +80,24 @@ As a user:
 * I want to have an intuitive navigation so I know right away where I can find which information.
 * I want to see which different rooms the accommodation has to offer.
 * I want to know what kind of amenities are included in the room.
-* I want to see a lot of pictures so I can really visualize the place.
+* I want to see a lot of pictures so I can really visualise the place.
 * I want to be able to make a reservation on the website itself.
 * I want to be able to choose the exact room in which I want to stay.
 * I want to have some information about the surroundings of the accommodation.
-* I want to be able to get in contact with the propery in case I have some questions.
+* I want to be able to get in contact with the property in case I have some questions.
 * I want to know the address and how far / close it is to big cities.
 
 ### **Site owners Goals**
 
 As an owner:  
-* I want to promote my propery the best way possible to attract new customers.
+* I want to promote my property the best way possible to attract new customers.
 * I want to increase direct bookings by making the booking process easy and intuitive.
 * I want to be able to see all the reservations.
-* I want to have a seperate section for arriving and inhouse reservations.
-* I want to have a seperate section as well for the reservations for the next 7 days so I can plan in advance.
+* I want to have a separate section for arriving and inhouse reservations.
+* I want to have a separate section as well for the reservations for the next 7 days so I can plan in advance.
 * I want to be able to update the rooms easily in case I make some improvements to the room.
 * I want to be able to add some rooms in case I decide to expand the accommodation.
-* I want to be able to easily add some news places to visit, eat so the information stays accurrate and up-to-date.
+* I want to be able to easily add some news places to visit, eat so the information stays accurate and up-to-date.
 
 <a></a>
 
@@ -112,13 +112,13 @@ As an owner:
 
 #### Requirements
 
-* Easy to navigate by having a responsive navigation bar and various links to other pages througout the site.
+* Easy to navigate by having a responsive navigation bar and various links to other pages throughout the site.
 * Appealing landing page creating a warm feeling towards the place.
 * Easy to find the various rooms and its amenities.
 * Possibility to make a reservation.
 * Find information about the environment, things to do, eat, see etc.
 * Contact information like email, phone and address.
-* Many images to be able to visualize how my holiday would look like.
+* Many images to be able to visualise how my holiday would look like.
 
 <a></a>
 
@@ -138,7 +138,7 @@ As an owner:
 ### **Design Choices**
 
 I have spent quite some time thinking about the design of the website for CPN. 
-I will use the real logo og CPN and I will integrate the colors of the logo into the website.
+I will use the real logo of CPN and I will integrate the colors of the logo into the website.
 The colors used bring a southern feeling to website which fits perfect with the location, Portugal. 
 
 I have used [Coolors](https://coolors.co/ "Coolors.co") to come up with the exact color scheme.  
@@ -189,7 +189,7 @@ My website will have the following pages:
     This will include images from the breakfast, amenities, activities & experiences and policies. 
 
 * Reservation page  
-    This section will consists of multiple step spreaded over multiple pages.  
+    This section will consists of multiple steps spreaded over multiple pages.  
     Step 1: user selects preferred check-in and check-out data.  
     Step 2: available rooms and their prices will be displayed and the user select the amount of guests per room and add the room(s) they want.  
     Step 3: summary of the selected rooms and check-in/check-out data will be displayed, together with a form a finalise the reservation.  
@@ -215,7 +215,7 @@ My website will have the following pages:
 * Reservations page for admin
     For the owner of the breakfast or admin (superuser), there is a separate page with an overview of all the reservations. 
     The page is divided into 6 different sections: arrivals today / departures today / inhouse guests / arrivals next 7 days / all upcoming reservations / all past reservations
-    With the help of the [Datatable CDN](https://cdn.datatables.net/), the reservations will be displayed in a nice table with the following functionailities:
+    With the help of the [Datatable CDN](https://cdn.datatables.net/), the reservations will be displayed in a nice table with the following functionalities:
     * Search functionality to search by name, date, room etc.
     * Pagination
     * Ability to show 10 / 25 / 50 / 100 reservations per page
@@ -361,10 +361,10 @@ I have highlighted the relationships between the various models.
 <a></a>
 
 ## Testing
-Testing of this site can be found [here](https://github.com/AnoukSmet/casa-pedra-nobre/blob/master/testing.md) in a seperate file
+Testing of this site can be found [here](https://github.com/AnoukSmet/casa-pedra-nobre/blob/master/testing.md) in a separate file
 
 ## Bugs
-Bugs of this site can be found [here](https://github.com/AnoukSmet/casa-pedra-nobre/blob/master/bugs.md) in a seperate file
+Bugs of this site can be found [here](https://github.com/AnoukSmet/casa-pedra-nobre/blob/master/bugs.md) in a separate file
 
 
 ## **Deployment**
@@ -490,8 +490,13 @@ To clone the project:
 1. Load the data into your newly created database by using the following command: 
 
     ```
-    python3 manage.py loaddata <name of file containing the data>
+    python3 manage.py loaddata <name of file containing the data *>
     ``` 
+
+    * tourist_info_datadump.json
+    * home_datadump.json
+    * rooms_datadump.json
+    * gallery_datadump.json
 
 1. After migrations are complete, change database configurations to:
 ```
@@ -594,9 +599,9 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
         overlap = False
         if new_start == fixed_end or new_end == fixed_start:    #edge case
             overlap = False
-        elif (new_start >= fixed_start and new_start <= fixed_end) or (new_end >= fixed_start and new_end <= fixed_end): #innner limits
+        elif (new_start >= fixed_start and new_start <= fixed_end) or (new_end >= fixed_start and new_end <= fixed_end): #inner limits
             overlap = True
-        elif new_start <= fixed_start and new_end >= fixed_end: #outter limits
+        elif new_start <= fixed_start and new_end >= fixed_end: #outer limits
             overlap = True
 
         return overlap
@@ -608,13 +613,13 @@ This set up will allow your site to use Postgres in deployment and sqlite3 in de
 
 * Thank you as well to the creator(s) of the [Datatables CDN](https://cdn.datatables.net/). This helped to provide a nice overview of all the reservations.
 
-* Big thanks to the Stackoverflow Community who has helped me through a lot of problems. It is incredible to see how everyone is to eager to help each other. 
+* Big thanks to the Stackoverflow Community who has helped me through a lot of problems. It is incredible to see how everyone is so eager to help each other. 
 
 * A special thanks to my mentor Simen Eventyret_mentor, who once again, supported me throughout this challenging project.
     He has believed in me and this project when I didn't and has guided me through it. Thanks for the amazing help over the last couple of months!
 
-This project was ofcourse very close to my heart, having run this bed & breakfast myself for more than 2 years. 
-It was an honor for me to work on this project and I would like to thank my parents for delivering a lot of the content and images.
+This project was of course very close to my heart, having run this bed & breakfast myself for more than 2 years. 
+It was an honour for me to work on this project and I would like to thank my parents for delivering a lot of the content and images.
 I also want to thank them and my husband-to-be Artur for the amazing (and critical, as it is also very close to their heart) testing they did. 
 This has been a great help in order to improve the user experience even more. 
 
