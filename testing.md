@@ -193,6 +193,7 @@ This to prevent that the booking can go through while it might be booked by some
 What would be convenient for the future as well, is that when the user fills in check-in and check-out date and selects a room, that this room would be reserved for about 10/15 minutes.
 This reduces the chance that the room wouldn't be available anymore upon checkout. 
 
+
 ### **Lighthouse report**
 
 #### Reservation step 1 Desktop
@@ -505,7 +506,6 @@ The tables make it easy for the admin to navigate through the reservations.
 #### Site owner goals: I want to have a seperate section for arriving and inhouse reservations
 #### Site owner goals: I want to have a seperate section as well for the reservations for the next 7 days so I can plan in advance
 In order to meet this goal of the site owner, I have created a seperate section on the page for arrivals today and arrivals for the next 7 days.
-
 
 
 ## GENERAL CONCLUSION

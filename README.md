@@ -404,10 +404,13 @@ To clone the project:
     os.environ["SECRET_KEY"] = "YOUR_SECRET_KEY"
     os.environ["DEVELOPMENT"] = "True"
 
+    os.environ["DEFAULT_FROM_EMAIL"] = 'DEFAULT_FROM_EMAIL'
+
     os.environ["STRIPE_PUBLIC_KEY"] = "STRIPE_PUBLIC_KEY"
     os.environ["STRIPE_SECRET_KEY"] = "STRIPE_SECRET_KEY"
     os.environ["STRIPE_WH_SECRET"] = "STRIPE_WH_SECRET"
-        
+    os.environ["STRIPE_CURRENCY"] = "EUR"
+
     ```
     
     If you're not sure how to get the above Stripe variables, please visit the [Stripe Documentation](https://stripe.com/docs)
@@ -444,12 +447,25 @@ To clone the project:
     ```
     AWS_ACCESS_KEY_ID = "AWS_ACCESS_KEY_ID"
     AWS_SECRET_ACCESS_KEY = "AWS_SECRET_ACCESS_KEY"
+    AWS_S3_REGION_NAME = "AWS_S3_REGION_NAME"
+    AWS_STORAGE_BUCKET_NAME = "AWS_STORAGE_BUCKET_NAME"
+    USE_AWS = True
+    
     DATABASE_URL = "This variable is automatically set when adding the Postgres Add on"
+
     SECRET_KEY = "SECRET_KEY"
+
     STRIPE_PUBLIC_KEY = "STRIPE_PUBLIC_KEY"
     STRIPE_SECRET_KEY = "STRIPE_SECRET_KEY"
     STRIPE_WH_SECRET = "STRIPE_WH_SECRET"
-    USE_AWS = True
+    STRIPE_CURRENCY = EUR
+
+    DEFAULT_FROM_EMAIL = "DEFAULT_FROM_EMAIL"
+    EMAIL_HOST = "smtp.gmail.com"
+    EMAIL_HOST_PASS = "EMAIL_HOST_PASS"
+    EMAIL_HOST_USER = "EMAIL_HOST_USER"
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
     ```
 1. From this screen, copy the value of DATABASE_URL
 1. After this go to your settings.py the casa_pedra_nobre directory and comment out the default database configuration and add:
