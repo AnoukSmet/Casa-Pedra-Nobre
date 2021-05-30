@@ -11,7 +11,6 @@
 * [Social Media](#social-media)
 * [Footer](#footer)
 * [Reservations overview for Admin ](#reservations-overview-for-admin)
-* [Add to favorites](#add-to-favorites)
 
 
 All the html files have been passed without any issue through the [HTML Validator](https://validator.w3.org/).
@@ -184,6 +183,14 @@ The whole reservation process is responsive across browsers and devices.
 
 #### Step 4: Show reservation overview to user after payment was successfull. 
 * Data is structured into different section which all get the correct data. 
+
+
+For the reservation procedure, they are still quite some points of improvement that I see for the future. 
+Currently this website is very weak for overbooking possibilities. Ideally right before the payment is taken, an additional check in database should be performed.
+This to prevent that the booking can go through while it might be booked by someone else 2 minutes before. 
+
+What would be convenient for the future as well, is that when the user fills in check-in and check-out date and selects a room, that this room would be reserved for about 10/15 minutes.
+This reduces the chance that the room wouldn't be available anymore upon checkout. 
 
 ### **Lighthouse report**
 
@@ -471,9 +478,20 @@ Here a flash message is displayed to remind the admin that this email was sent t
 In order to implement the tables, I have used the [DataTables jQuery plug-in](https://datatables.net/).
 By calling the datatables function, you right away get a nice interactive table with pagination, search functionality, ordering functionality and you can choose how many entries per page you want to see. 
 
+After carefull consideration I decided to include a modal asking the superuser to confirm if he/she wants to proceed with the deleting of the reservations. 
+This to avoid that reservations are removed by accident. The modal works as planned and mentions the reservation number and full name of the reservation to the admin.
+
+For this page I still see a lot of possible improvements in order to make this a good user experience for the superuser. 
+Examples of this are:
+* Possibility to edit reservations
+* When deleting reservations, confirmation email send to user including infomation about possible pay back of paid amount. 
+* Include a status of cancelled in case the admin doens't want to delete the reservation but mark them as cancelled instead. 
 
 ### Lighthouse report
 """ Include 2 images """
+
+
+Performance is lower than it should be, especially on mobile devices. This is mainly caused by the Datatables CDN.
 
 ### User Experience
 #### Site owner goals: I want to be able to see all the reservations
@@ -484,3 +502,12 @@ The tables make it easy for the admin to navigate through the reservations.
 #### Site owner goals: I want to have a seperate section as well for the reservations for the next 7 days so I can plan in advance
 In order to meet this goal of the site owner, I have created a seperate section on the page for arrivals today and arrivals for the next 7 days.
 
+
+
+## GENERAL CONCLUSION
+
+Webiste is respnsiveness across various devices and browers, creating a good user experience for the user. 
+On point of performance, I still see some oppportunities to have this improved:
+* Working with svg format for my images to make them more responsive
+* Minifying my files
+* Improving database queries (for example: only compare new reservation request to reservations that could interfere (+ / - 28 days ) instead of to all reservations
