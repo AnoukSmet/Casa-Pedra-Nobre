@@ -177,8 +177,16 @@ body {
     background-color: transparent;
     color: #aa4e26;
     margin-top: 2rem;
-    padding: 0.5rem;
     font-size: 3rem;
+}
+
+.scroll-down:hover {
+    color: #72351a;
+    background-color: transparent;
+}
+
+.scroll-down i {    
+    margin-bottom: 2rem;
 }
 
 /* Carousel Homepage */

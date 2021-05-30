@@ -183,3 +183,11 @@ I added the send mail function to the checkout views and on the checkout success
 
 Conclusion: email is always sent to the guest, even when admin makes the reservation for them.  
 The email itself also checks for the pid and if it is not there, guest is informed that the payment will be done at the property.
+
+### Accordion on tourist-info page
+
+When click the first button on the tourist info page, the recommendations nicely appear below. 
+When you then scroll down and click the second button, the first one collapses again and second one shows all the relevant recommendations. 
+The issue here is that the user has to scroll back up in order to start on top as currently the last recommendations of that specific topic are being displayed.
+
+Conclusion: currently I didn't manage to encounter a solution yet for this issue. This will be further researched and implemented at a later stage. 

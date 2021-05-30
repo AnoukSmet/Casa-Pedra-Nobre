@@ -81,12 +81,12 @@ select option[value=""] {
 }
 
 .reservation-table {
-    background-color: #FFFFEB;
+    background-color: #fff;
     color: #000;
 }
 
 .card-body {
-    background-color: #FFFFEB;
+    background-color: #fff;
     text-align: center;
 }
 

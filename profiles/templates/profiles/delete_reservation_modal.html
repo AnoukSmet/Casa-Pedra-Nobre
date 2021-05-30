@@ -1,0 +1,13 @@
+<div class="modal fade" id="a{{ reservation}}" tabindex="-1" aria-labelledby="{{reservation}}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body">
+            <p class="mb-4">Are you sure you want to delete reservation {{ reservation }} on the name of {{ reservation.full_name }}?</p>
+            <a class="button" href="{% url 'delete_reservation' reservation%}" aria-label="Delete">Yes, I'm sure</a>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="button" data-dismiss="modal">Cancel</button>
+        </div>
+        </div>
+    </div>
+</div>
